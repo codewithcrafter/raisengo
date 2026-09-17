@@ -6,28 +6,29 @@
 
 .hero {
   position: relative;
-  padding: 80px 0 60px;
+  padding: 55px 0 45px;
   background-color: #FAF6FB;
   border-bottom: 1px solid rgba(45, 17, 69, 0.06);
 }
 
 .eyebrow {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #E0679D;
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .title {
   font-family: var(--font-display, inherit);
-  font-size: clamp(32px, 3.5vw, 46px);
-  font-weight: 800;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
   color: #2D1145;
-  margin: 0 0 16px 0;
-  line-height: 1.2;
+  margin: 0 0 14px 0;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .highlightText {
@@ -37,42 +38,43 @@
 }
 
 .heroDesc {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
   color: #564861;
-  max-width: 720px;
+  max-width: 680px;
   margin: 0;
 }
 
 .section {
-  padding: 80px 0;
+  padding: 55px 0 65px;
   border-bottom: 1px solid rgba(45, 17, 69, 0.06);
 }
 
 .sectionHeader {
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .sectionEyebrow {
   font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #814CBA;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .sectionTitle {
   font-family: var(--font-display, inherit);
-  font-size: 28px;
-  font-weight: 800;
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 700;
   color: #2D1145;
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
 }
 
 .sectionSubtitle {
-  font-size: 16px;
+  font-size: 15px;
   color: #564861;
   margin: 0;
 }
@@ -81,14 +83,14 @@
 .videoGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 24px;
 }
 
 .videoCard {
   background: #FFFFFF;
-  border-radius: 20px;
+  border-radius: 12px;
   border: 1px solid rgba(45, 17, 69, 0.08);
-  box-shadow: 0 10px 30px rgba(45, 17, 69, 0.04);
+  box-shadow: 0 2px 12px rgba(45, 17, 69, 0.04);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -111,14 +113,14 @@
 }
 
 .videoBody {
-  padding: 20px;
+  padding: 16px 18px;
 }
 
 .videoTitle {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: #2D1145;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   line-height: 1.4;
 }
 
@@ -133,23 +135,23 @@
 .printGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .printCard {
   background: #FAF6FB;
-  border-radius: 16px;
+  border-radius: 12px;
   border: 1px solid rgba(45, 17, 69, 0.08);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 24px rgba(45, 17, 69, 0.04);
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 2px 10px rgba(45, 17, 69, 0.04);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .printCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(45, 17, 69, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(45, 17, 69, 0.08);
 }
 
 .printImageWrapper {

@@ -6,28 +6,29 @@
 
 .hero {
   position: relative;
-  padding: 80px 0 60px;
+  padding: 55px 0 45px;
   background-color: #FAF6FB;
   border-bottom: 1px solid rgba(45, 17, 69, 0.06);
 }
 
 .eyebrow {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #E0679D;
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .title {
   font-family: var(--font-display, inherit);
-  font-size: clamp(32px, 3.5vw, 46px);
-  font-weight: 800;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
   color: #2D1145;
-  margin: 0 0 16px 0;
-  line-height: 1.2;
+  margin: 0 0 14px 0;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .highlightText {
@@ -37,47 +38,48 @@
 }
 
 .heroDesc {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
   color: #564861;
-  max-width: 760px;
+  max-width: 720px;
   margin: 0;
 }
 
 .section {
-  padding: 80px 0;
+  padding: 55px 0 75px;
 }
 
 .overviewGrid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 48px;
+  gap: 36px;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 .overviewContent h2 {
   font-family: var(--font-display, inherit);
-  font-size: 28px;
-  font-weight: 800;
+  font-size: clamp(22px, 2.4vw, 26px);
+  font-weight: 700;
   color: #2D1145;
-  margin: 0 0 16px 0;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.01em;
 }
 
 .overviewContent p {
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 1.7;
   color: #4A3E54;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 380px;
-  border-radius: 20px;
+  height: 340px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(45, 17, 69, 0.1);
+  box-shadow: 0 6px 24px rgba(45, 17, 69, 0.08);
 }
 
 .partnerImage {
@@ -87,55 +89,56 @@
 .scheduleBox {
   background: #FAF6FB;
   border: 1px solid rgba(45, 17, 69, 0.08);
-  border-radius: 24px;
-  padding: 40px;
-  margin-bottom: 80px;
+  border-radius: 14px;
+  padding: 32px 24px;
+  margin-bottom: 60px;
 }
 
 .scheduleHeader {
   text-align: center;
-  max-width: 680px;
-  margin: 0 auto 36px;
+  max-width: 640px;
+  margin: 0 auto 28px;
 }
 
 .scheduleHeader h3 {
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 700;
   color: #2D1145;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
 }
 
 .scheduleGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .scheduleCard {
   background: #FFFFFF;
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 10px;
+  padding: 20px;
   border: 1px solid rgba(45, 17, 69, 0.06);
 }
 
 .scheduleNumber {
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
   color: #E0679D;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   display: block;
 }
 
 .scheduleTitle {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
   color: #2D1145;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
 }
 
 .scheduleDesc {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13.5px;
+  line-height: 1.55;
   color: #564861;
   margin: 0;
 }
@@ -144,54 +147,54 @@
 .partnersGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 60px;
+  gap: 24px;
+  margin-bottom: 50px;
 }
 
 .partnerCard {
   background: #FFFFFF;
-  border-radius: 20px;
+  border-radius: 12px;
   border: 1px solid rgba(45, 17, 69, 0.08);
-  box-shadow: 0 10px 30px rgba(45, 17, 69, 0.04);
-  padding: 32px;
+  box-shadow: 0 2px 12px rgba(45, 17, 69, 0.04);
+  padding: 24px;
   display: flex;
   flex-direction: column;
 }
 
 .partnerTag {
   font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #814CBA;
   background: rgba(129, 76, 186, 0.08);
   padding: 4px 10px;
-  border-radius: 999px;
+  border-radius: 6px;
   align-self: flex-start;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .partnerName {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 700;
   color: #2D1145;
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
 }
 
 .partnerDesc {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.6;
   color: #564861;
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
   flex: 1;
 }
 
 .partnerImpact {
   background: #FAF6FB;
-  border-radius: 12px;
-  padding: 12px 16px;
+  border-radius: 8px;
+  padding: 10px 14px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   color: #2D1145;
 }
 
@@ -203,24 +206,24 @@
 .contactStrip {
   background: linear-gradient(135deg, #2D1145 0%, #4A1B70 100%);
   color: #FFFFFF;
-  border-radius: 24px;
-  padding: clamp(32px, 5vw, 48px);
+  border-radius: 14px;
+  padding: clamp(28px, 4vw, 40px);
   text-align: center;
 }
 
 .contactStrip h3 {
   font-family: var(--font-display, inherit);
-  font-size: clamp(24px, 2.5vw, 32px);
-  font-weight: 800;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
   color: #FFFFFF;
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
 }
 
 .contactStrip p {
-  font-size: 16px;
+  font-size: 15px;
   color: #E3D3EE;
-  max-width: 600px;
-  margin: 0 auto 24px;
+  max-width: 560px;
+  margin: 0 auto 20px;
   line-height: 1.6;
 }
 
@@ -228,7 +231,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -238,11 +241,19 @@
   gap: 8px;
   background: linear-gradient(135deg, #E0679D 0%, #814CBA 100%);
   color: #FFFFFF;
-  padding: 14px 28px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 15px;
+  padding: 10px 22px;
+  min-height: 42px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
   text-decoration: none;
+  box-shadow: 0 2px 8px rgba(224, 103, 157, 0.25);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.emailBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(224, 103, 157, 0.35);
 }
 
 .phoneBtn {
@@ -252,11 +263,18 @@
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: #FFFFFF;
-  padding: 14px 28px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 15px;
+  padding: 10px 22px;
+  min-height: 42px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
   text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.phoneBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 960px) {

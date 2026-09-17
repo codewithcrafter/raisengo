@@ -5,20 +5,13 @@
 
 .hero {
   position: relative;
-  padding: var(--space-24) 0;
+  padding: clamp(48px, 5vw, 64px) 0;
   background-color: var(--background);
   overflow: hidden;
 }
 
 .heroBlob {
-  position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 400px;
-  height: 400px;
-  background-color: var(--surface-alt);
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  z-index: 0;
+  display: none !important;
 }
 
 .heroContent {
@@ -30,12 +23,12 @@
 }
 
 .eyebrowDecor {
-  font-size: var(--text-sm);
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--secondary);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   display: inline-block;
 }
 
@@ -52,29 +45,29 @@
 .highlightText::after {
   content: '';
   position: absolute;
-  bottom: 4px;
+  bottom: 2px;
   left: 0;
   width: 100%;
-  height: 30%;
+  height: 25%;
   background-color: var(--surface-pink);
   z-index: -1;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
 }
 
 .heroDescription {
-  font-size: var(--text-lg);
+  font-size: 16px;
   color: var(--foreground-muted);
   line-height: 1.6;
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
   max-width: 520px;
 }
 
 .heroImageWrapper {
   width: 100%;
-  height: 400px;
-  border-radius: var(--radius-2xl);
+  height: 340px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   position: relative;
   z-index: 1;
 }
@@ -86,50 +79,48 @@
 }
 
 .formSection {
-  padding: var(--space-24) 0;
+  padding: clamp(48px, 5vw, 64px) 0;
   background-color: var(--surface-alt); /* Light Lavender */
 }
 
 .formContainer {
-  max-width: 800px;
+  max-width: 680px;
   margin: 0 auto;
   background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-md);
-}
-
-@media (min-width: 768px) {
-  .formContainer { padding: var(--space-12); }
+  border-radius: 14px;
+  padding: clamp(24px, 4vw, 36px);
+  box-shadow: var(--shadow-sm);
 }
 
 .formHeader {
-  margin-bottom: var(--space-12);
+  margin-bottom: 28px;
   text-align: center;
 }
 
 .formHeader h2 {
-  font-size: var(--text-3xl);
+  font-size: clamp(22px, 2.5vw, 28px);
   color: var(--primary);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .formHeader p {
   color: var(--foreground-muted);
-  font-size: var(--text-lg);
+  font-size: 15px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-5);
 }
 
 .formRow {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
+  gap: var(--space-5);
 }
 
 @media (min-width: 640px) {
@@ -143,21 +134,21 @@
 }
 
 .formGroup label {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--foreground);
-  font-size: var(--text-sm);
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .input,
 .select,
 .textarea {
   width: 100%;
-  padding: var(--space-4);
-  border: 2px solid var(--border);
-  border-radius: var(--radius-lg);
-  font-size: var(--text-base);
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 14.5px;
   color: var(--foreground);
   background-color: var(--surface);
   transition: border-color var(--transition-fast);
@@ -171,22 +162,26 @@
   background-color: var(--surface);
 }
 
-.textarea { resize: vertical; }
+.textarea { resize: vertical; min-height: 100px; }
 
 .submitBtn {
   background-color: var(--primary);
   color: #ffffff;
-  padding: var(--space-4) var(--space-8);
-  font-size: var(--text-base);
-  font-weight: 700;
-  border-radius: var(--radius-xl);
-  margin-top: var(--space-6);
+  padding: 11px 24px;
+  min-height: 42px;
+  font-size: 14.5px;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: var(--space-4);
   transition: background-color var(--transition-fast), transform var(--transition-fast);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  text-transform: none;
+  letter-spacing: normal;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(45, 17, 69, 0.2);
 }
 
 .submitBtn:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }

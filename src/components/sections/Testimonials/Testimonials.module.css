@@ -1,49 +1,42 @@
 .section {
   position: relative;
-  padding: 6rem 0;
+  padding: clamp(55px, 5vw, 75px) 0;
   background: linear-gradient(180deg, #FAF6FB 0%, #FFFFFF 50%, #FAF6FB 100%);
   overflow: hidden;
 }
 
 .bgGlow {
-  position: absolute;
-  top: 15%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(224, 103, 157, 0.08) 0%, rgba(129, 76, 186, 0) 70%);
-  pointer-events: none;
+  display: none !important;
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(20px, 4vw, 32px);
 }
 
 .header {
   text-align: center;
-  max-width: 760px;
-  margin: 0 auto 3.5rem;
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
 }
 
 .eyebrow {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: #E0679D;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .title {
-  font-size: 2.25rem;
+  font-size: clamp(22px, 2.4vw, 30px);
   font-weight: 800;
   color: #2D1145;
-  line-height: 1.25;
-  margin-bottom: 1rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
 }
 
 .titleHighlight {
@@ -53,9 +46,9 @@
 }
 
 .subtitle {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: #555566;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 /* Dual Column Layout: Financial Details (Left) + Donor Testimonials (Right) */
@@ -75,9 +68,9 @@
 /* FINANCIAL DETAILS CARD */
 .financialCard {
   background: #FFFFFF;
-  border-radius: 1.25rem;
-  padding: 2.25rem;
-  box-shadow: 0 10px 30px rgba(45, 17, 69, 0.06);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(45, 17, 69, 0.05);
   border: 1px solid rgba(129, 76, 186, 0.12);
   display: flex;
   flex-direction: column;
@@ -206,9 +199,9 @@
 /* TESTIMONIALS SLIDER / CAROUSEL (RIGHT) */
 .testimonialsCard {
   background: #FFFFFF;
-  border-radius: 1.25rem;
-  padding: 2.25rem;
-  box-shadow: 0 10px 30px rgba(45, 17, 69, 0.06);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(45, 17, 69, 0.05);
   border: 1px solid rgba(129, 76, 186, 0.12);
   display: flex;
   flex-direction: column;

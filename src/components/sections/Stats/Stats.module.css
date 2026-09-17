@@ -1,5 +1,5 @@
 .stats {
-  padding: var(--space-24) 0;
+  padding: clamp(55px, 6vw, 75px) 0;
   background-color: var(--primary); /* Deep Purple */
   color: var(--surface);
 }
@@ -7,13 +7,14 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-12) var(--space-8);
+  gap: var(--space-8) var(--space-6);
   text-align: center;
 }
 
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
   }
 }
 
@@ -24,6 +25,7 @@
   gap: var(--space-2);
   transition: transform var(--transition-fast);
   position: relative;
+  padding: 0 12px;
 }
 
 .statItem:not(:last-child)::after {
@@ -33,7 +35,7 @@
   top: 20%;
   height: 60%;
   width: 1px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.12);
   display: none;
 }
 
@@ -44,27 +46,30 @@
 }
 
 .statItem:hover {
-  transform: scale(1.04);
+  transform: translateY(-2px);
 }
 
 .value {
-  font-size: var(--text-5xl);
+  font-family: var(--font-display, inherit);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 800;
   color: var(--surface);
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
 @media (min-width: 768px) {
   .value {
-    font-size: 5rem;
+    font-size: clamp(2.4rem, 3.8vw, 3.25rem);
   }
 }
 
 .label {
-  font-size: var(--text-sm);
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--secondary); /* Magenta labels */
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+  max-width: 200px;
 }

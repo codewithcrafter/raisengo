@@ -4,7 +4,7 @@
 ══════════════════════════════════════════════ */
 
 .campaign {
-  padding: clamp(90px, 8vw, 120px) 0;
+  padding: clamp(65px, 6vw, 85px) 0;
   background-color: #FFFCFE;
   position: relative;
   overflow: hidden;
@@ -13,65 +13,26 @@
 }
 
 .campaignContainer {
-  max-width: 1300px;
+  max-width: 1180px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
 /* ══════════════════════════════════════════════
-   BACKGROUND DECORATION & SLOW FLOATING MOTION
+   BACKGROUND DECORATION (MUTED)
 ══════════════════════════════════════════════ */
 
 .bgGlowCircle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 750px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(244, 238, 250, 0.8) 0%, rgba(253, 240, 246, 0.35) 60%, transparent 80%);
-  pointer-events: none;
-  filter: blur(60px);
-  z-index: 0;
+  display: none !important;
 }
 
 .floatingDotsContainer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+  display: none !important;
 }
 
 .dot {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.08;
-  pointer-events: none;
-}
-
-.dot1 {
-  top: 18%;
-  left: 6%;
-  width: 14px;
-  height: 14px;
-  background-color: #814CBA;
-  animation: slowFloat 16s ease-in-out infinite alternate;
-}
-
-.dot2 {
-  bottom: 14%;
-  right: 8%;
-  width: 10px;
-  height: 10px;
-  background-color: #E0679D;
-  animation: slowFloat 14s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes slowFloat {
-  0% { transform: translateY(0px) translateX(0px); }
-  50% { transform: translateY(-12px) translateX(8px); }
-  100% { transform: translateY(8px) translateX(-6px); }
+  display: none !important;
 }
 
 /* ══════════════════════════════════════════════
@@ -82,19 +43,18 @@
   display: grid;
   grid-template-columns: 1fr;
   background-color: #FFFFFF;
-  border-radius: 28px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(62, 29, 91, 0.06);
+  box-shadow: 0 4px 20px rgba(62, 29, 91, 0.06);
   border: 1px solid rgba(142, 122, 157, 0.18);
   position: relative;
-  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1), 
-              box-shadow 400ms ease, 
-              border-color 400ms ease;
+  transition: box-shadow 300ms ease, 
+              border-color 300ms ease;
 }
 
 @media (min-width: 768px) {
   .card {
-    border-radius: 36px;
+    border-radius: 14px;
   }
 }
 
@@ -105,28 +65,14 @@
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 60px rgba(45, 17, 69, 0.16);
-  border-color: rgba(224, 103, 157, 0.40);
+  transform: none;
+  box-shadow: 0 8px 30px rgba(45, 17, 69, 0.1);
+  border-color: rgba(224, 103, 157, 0.35);
 }
 
 /* Mouse Light Overlay (Desktop Only) */
 .mouseLight {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(224, 103, 157, 0.14),
-    transparent 40%
-  );
-  opacity: 0;
-  transition: opacity 300ms ease;
-  z-index: 5;
-}
-
-.card:hover .mouseLight {
-  opacity: 1;
+  display: none !important;
 }
 
 /* ══════════════════════════════════════════════
@@ -163,7 +109,7 @@
   position: relative;
   width: 100%;
   height: 320px;
-  border-radius: 24px;
+  border-radius: 12px;
   overflow: hidden;
   z-index: 1;
 }
@@ -171,14 +117,14 @@
 @media (min-width: 768px) {
   .imageWrapper {
     height: 400px;
-    border-radius: 28px;
+    border-radius: 12px;
   }
 }
 
 @media (min-width: 1024px) {
   .imageWrapper {
     height: 100%;
-    min-height: 560px;
+    min-height: 520px;
   }
 }
 
@@ -188,62 +134,31 @@
 }
 
 .card:hover .image {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
-/* Shimmer Light Sweep on Hover */
+/* Shimmer Light Sweep (Muted) */
 .shimmerSweep {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.16) 50%,
-    transparent 100%
-  );
-  transform: skewX(-20deg);
-  pointer-events: none;
-  opacity: 0;
-  z-index: 3;
-}
-
-.card:hover .shimmerSweep {
-  opacity: 1;
-  animation: shimmerMove 700ms ease-out 1 forwards;
-}
-
-@keyframes shimmerMove {
-  0% { left: -100%; }
-  100% { left: 200%; }
+  display: none !important;
 }
 
 /* Active Badge & Pulse Dot */
 .activeBadge {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.95);
   color: #2D1145;
   font-size: 11px;
   font-weight: 800;
-  padding: 6px 14px;
-  border-radius: 99px;
+  padding: 5px 12px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   gap: 8px;
   letter-spacing: 0.05em;
   z-index: 3;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: filter 300ms ease, background-color 300ms ease;
-}
-
-.card:hover .activeBadge {
-  filter: brightness(1.08);
-  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .pulseDot {
@@ -251,13 +166,6 @@
   height: 6px;
   background-color: #E0679D;
   border-radius: 50%;
-  animation: badgePulse 2.5s ease-in-out infinite;
-}
-
-@keyframes badgePulse {
-  0% { box-shadow: 0 0 0 0 rgba(224, 103, 157, 0.5); transform: scale(1); }
-  50% { box-shadow: 0 0 0 6px rgba(224, 103, 157, 0); transform: scale(1.15); }
-  100% { box-shadow: 0 0 0 0 rgba(224, 103, 157, 0); transform: scale(1); }
 }
 
 .imageOverlay {
@@ -269,7 +177,7 @@
   background: linear-gradient(to top, rgba(36, 27, 43, 0.82) 0%, transparent 100%);
   display: flex;
   align-items: flex-end;
-  padding: 24px;
+  padding: 20px;
   z-index: 2;
 }
 
@@ -281,28 +189,19 @@
 }
 
 .categoryName {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.1em;
 }
 
 .categoryNumber {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   opacity: 0.6;
 }
 
 .decorativeArc {
-  position: absolute;
-  bottom: 15%;
-  left: -20px;
-  width: 140px;
-  height: 140px;
-  border: 1px solid #E0679D;
-  border-radius: 50%;
-  opacity: 0.2;
-  z-index: 0;
-  pointer-events: none;
+  display: none !important;
 }
 
 /* ══════════════════════════════════════════════
@@ -310,7 +209,7 @@
 ══════════════════════════════════════════════ */
 
 .contentSection {
-  padding: 32px 24px;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -326,64 +225,51 @@
 
 @media (min-width: 768px) {
   .contentSection {
-    padding: 40px;
+    padding: 36px;
   }
 }
 
 @media (min-width: 1024px) {
   .contentSection {
-    padding: 60px 48px;
+    padding: 44px 40px;
   }
 }
 
 .contentHeader {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .eyebrow {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   color: #E0679D;
   letter-spacing: 0.10em;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .title {
   font-family: var(--font-display, inherit);
-  font-size: clamp(32px, 3.5vw, 52px);
+  font-size: clamp(24px, 2.6vw, 32px);
   color: #2D1145;
-  margin-bottom: 18px;
-  line-height: 1.1;
+  margin-bottom: 14px;
+  line-height: 1.15;
   font-weight: 700;
   letter-spacing: -0.02em;
-  transition: transform 300ms ease;
 }
 
 .card:hover .title {
-  transform: translateY(-3px);
+  transform: none;
 }
 
 .titleLine1 {
   display: inline-block;
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1) 150ms, transform 600ms cubic-bezier(0.22, 1, 0.36, 1) 150ms;
 }
 
 .titleLine2 {
   display: inline-block;
   position: relative;
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1) 250ms, transform 600ms cubic-bezier(0.22, 1, 0.36, 1) 250ms;
-}
-
-.revealed .titleLine1,
-.revealed .titleLine2 {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .highlightText {
@@ -394,36 +280,18 @@
   position: absolute;
   bottom: 2px;
   left: 0;
-  height: 3px;
-  width: 0%;
+  height: 2px;
+  width: 100%;
   background-color: #E0679D;
   border-radius: 999px;
-  transition: width 500ms cubic-bezier(0.22, 1, 0.36, 1) 300ms, filter 300ms ease;
-}
-
-.revealed .highlightUnderline {
-  width: 100%;
-}
-
-.card:hover .highlightUnderline {
-  filter: brightness(1.2);
-  box-shadow: 0 0 8px rgba(224, 103, 157, 0.5);
 }
 
 .description {
   color: #564861;
-  font-size: clamp(15px, 1.1vw, 17px);
+  font-size: clamp(14.5px, 1.05vw, 16px);
   line-height: 1.6;
-  max-width: 540px;
+  max-width: 520px;
   margin: 0;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 450ms cubic-bezier(0.22, 1, 0.36, 1) 400ms, transform 450ms cubic-bezier(0.22, 1, 0.36, 1) 400ms;
-}
-
-.revealed .description {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ══════════════════════════════════════════════
@@ -432,24 +300,20 @@
 
 .fundraisingModule {
   background-color: #F8F4FC;
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 32px;
-  opacity: 0;
-  transform: scale(0.97);
-  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1) 450ms, 
-              transform 600ms cubic-bezier(0.22, 1, 0.36, 1) 450ms,
-              box-shadow 300ms ease;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(45, 17, 69, 0.06);
 }
 
 .revealed .fundraisingModule {
   opacity: 1;
-  transform: scale(1);
+  transform: none;
 }
 
 .card:hover .fundraisingModule {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(45, 17, 69, 0.08);
+  transform: none;
+  box-shadow: none;
 }
 
 .progressLabels {
@@ -573,33 +437,33 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  height: 54px;
-  padding: 0 28px;
+  height: 42px;
+  padding: 0 20px;
   background: linear-gradient(135deg, #2D1145 0%, #E0679D 100%);
   color: #ffffff;
-  border-radius: 999px;
+  border-radius: 8px;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 300ms ease, background 300ms ease;
-  box-shadow: 0 6px 20px rgba(45, 17, 69, 0.2);
+  transition: opacity 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 2px 8px rgba(45, 17, 69, 0.15);
   white-space: nowrap;
 }
 
 .primaryBtn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 26px rgba(45, 17, 69, 0.32);
+  opacity: 0.95;
+  box-shadow: 0 4px 12px rgba(45, 17, 69, 0.22);
 }
 
 .primaryBtn:active {
-  transform: translateY(0) scale(0.98);
+  transform: scale(0.99);
 }
 
 .primaryBtn:focus-visible {
   outline: 2px solid #E0679D;
-  outline-offset: 4px;
+  outline-offset: 2px;
 }
 
 .secondaryLink {

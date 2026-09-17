@@ -5,7 +5,7 @@
 ══════════════════════════════════════════════ */
 
 .section {
-  padding: clamp(90px, 8vw, 130px) 0;
+  padding: clamp(65px, 6vw, 85px) 0;
   background-color: #FFFDFC;
   position: relative;
   overflow: hidden;
@@ -13,12 +13,12 @@
   width: 100%;
 }
 
-/* Custom 1380px max-width container */
+/* Constrained 1180px max-width container */
 .container {
-  max-width: 1380px !important;
+  max-width: 1180px !important;
   margin: 0 auto;
-  padding-left: clamp(24px, 5vw, 64px) !important;
-  padding-right: clamp(24px, 5vw, 64px) !important;
+  padding-left: clamp(20px, 4vw, 32px) !important;
+  padding-right: clamp(20px, 4vw, 32px) !important;
   box-sizing: border-box;
   width: 100%;
   position: relative;
@@ -26,27 +26,15 @@
 }
 
 /* ══════════════════════════════════════════════
-   FLOATING BACKGROUND DECORATIONS
+   BACKGROUND RESTORATION (CLEAN & MINIMAL)
 ══════════════════════════════════════════════ */
 
 .bgGlowCircle {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  height: 520px;
-  background: radial-gradient(circle, rgba(244, 238, 250, 0.8) 0%, rgba(253, 240, 246, 0.4) 60%, transparent 80%);
-  pointer-events: none;
-  filter: blur(70px);
-  z-index: 0;
+  display: none !important;
 }
 
 .floatingDotsContainer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+  display: none !important;
 }
 
 .dot {
@@ -131,12 +119,12 @@
 
 .title {
   font-family: var(--font-display, inherit);
-  font-size: clamp(38px, 4.2vw, 54px);
+  font-size: clamp(26px, 3vw, 36px);
   font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: #2D1145;
-  margin: 0 0 16px 0;
+  margin: 0 0 14px 0;
   opacity: 0;
   transform: translateY(15px);
   transition: opacity 600ms ease 150ms, transform 600ms ease 150ms;
@@ -263,25 +251,24 @@
 
 .programItem {
   position: relative;
-  padding: clamp(20px, 2vw, 28px);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.7);
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(45, 17, 69, 0.08);
   cursor: pointer;
-  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
-              background 350ms ease,
-              border-color 350ms ease,
-              box-shadow 350ms ease;
+  transition: transform 250ms ease,
+              background 250ms ease,
+              border-color 250ms ease,
+              box-shadow 250ms ease;
   overflow: hidden;
-  backdrop-filter: blur(8px);
   outline: none;
 }
 
 .programItem:hover {
-  transform: translateX(8px);
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(224, 103, 157, 0.3);
-  box-shadow: 0 10px 30px rgba(45, 17, 69, 0.06);
+  transform: translateX(4px);
+  background: #FFFFFF;
+  border-color: rgba(224, 103, 157, 0.25);
+  box-shadow: 0 4px 16px rgba(45, 17, 69, 0.05);
 }
 
 .programItem:focus-visible {
@@ -291,28 +278,27 @@
 
 .programItemActive {
   background: #FFFFFF !important;
-  border-color: rgba(224, 103, 157, 0.45) !important;
-  box-shadow: 0 14px 40px rgba(45, 17, 69, 0.1) !important;
-  transform: translateX(12px) !important;
+  border-color: rgba(224, 103, 157, 0.4) !important;
+  box-shadow: 0 6px 20px rgba(45, 17, 69, 0.07) !important;
+  transform: translateX(6px) !important;
 }
 
 .programItemHeader {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
+  gap: 10px;
+  margin-bottom: 6px;
 }
 
 .programNum {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.1em;
   color: #E0679D;
-  transition: transform 300ms ease;
 }
 
 .programItem:hover .programNum {
-  transform: translateX(2px);
+  transform: none;
 }
 
 .programCategory {
@@ -325,10 +311,10 @@
 
 .programTitle {
   font-family: var(--font-display, inherit);
-  font-size: clamp(20px, 1.8vw, 24px);
+  font-size: clamp(18px, 1.4vw, 21px);
   font-weight: 700;
   color: #2D1145;
-  margin: 0 0 6px 0;
+  margin: 0 0 4px 0;
   transition: color 300ms ease;
 }
 
@@ -338,7 +324,7 @@
 }
 
 .programBrief {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.5;
   color: #564861;
   margin: 0;
@@ -352,11 +338,11 @@
 /* Active Indicator Line Fill (0 -> 100%) */
 .activeIndicatorTrack {
   width: 100%;
-  height: 3px;
+  height: 2px;
   background: rgba(45, 17, 69, 0.06);
   border-radius: 999px;
   overflow: hidden;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
 .activeIndicatorFill {
@@ -377,83 +363,33 @@
 
 .visualPanel {
   position: relative;
-  border-radius: 28px;
+  border-radius: 14px;
   overflow: hidden;
-  min-height: clamp(500px, 48vw, 600px);
+  min-height: clamp(440px, 38vw, 500px);
   background-color: #2D1145;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 20px 60px rgba(30, 10, 48, 0.2);
-  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 600ms ease;
+  border: 1px solid rgba(45, 17, 69, 0.12);
+  box-shadow: 0 10px 30px rgba(30, 10, 48, 0.12);
+  transition: box-shadow 300ms ease;
 }
 
 .visualPanel:hover {
-  transform: scale(1.008);
-  box-shadow: 0 28px 70px rgba(35, 10, 55, 0.28);
+  transform: none;
+  box-shadow: 0 14px 36px rgba(35, 10, 55, 0.16);
 }
 
 /* Mouse Light Tracking Effect */
 .mouseLight {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(224, 103, 157, 0.18),
-    transparent 45%
-  );
-  opacity: 0;
-  transition: opacity 300ms ease;
-  z-index: 5;
-}
-
-.visualPanel:hover .mouseLight {
-  opacity: 1;
+  display: none !important;
 }
 
 /* Shimmer Sweep Animation */
 .shimmerSweep {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.12) 50%,
-    transparent 100%
-  );
-  transform: skewX(-20deg);
-  pointer-events: none;
-  opacity: 0;
-  z-index: 5;
-}
-
-.visualPanel:hover .shimmerSweep {
-  opacity: 1;
-  animation: shimmerMove 700ms ease-out 1 forwards;
-}
-
-@keyframes shimmerMove {
-  0% { left: -100%; }
-  100% { left: 200%; }
+  display: none !important;
 }
 
 /* Large Decorative Watermark Number */
 .watermarkNumber {
-  font-size: clamp(140px, 16vw, 220px);
-  font-weight: 900;
-  font-family: var(--font-display, inherit);
-  color: #FFFFFF;
-  opacity: 0.06;
-  position: absolute;
-  top: -10px;
-  right: 20px;
-  pointer-events: none;
-  z-index: 2;
-  user-select: none;
-  line-height: 1;
-  transition: opacity 500ms ease, transform 500ms ease;
+  display: none !important;
 }
 
 /* Full Bleed Image Container & Cross-Fade Transition */
@@ -554,12 +490,12 @@
 
 .showcaseTitle {
   font-family: var(--font-display, inherit);
-  font-size: clamp(28px, 3.2vw, 44px);
+  font-size: clamp(20px, 2.2vw, 26px);
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.2;
   color: #FFFFFF;
-  margin: 0 0 14px 0;
-  letter-spacing: -0.02em;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.015em;
   opacity: 0;
   transform: translateY(15px);
   transition: opacity 500ms ease 100ms, transform 500ms ease 100ms;

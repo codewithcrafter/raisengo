@@ -5,22 +5,14 @@
 
 .hero {
   position: relative;
-  padding: var(--space-24) 0;
+  padding: clamp(50px, 5vw, 65px) 0;
   background-color: var(--primary-dark); /* Deep Purple hero */
   color: var(--surface);
   overflow: hidden;
 }
 
 .heroBlob {
-  position: absolute;
-  top: -20%;
-  right: -8%;
-  width: 400px;
-  height: 400px;
-  background-color: var(--secondary);
-  border-radius: 50%;
-  opacity: 0.07;
-  pointer-events: none;
+  display: none !important;
 }
 
 .heroContent {
@@ -31,12 +23,12 @@
 
 .eyebrowDecor {
   display: inline-block;
-  font-size: var(--text-sm);
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--secondary);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .hero h1 {
@@ -48,22 +40,22 @@
 }
 
 .heroDescription {
-  font-size: var(--text-lg);
-  color: rgba(244, 238, 250, 0.8);
+  font-size: 16px;
+  color: rgba(244, 238, 250, 0.85);
   max-width: 600px;
   line-height: 1.6;
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
 }
 
 .eventsSection {
-  padding: var(--space-24) 0;
+  padding: clamp(48px, 5vw, 64px) 0;
   background-color: var(--surface);
 }
 
 .eventList {
   display: flex;
   flex-direction: column;
-  gap: var(--space-10);
+  gap: 24px;
 }
 
 .eventCard {
@@ -71,7 +63,7 @@
   grid-template-columns: 1fr;
   background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-2xl);
+  border-radius: 12px;
   overflow: hidden;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   box-shadow: var(--shadow-sm);
@@ -79,14 +71,14 @@
 }
 
 .eventCard:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
   border-color: var(--primary);
 }
 
 @media (min-width: 768px) {
   .eventCard {
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 300px 1fr;
   }
 }
 
@@ -100,23 +92,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-lg);
+  padding: 8px 12px;
+  border-radius: 8px;
   box-shadow: var(--shadow-md);
   z-index: 10;
-  min-width: 60px;
+  min-width: 54px;
 }
 
 .dateMonth {
-  font-size: var(--text-xs);
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--secondary);
 }
 
 .dateDay {
-  font-size: var(--text-3xl);
+  font-size: 22px;
   font-weight: 800;
   color: var(--primary);
   line-height: 1;
@@ -124,7 +116,7 @@
 
 .eventImage {
   width: 100%;
-  height: 250px;
+  height: 220px;
   position: relative;
 }
 
@@ -139,32 +131,33 @@
 }
 
 .eventContent {
-  padding: var(--space-6);
+  padding: clamp(20px, 3vw, 28px);
   display: flex;
   flex-direction: column;
 }
 
 @media (min-width: 768px) {
   .eventContent {
-    padding: var(--space-8) var(--space-10);
+    padding: clamp(24px, 3vw, 32px);
     justify-content: center;
   }
 }
 
 .eventTitle {
-  font-size: var(--text-2xl);
+  font-size: clamp(18px, 2.2vw, 22px);
   color: var(--foreground);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .eventMeta {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   color: var(--foreground-light);
-  font-size: var(--text-sm);
+  font-size: 13.5px;
   font-weight: 600;
 }
 
@@ -176,29 +169,31 @@
 }
 
 .eventDesc {
-  font-size: var(--text-base);
+  font-size: 14.5px;
   color: var(--foreground-muted);
   line-height: 1.6;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
 }
 
 .registerBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-3) var(--space-6);
+  padding: 10px 20px;
+  min-height: 40px;
   background-color: var(--primary);
   color: #ffffff;
-  font-weight: 700;
-  border-radius: var(--radius-xl);
+  font-weight: 600;
+  border-radius: 8px;
   align-self: flex-start;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: var(--text-sm);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(45, 17, 69, 0.2);
 }
 
 .registerBtn:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }

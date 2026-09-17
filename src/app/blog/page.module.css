@@ -4,20 +4,13 @@
 }
 
 .hero {
-  padding: var(--space-24) 0;
+  padding: clamp(48px, 5vw, 64px) 0;
   background-color: var(--surface-pink); /* Soft Pink for Blog hero */
   position: relative;
 }
 
 .heroBlob {
-  position: absolute;
-  bottom: -20%;
-  right: -5%;
-  width: 350px;
-  height: 350px;
-  background-color: var(--surface-alt);
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  z-index: 0;
+  display: none !important;
 }
 
 .heroContent {
@@ -27,12 +20,12 @@
 
 .eyebrowDecor {
   display: inline-block;
-  font-size: var(--text-sm);
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--secondary);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .hero h1 {
@@ -44,22 +37,22 @@
 }
 
 .heroDescription {
-  font-size: var(--text-lg);
+  font-size: 16px;
   color: var(--foreground-muted);
   max-width: 600px;
   line-height: 1.6;
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
 }
 
 .blogSection {
-  padding: var(--space-24) 0;
+  padding: clamp(48px, 5vw, 64px) 0;
   background-color: var(--surface);
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-10);
+  gap: 24px;
 }
 
 @media (min-width: 768px) {
@@ -74,7 +67,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--surface);
-  border-radius: var(--radius-2xl);
+  border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
@@ -82,8 +75,8 @@
 }
 
 .postCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
   border-color: var(--primary);
 }
 
