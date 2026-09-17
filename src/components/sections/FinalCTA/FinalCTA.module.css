@@ -1,0 +1,108 @@
+.cta {
+  position: relative;
+  padding: var(--space-32) 0;
+  background-color: var(--surface-alt); /* Light Lavender */
+  text-align: center;
+  overflow: hidden;
+}
+
+.blobDecor1 {
+  position: absolute;
+  top: -20%;
+  left: -5%;
+  width: 350px;
+  height: 350px;
+  background-color: var(--surface-pink);
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  z-index: 0;
+}
+
+.blobDecor2 {
+  position: absolute;
+  bottom: -20%;
+  right: -5%;
+  width: 280px;
+  height: 280px;
+  background-color: var(--secondary);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  max-width: 760px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--secondary);
+  margin-bottom: var(--space-4);
+}
+
+.title {
+  color: var(--foreground);
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-6);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--text-5xl);
+  }
+}
+
+.highlight {
+  color: var(--primary);
+}
+
+.description {
+  color: var(--foreground-muted);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-10);
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.volunteerLink {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: var(--space-1);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.volunteerLink:hover {
+  color: var(--secondary);
+  border-color: var(--secondary);
+}

@@ -1,0 +1,23 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  padding: var(--space-4) 0;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.main {
+  flex: 1;
+  padding: var(--space-8) 0;
+}
+
+.footer {
+  padding: var(--space-8) 0;
+  background-color: var(--surface-alt);
+  text-align: center;
+  border-top: 1px solid var(--border);
+}

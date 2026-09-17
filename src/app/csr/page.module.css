@@ -1,0 +1,272 @@
+.main {
+  padding-top: var(--space-24, 96px);
+  background-color: var(--background, #FFFFFF);
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  padding: 80px 0 60px;
+  background-color: #FAF6FB;
+  border-bottom: 1px solid rgba(45, 17, 69, 0.06);
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #E0679D;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(32px, 3.5vw, 46px);
+  font-weight: 800;
+  color: #2D1145;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.highlightText {
+  background: linear-gradient(135deg, #E0679D 0%, #814CBA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroDesc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #564861;
+  max-width: 760px;
+  margin: 0;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.overviewContent h2 {
+  font-family: var(--font-display, inherit);
+  font-size: 28px;
+  font-weight: 800;
+  color: #2D1145;
+  margin: 0 0 16px 0;
+}
+
+.overviewContent p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #4A3E54;
+  margin-bottom: 16px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(45, 17, 69, 0.1);
+}
+
+.partnerImage {
+  object-fit: cover;
+}
+
+.scheduleBox {
+  background: #FAF6FB;
+  border: 1px solid rgba(45, 17, 69, 0.08);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 80px;
+}
+
+.scheduleHeader {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.scheduleHeader h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #2D1145;
+  margin: 0 0 8px 0;
+}
+
+.scheduleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.scheduleCard {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(45, 17, 69, 0.06);
+}
+
+.scheduleNumber {
+  font-size: 13px;
+  font-weight: 800;
+  color: #E0679D;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.scheduleTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2D1145;
+  margin: 0 0 8px 0;
+}
+
+.scheduleDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #564861;
+  margin: 0;
+}
+
+/* Corporate Spotlights */
+.partnersGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.partnerCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid rgba(45, 17, 69, 0.08);
+  box-shadow: 0 10px 30px rgba(45, 17, 69, 0.04);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.partnerTag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #814CBA;
+  background: rgba(129, 76, 186, 0.08);
+  padding: 4px 10px;
+  border-radius: 999px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+
+.partnerName {
+  font-size: 20px;
+  font-weight: 800;
+  color: #2D1145;
+  margin: 0 0 12px 0;
+}
+
+.partnerDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #564861;
+  margin: 0 0 20px 0;
+  flex: 1;
+}
+
+.partnerImpact {
+  background: #FAF6FB;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2D1145;
+}
+
+.partnerImpact strong {
+  color: #E0679D;
+}
+
+/* Contact Strip */
+.contactStrip {
+  background: linear-gradient(135deg, #2D1145 0%, #4A1B70 100%);
+  color: #FFFFFF;
+  border-radius: 24px;
+  padding: clamp(32px, 5vw, 48px);
+  text-align: center;
+}
+
+.contactStrip h3 {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
+}
+
+.contactStrip p {
+  font-size: 16px;
+  color: #E3D3EE;
+  max-width: 600px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+.contactButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.emailBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #E0679D 0%, #814CBA 100%);
+  color: #FFFFFF;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.phoneBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+@media (max-width: 960px) {
+  .overviewGrid {
+    grid-template-columns: 1fr;
+  }
+  .scheduleGrid {
+    grid-template-columns: 1fr;
+  }
+  .partnersGrid {
+    grid-template-columns: 1fr;
+  }
+}

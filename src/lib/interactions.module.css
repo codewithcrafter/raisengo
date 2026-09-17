@@ -1,0 +1,111 @@
+/* ══════════════════════════════════════════════
+   GLOBAL INTERACTION SYSTEM
+   Purposeful, premium micro-interactions
+══════════════════════════════════════════════ */
+
+/* ── Section Scroll Reveals ────────────────── */
+.revealUp {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 550ms cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Global Card Interactions ──────────────── */
+.cardHover {
+  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1), 
+              box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.cardHover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.08), 
+              0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+.cardHover:active {
+  transform: translateY(-2px) scale(0.985);
+  transition: transform 150ms ease;
+}
+
+/* ── Image within Cards ────────────────────── */
+.cardImageContainer {
+  overflow: hidden;
+}
+
+.cardImage {
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.cardHover:hover .cardImage {
+  transform: scale(1.03);
+}
+
+/* ── Card Arrow Movement ───────────────────── */
+.cardArrow {
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-block;
+}
+
+.cardHover:hover .cardArrow {
+  transform: translateX(4px);
+}
+
+/* ── Staggered Children ────────────────────── */
+.staggerContainer > *:nth-child(1) { transition-delay: 0ms; }
+.staggerContainer > *:nth-child(2) { transition-delay: 80ms; }
+.staggerContainer > *:nth-child(3) { transition-delay: 160ms; }
+.staggerContainer > *:nth-child(4) { transition-delay: 240ms; }
+.staggerContainer > *:nth-child(5) { transition-delay: 320ms; }
+.staggerContainer > *:nth-child(n+6) { transition-delay: 400ms; }
+
+/* ── Reduced Motion Respect ────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .revealUp {
+    opacity: 1;
+    transform: none;
+    transition: none !important;
+  }
+  
+  .revealed {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .cardHover {
+    transition: box-shadow 350ms ease !important;
+  }
+  
+  .cardHover:hover,
+  .cardHover:active {
+    transform: none !important;
+  }
+  
+  .cardImage {
+    transition: none !important;
+  }
+  
+  .cardHover:hover .cardImage {
+    transform: none !important;
+  }
+  
+  .cardArrow {
+    transition: none !important;
+  }
+  
+  .cardHover:hover .cardArrow {
+    transform: none !important;
+  }
+  
+  .staggerContainer > * {
+    transition-delay: 0ms !important;
+  }
+}

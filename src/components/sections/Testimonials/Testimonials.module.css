@@ -1,0 +1,362 @@
+.section {
+  position: relative;
+  padding: 6rem 0;
+  background: linear-gradient(180deg, #FAF6FB 0%, #FFFFFF 50%, #FAF6FB 100%);
+  overflow: hidden;
+}
+
+.bgGlow {
+  position: absolute;
+  top: 15%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 103, 157, 0.08) 0%, rgba(129, 76, 186, 0) 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.5rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #E0679D;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #2D1145;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #E0679D 0%, #814CBA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: #555566;
+  line-height: 1.6;
+}
+
+/* Dual Column Layout: Financial Details (Left) + Donor Testimonials (Right) */
+.dualGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .dualGrid {
+    grid-template-columns: 4.5fr 7.5fr;
+    align-items: stretch;
+  }
+}
+
+/* FINANCIAL DETAILS CARD */
+.financialCard {
+  background: #FFFFFF;
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  box-shadow: 0 10px 30px rgba(45, 17, 69, 0.06);
+  border: 1px solid rgba(129, 76, 186, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.financialCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #E0679D, #814CBA);
+}
+
+.cardHeader {
+  margin-bottom: 1.75rem;
+}
+
+.cardBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(45, 17, 69, 0.06);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #2D1145;
+  margin-bottom: 0.75rem;
+}
+
+.cardBadgeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #2D1145;
+  margin-bottom: 0.4rem;
+}
+
+.cardSubtitle {
+  font-size: 0.85rem;
+  color: #666677;
+  line-height: 1.5;
+}
+
+.tableWrapper {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #ECE7F0;
+  margin-bottom: 1.5rem;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #ECE7F0;
+  align-items: center;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:nth-child(even) {
+  background: #FAF7FB;
+}
+
+.tableLabel {
+  font-weight: 600;
+  color: #444455;
+}
+
+.tableValue {
+  font-family: monospace;
+  font-weight: 700;
+  color: #2D1145;
+  background: rgba(129, 76, 186, 0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+  font-size: 0.8rem;
+  text-align: right;
+  word-break: break-all;
+}
+
+.financialTrustNote {
+  background: linear-gradient(135deg, rgba(224, 103, 157, 0.08) 0%, rgba(129, 76, 186, 0.08) 100%);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.trustIcon {
+  color: #814CBA;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.trustText {
+  font-size: 0.8rem;
+  color: #444455;
+  line-height: 1.5;
+}
+
+.trustLink {
+  color: #814CBA;
+  font-weight: 700;
+  text-decoration: underline;
+  margin-top: 0.25rem;
+  display: inline-block;
+}
+
+/* TESTIMONIALS SLIDER / CAROUSEL (RIGHT) */
+.testimonialsCard {
+  background: #FFFFFF;
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  box-shadow: 0 10px 30px rgba(45, 17, 69, 0.06);
+  border: 1px solid rgba(129, 76, 186, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.quoteIconBg {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: rgba(224, 103, 157, 0.12);
+  font-size: 4.5rem;
+  line-height: 1;
+  font-family: Georgia, serif;
+  user-select: none;
+  pointer-events: none;
+}
+
+.testimonialHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.testimonialBadge {
+  background: rgba(224, 103, 157, 0.12);
+  color: #E0679D;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+}
+
+.carouselNav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #ECE7F0;
+  background: #FFFFFF;
+  color: #2D1145;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navBtn:hover {
+  background: #2D1145;
+  color: #FFFFFF;
+  border-color: #2D1145;
+}
+
+.quoteBlock {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1.25rem 0 2rem;
+}
+
+.quoteText {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333344;
+  font-style: italic;
+  position: relative;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.authorFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ECE7F0;
+  padding-top: 1.25rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.authorMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatarCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2D1145, #814CBA);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(45, 17, 69, 0.15);
+}
+
+.authorName {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #2D1145;
+  margin-bottom: 0.15rem;
+}
+
+.authorRole {
+  font-size: 0.85rem;
+  color: #666677;
+}
+
+.authorLocation {
+  font-size: 0.8rem;
+  color: #E0679D;
+  font-weight: 600;
+}
+
+.indicators {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.dotIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D9D2E0;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.dotActive {
+  width: 24px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #E0679D, #814CBA);
+}

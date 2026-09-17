@@ -1,0 +1,271 @@
+.main {
+  padding-top: var(--space-24, 96px);
+  background-color: var(--background, #FFFFFF);
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  padding: 80px 0 60px;
+  background-color: #FAF6FB;
+  border-bottom: 1px solid rgba(45, 17, 69, 0.06);
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #814CBA;
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  color: #564861;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.breadcrumb a:hover {
+  color: #E0679D;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.categoryBadge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #E0679D;
+  background: rgba(224, 103, 157, 0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(224, 103, 157, 0.25);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 800;
+  color: #2D1145;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+}
+
+.shortDesc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #564861;
+  margin-bottom: 28px;
+}
+
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(45, 17, 69, 0.12);
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.contentSection {
+  padding: 80px 0 100px;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+}
+
+.storyContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sectionHeading {
+  font-family: var(--font-display, inherit);
+  font-size: 26px;
+  font-weight: 800;
+  color: #2D1145;
+  margin: 0 0 12px 0;
+}
+
+.paragraph {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #4A3E54;
+  margin: 0;
+}
+
+.highlightsBox {
+  margin: 24px 0;
+  background: #FAF6FB;
+  border-radius: 20px;
+  border: 1px solid rgba(45, 17, 69, 0.08);
+  padding: 32px;
+}
+
+.highlightsTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #2D1145;
+  margin: 0 0 16px 0;
+}
+
+.highlightsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #2D1145;
+}
+
+.highlightIcon {
+  color: #E0679D;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.impactCard {
+  background: linear-gradient(135deg, #2D1145 0%, #4A1B70 100%);
+  color: #FFFFFF;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 16px 40px rgba(45, 17, 69, 0.18);
+}
+
+.impactLabel {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFB3D9;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.impactMetric {
+  font-family: var(--font-display, inherit);
+  font-size: 28px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.partnerBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #EDE6F2;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.donateBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #E0679D 0%, #814CBA 100%);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(224, 103, 157, 0.4);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.donateBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(224, 103, 157, 0.5);
+}
+
+.otherInitiativesCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid rgba(45, 17, 69, 0.08);
+  padding: 28px;
+}
+
+.otherTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #2D1145;
+  margin: 0 0 16px 0;
+}
+
+.otherList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.otherLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  color: #564861;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.otherLink:hover {
+  background: #FAF6FB;
+  color: #E0679D;
+}
+
+@media (max-width: 960px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}
