@@ -11,12 +11,12 @@ import styles from './HeroSlider.module.css';
 export const slides = [
   {
     id: 1,
-    category: 'RAISE INDIA FOUNDATION',
+    category: 'CHILDREN & EMPOWERMENT',
     headline: ['A New Way of', 'Giving ', 'Life', '.'],
     highlightWord: 'Life',
     description: 'Dedicated to the holistic development of underprivileged communities across India through education, healthcare, and empowerment since 2014.',
-    primaryCta: { label: 'DONATE NOW', href: '/donate' },
-    secondaryCta: { label: 'EXPLORE OUR WORK', href: '/our-work' },
+    primaryCta: { label: 'Donate Now', href: '/donate' },
+    secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-1.jpg',
     placeholderBg: 'linear-gradient(135deg, #2D1145 0%, #5A2D7E 50%, #E0679D 100%)',
     objectPosition: 'center 30%',
@@ -28,8 +28,8 @@ export const slides = [
     headline: ['Healing Children Born with', 'Congenital ', 'Heart Defects', '.'],
     highlightWord: 'Heart Defects',
     description: 'In partnership with Fortis Escorts Heart Institute, sponsoring critical open-heart surgeries for children from impoverished families.',
-    primaryCta: { label: 'SAVE A LITTLE HEART', href: '/donate' },
-    secondaryCta: { label: 'READ RECOVERY STORIES', href: '/stories' },
+    primaryCta: { label: 'Donate Now', href: '/donate' },
+    secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-2.jpg',
     placeholderBg: 'linear-gradient(135deg, #1C0A2E 0%, #2D1145 50%, #814CBA 100%)',
     objectPosition: 'center center',
@@ -41,8 +41,8 @@ export const slides = [
     headline: ['Empowering 18,050+ Children with', 'Quality ', 'Education', '.'],
     highlightWord: 'Education',
     description: 'Free learning centers and modern digital labs supported by Konverge Technologies, equipping marginalized youth for the digital era.',
-    primaryCta: { label: 'SUPPORT EDUCATION', href: '/donate' },
-    secondaryCta: { label: 'ONGOING PROJECTS', href: '/our-work/ongoing-projects' },
+    primaryCta: { label: 'Donate Now', href: '/donate' },
+    secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-3.jpg',
     placeholderBg: 'linear-gradient(135deg, #3E1D5B 0%, #814CBA 70%, #E0679D 100%)',
     objectPosition: 'center 40%',
@@ -54,8 +54,8 @@ export const slides = [
     headline: ['Dignity and Hygiene for', 'Every ', 'Woman', '.'],
     highlightWord: 'Woman',
     description: 'Breaking taboos with menstrual awareness camps and distributing 12,000+ hygiene dignity kits to female construction workers across NCR.',
-    primaryCta: { label: 'SUPPORT THE CAUSE', href: '/donate' },
-    secondaryCta: { label: 'GET INVOLVED', href: '/get-involved' },
+    primaryCta: { label: 'Donate Now', href: '/donate' },
+    secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-4.png',
     placeholderBg: 'linear-gradient(160deg, #E0679D 0%, #814CBA 60%, #2D1145 100%)',
     objectPosition: 'center 20%',
@@ -84,7 +84,7 @@ function renderHeadline(parts: string[], highlightWord: string): React.ReactNode
   });
 }
 
-const SLIDE_DURATION = 3000; // 3 seconds display duration per slide
+const SLIDE_DURATION = 3200; // 3.2 seconds display duration per slide
 
 export const HeroSlider: React.FC = () => {
   const [current, setCurrent] = useState<number>(0);
@@ -161,7 +161,7 @@ export const HeroSlider: React.FC = () => {
       setTimeout(() => {
         setPrev(null);
         setAnimating(false);
-      }, 650); // 650ms transition duration
+      }, 750); // 750ms smooth transition duration
     },
     [animating, current]
   );
@@ -322,37 +322,45 @@ export const HeroSlider: React.FC = () => {
       {/* Modern Multi-Track Progress Indicator & Circular Controls */}
       <div className={styles.controlsBar}>
         {/* Editorial Progress Indicator Tracks (01 ━━━━━  02 ━━━━━  03 ━━━━━  04 ━━━━━) */}
-        <div className={styles.progressTracksGroup} role="tablist" aria-label="Hero Slide Progress">
-          {slides.map((s, idx) => {
-            const isActive = idx === current;
-            const isCompleted = idx < current;
-            return (
-              <button
-                key={s.id}
-                role="tab"
-                aria-selected={isActive}
-                aria-label={`Go to slide ${idx + 1}: ${s.category}`}
-                className={`${styles.progressTrackBtn} ${isActive ? styles.trackActive : ''}`}
-                onClick={() => goTo(idx)}
-              >
-                <span className={styles.trackNumber}>0{s.id}</span>
-                <div className={styles.trackLineBg}>
-                  <div
-                    className={styles.trackLineFill}
-                    style={{
-                      width: isActive
-                        ? prefersReducedMotion
+        <div className={styles.progressContainer}>
+          <div className={styles.slideCounterBadge} aria-label={`Current slide ${current + 1} of ${total}`}>
+            <span className={styles.counterCurrent}>0{current + 1}</span>
+            <span className={styles.counterDivider}>/</span>
+            <span className={styles.counterTotal}>0{total}</span>
+          </div>
+
+          <div className={styles.progressTracksGroup} role="tablist" aria-label="Hero Slide Progress">
+            {slides.map((s, idx) => {
+              const isActive = idx === current;
+              const isCompleted = idx < current;
+              return (
+                <button
+                  key={s.id}
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-label={`Go to slide ${idx + 1}: ${s.category}`}
+                  className={`${styles.progressTrackBtn} ${isActive ? styles.trackActive : ''}`}
+                  onClick={() => goTo(idx)}
+                >
+                  <span className={styles.trackNumber}>0{s.id}</span>
+                  <div className={styles.trackLineBg}>
+                    <div
+                      className={styles.trackLineFill}
+                      style={{
+                        width: isActive
+                          ? prefersReducedMotion
+                            ? '100%'
+                            : `${progress}%`
+                          : isCompleted
                           ? '100%'
-                          : `${progress}%`
-                        : isCompleted
-                        ? '100%'
-                        : '0%',
-                    }}
-                  />
-                </div>
-              </button>
-            );
-          })}
+                          : '0%',
+                      }}
+                    />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Circular Arrow Navigation Controls */}
@@ -429,6 +437,8 @@ function SlideContent({ slide, isActive, isFirstSlide }: { slide: typeof slides[
         <div className={`${styles.textContent} ${isActive ? styles.contentActive : ''}`}>
           
           <div className={styles.eyebrowWrapper}>
+            <span className={styles.eyebrowBrand}>RAISE INDIA FOUNDATION</span>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
             <span className={styles.categoryBadge}>{slide.category}</span>
           </div>
 

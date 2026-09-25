@@ -1,43 +1,133 @@
-.strip {
-  background-color: var(--primary);
-  padding: var(--space-8) 0;
-  border-top: 4px solid var(--secondary);
+/* ══════════════════════════════════════════════
+   QUICK IMPACT STRIP — EDITORIAL HORIZONTAL BAR
+   Compact height, authentic numbers, thin dividers
+   ══════════════════════════════════════════════ */
+
+.impactStrip {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #ECE6F0;
+  padding: clamp(24px, 3.5vw, 36px) 0;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
 }
 
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 36px);
+  box-sizing: border-box;
+}
+
+.stripGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2.5vw, 32px);
   align-items: center;
-  gap: var(--space-8);
+  width: 100%;
 }
 
-@media (min-width: 768px) {
-  .grid {
-    justify-content: space-between;
+.metricBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  min-width: 0;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.indicatorDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #E0679D;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(224, 103, 157, 0.2);
+}
+
+.metricNumber {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #2D1145;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metricLabel {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1A0D26;
+  margin: 0;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.metricDetail {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6E6678;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.divider {
+  position: absolute;
+  right: calc(-1 * clamp(8px, 1.25vw, 16px));
+  top: 15%;
+  bottom: 15%;
+  width: 1px;
+  background-color: #E8E2EC;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════ */
+
+@media (max-width: 960px) {
+  .stripGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 24px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .metricBlock {
+    padding: 8px 12px;
+    background: #FAF7FB;
+    border-radius: 10px;
+    border: 1px solid #EFEAF2;
   }
 }
 
-.item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2);
-  color: var(--surface);
-  transition: transform var(--transition-fast);
-}
+@media (max-width: 520px) {
+  .impactStrip {
+    padding: 20px 0;
+  }
 
-.item:hover {
-  transform: translateY(-4px);
-}
+  .stripGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
 
-.icon {
-  font-size: var(--text-2xl);
-}
-
-.label {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  .metricBlock {
+    padding: 12px 14px;
+  }
 }

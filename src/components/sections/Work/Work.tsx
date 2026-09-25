@@ -112,8 +112,8 @@ export const Work: React.FC = () => {
         {/* Header Area */}
         <div className={styles.headerArea}>
           <div className={styles.headerContent}>
-            <span className={styles.eyebrow}>OUR INITIATIVES</span>
-            <h2 className={styles.title}>Where We're Making<br />a Difference</h2>
+            <span className={styles.eyebrow}>OUR WORK</span>
+            <h2 className={styles.title}>Creating Opportunities That<br />Move Communities Forward</h2>
             <p className={styles.description}>
               Explore the core programs through which we empower children, support families, and build resilient communities across India.
             </p>

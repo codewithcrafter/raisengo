@@ -1,331 +1,629 @@
-/* ══════════════════════════════════════════════
-   RAISE INDIA FOUNDATION — FULL-WIDTH FOOTER REDESIGN
-   Full-Width Premium NGO Footer Design System
-══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════════════════════
+   RAISE INDIA FOUNDATION — REFINED BRAND-ALIGNED PURPLE & PINK FOOTER
+   Solid deep muted purple tone with violet gradient depth, clean 3-part contact strip,
+   4 structured columns, natural logo, organic edge, and compact bottom bar
+   ══════════════════════════════════════════════════════════════════════════ */
 
 .footer {
-  background: linear-gradient(180deg, #3D1C57 0%, #301347 100%);
+  /* 70% Deep Muted Purple (#32144D -> #452060 -> #381654) */
+  background-color: #381654;
+  background-image:
+    /* Subtle soft pink glow near upper-right */
+    radial-gradient(circle 520px at 85% 15%, rgba(224, 103, 157, 0.08), transparent 60%),
+    /* Subtle soft violet glow near lower-left */
+    radial-gradient(circle 500px at 15% 85%, rgba(129, 76, 186, 0.08), transparent 60%),
+    /* Base layered gradient */
+    linear-gradient(135deg, #32144D 0%, #452060 50%, #381654 100%);
   color: #FFFFFF;
-  padding: clamp(55px, 5vw, 75px) 0 clamp(20px, 2.5vw, 28px);
   position: relative;
-  overflow: hidden;
   width: 100%;
-}
-
-/* Disciplined 1180px max-width container */
-.footerContainer {
-  max-width: 1180px !important;
-  margin: 0 auto;
-  padding-left: clamp(20px, 3vw, 32px) !important;
-  padding-right: clamp(20px, 3vw, 32px) !important;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-y: visible;
   box-sizing: border-box;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SUBTLE AMBIENT LIGHT (ONE Tasteful Visual Effect)
+   Slow, gentle shifting of diffuse ambient light over 12 seconds
+   ───────────────────────────────────────────────────────────── */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 25%;
+  width: 650px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(224, 103, 157, 0.07) 0%,
+    rgba(129, 76, 186, 0.05) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: subtleAmbientLight 12s ease-in-out infinite alternate;
+}
+
+@keyframes subtleAmbientLight {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(25px, 15px); }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TOP 2PX ACCENT LINE (Pink → Violet → Pink)
+   ───────────────────────────────────────────────────────────── */
+.topAccentBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    #E0679D 0%,
+    #814CBA 50%,
+    #E0679D 100%
+  );
+  z-index: 3;
+}
+
+/* Disciplined Centered Container */
+.footerContainer {
+  width: 100%;
+  max-width: 1240px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: clamp(20px, 3.5vw, 40px) !important;
+  padding-right: clamp(20px, 3.5vw, 40px) !important;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   1. TOP QUICK CONTACT STRIP (~75–85px height)
+   ───────────────────────────────────────────────────────────── */
+.contactStripSection {
+  background-color: #2C1242;
+  border-bottom: 1px solid rgba(224, 103, 157, 0.14);
+  padding: 18px 0;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.contactStripGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contactStripItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 4px 24px 4px 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.contactStripItem:not(:last-child) {
+  border-right: 1px solid rgba(224, 103, 157, 0.14);
+  margin-right: 24px;
+}
+
+.stripIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 180ms ease;
+}
+
+.contactStripItem:hover .stripIconWrap {
+  transform: translateY(-1px);
+}
+
+/* 3 Brand Palette Accent Variations (Purple, Pink, Violet) */
+.iconPurple {
+  background: rgba(129, 76, 186, 0.22);
+  border: 1px solid rgba(129, 76, 186, 0.4);
+  color: #C084FC;
+}
+
+.iconPink {
+  background: rgba(224, 103, 157, 0.22);
+  border: 1px solid rgba(224, 103, 157, 0.4);
+  color: #F472B6;
+}
+
+.iconViolet {
+  background: rgba(160, 108, 213, 0.22);
+  border: 1px solid rgba(160, 108, 213, 0.4);
+  color: #DDD6FE;
+}
+
+.stripTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
   width: 100%;
 }
 
-/* Mute background arc decorations */
-.bgArcDecorationTop {
-  display: none !important;
+.stripLabel {
+  font-family: var(--font-display, inherit);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  text-transform: uppercase;
 }
 
-.bgArcDecorationBottom {
-  display: none !important;
+.stripValueAddress {
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.88);
+  overflow-wrap: break-word;
 }
 
-/* Entrance Scroll Reveal Animations */
-.revealHidden {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 400ms cubic-bezier(0.22, 1, 0.36, 1), 
-              transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+.stripInteractiveLink {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  transition: color 180ms ease;
 }
 
-.revealActive {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 400ms cubic-bezier(0.22, 1, 0.36, 1), 
-              transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+.stripInteractiveLink:hover {
+  color: #F472B6;
 }
 
-/* ══════════════════════════════════════════════
-   MAIN FOOTER NAVIGATION & CONTACT (4-COLUMN GRID)
-══════════════════════════════════════════════ */
+.stripLinkAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #F472B6;
+  text-decoration: none;
+  margin-top: 2px;
+  transition: color 180ms ease;
+  width: fit-content;
+}
+
+.stripLinkAction:hover {
+  color: #FFFFFF;
+}
+
+.stripSubtext {
+  font-size: 12px;
+  color: rgba(235, 222, 248, 0.75);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2. MAIN FOOTER CONTENT (~300–340px height)
+   4 Structured Columns: Brand | About Us | What We Do | Past Events
+   ───────────────────────────────────────────────────────────── */
+.mainContentSection {
+  padding: clamp(42px, 4vw, 52px) 0 clamp(32px, 3.5vw, 42px);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
 
 .mainGrid {
   display: grid;
-  grid-template-columns: 32% 20% 20% 28%;
-  gap: clamp(28px, 3.5vw, 48px);
-  margin-bottom: clamp(40px, 4vw, 52px);
-  position: relative;
-  z-index: 1;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1.15fr);
+  gap: clamp(24px, 3vw, 42px);
   width: 100%;
+  box-sizing: border-box;
 }
 
-/* Column 1: Brand Column */
+/* Column 1: Brand */
 .brandColumn {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 360px;
+  min-width: 0;
+  max-width: 100%;
 }
 
-.logoBadge {
+.logoLink {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px 16px;
-  background-color: #FFFDFC;
-  border-radius: 10px;
-  max-width: 170px;
-  width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-  margin-bottom: 18px;
-  text-decoration: none;
   position: relative;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  text-decoration: none;
+  width: fit-content;
+  margin-bottom: 14px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  transition: opacity 180ms ease;
 }
 
-.logoBadge:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+.logoLink:hover {
+  opacity: 0.92;
 }
 
-.logoBadge:active {
-  transform: scale(0.98);
-}
-
-.logoBadge::after {
-  display: none !important;
+/* Very subtle soft lavender/pink halo behind the logo (opacity 0.08–0.12, large blur) */
+.logoGlowHalo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(242, 147, 190, 0.11) 0%,
+    rgba(129, 76, 186, 0.06) 50%,
+    transparent 70%
+  );
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .logoImage {
-  object-fit: contain;
-  width: 100%;
+  width: 128px;
   height: auto;
-  max-height: 42px;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 1;
 }
 
-.missionText {
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 15px;
+.brandTitle {
+  font-family: var(--font-display, inherit);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+}
+
+.brandDescription {
+  font-size: 13.5px;
   line-height: 1.6;
-  margin-bottom: 20px;
-  max-width: 360px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 16px 0;
+  max-width: 320px;
 }
 
-.brandMotif {
-  display: flex;
+.trustBadgeTag {
+  display: inline-flex;
   align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  background: rgba(129, 76, 186, 0.18);
+  border: 1px solid rgba(216, 180, 254, 0.28);
+  border-radius: 20px;
+  font-size: 12px;
+  color: rgba(245, 235, 255, 0.92);
+  letter-spacing: 0.01em;
 }
 
-.motifLine {
-  width: 48px;
-  height: 3px;
-  border-radius: 999px;
-  background: #E0679D; /* Brand Magenta */
+.trustDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #E0679D;
+  flex-shrink: 0;
 }
 
-/* Column Navigation Styling */
+/* Columns 2, 3, 4: Navigation Columns */
 .navColumn {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
 }
 
-.columnTitle {
-  color: #FFFFFF;
-  font-size: 14px;
+.columnHeading {
+  font-family: var(--font-display, inherit);
+  font-size: 13.5px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
   text-transform: uppercase;
-  margin-bottom: 22px;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Bright pink accent line next to heading */
+.columnHeading::after {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 2px;
+  background-color: #E0679D;
+  border-radius: 2px;
 }
 
 .linkList {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.navLink {
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 15px;
+.footerLink {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
   font-weight: 400;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   transition: color 200ms ease, transform 200ms ease;
-  text-decoration: none;
+  padding: 2px 0;
+  width: fit-content;
 }
 
-.linkArrow {
-  opacity: 0;
-  transform: translateX(-4px);
-  transition: opacity 200ms ease, transform 200ms ease;
+.chevron {
+  font-size: 14px;
+  line-height: 1;
   color: #E0679D;
-  font-weight: 600;
+  transition: transform 200ms ease;
 }
 
-.navLink:hover {
-  color: #E0679D;
+.footerLink:hover {
+  color: #F472B6;
   transform: translateX(3px);
 }
 
-.navLink:hover .linkArrow {
-  opacity: 1;
-  transform: translateX(4px);
+.footerLink:hover .chevron {
+  transform: translateX(2px);
 }
 
-/* Contact List Styling */
-.contactList {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.contactLink {
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 15px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  transition: color 200ms ease, transform 200ms ease;
-  text-decoration: none;
-}
-
-.contactLink svg {
-  color: #E0679D;
-  flex-shrink: 0;
-}
-
-.contactLink:hover {
-  color: #E0679D;
-  transform: translateX(3px);
-}
-
-.contactItem {
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 15px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.contactItem svg {
-  color: #E0679D;
-  flex-shrink: 0;
-}
-
-/* Horizontal Divider */
-.divider {
+/* ─────────────────────────────────────────────────────────────
+   3. ORGANIC FOOTER EDGE (Subtle transition to bottom bar)
+   ───────────────────────────────────────────────────────────── */
+.organicWaveWrap {
   width: 100%;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.12);
-  margin-bottom: clamp(24px, 3vw, 30px);
+  overflow: hidden;
+  line-height: 0;
+  height: 18px;
+  background-color: #381654;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-/* ══════════════════════════════════════════════
-   BOTTOM BAR (LEGAL & COPYRIGHT)
-══════════════════════════════════════════════ */
+.organicWaveSvg {
+  display: block;
+  width: 100%;
+  height: 18px;
+}
 
-.bottomBar {
+/* ─────────────────────────────────────────────────────────────
+   4. BOTTOM BAR (~55–65px height, #32144D)
+   ───────────────────────────────────────────────────────────── */
+.bottomBarSection {
+  background-color: #32144D;
+  padding: 16px 0 18px;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.bottomBarInner {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 16px;
-  color: rgba(255, 255, 255, 0.70);
-  font-size: 13.5px;
-  position: relative;
-  z-index: 1;
-  padding-bottom: clamp(16px, 2vw, 24px);
+  width: 100%;
 }
 
-@media (min-width: 768px) {
-  .bottomBar {
-    flex-direction: row;
-  }
-}
-
-.copyright {
+.copyrightText {
   margin: 0;
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.70);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
 }
 
-.legalLinks {
+.legalNavGroup {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 12px;
 }
 
 .legalLink {
-  color: rgba(255, 255, 255, 0.70);
-  font-size: 13.5px;
-  transition: color 200ms ease;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
   text-decoration: none;
+  transition: color 180ms ease;
 }
 
 .legalLink:hover {
-  color: #E0679D;
+  color: #F472B6;
 }
 
-/* ══════════════════════════════════════════════
-   RESPONSIVE BREAKPOINTS
-══════════════════════════════════════════════ */
+.legalDivider {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 10px;
+}
 
+.socialFollowGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.followUsLabel {
+  font-family: var(--font-display, inherit);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.socialBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(129, 76, 186, 0.16);
+  border: 1px solid rgba(216, 180, 254, 0.22);
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.socialBtn:hover {
+  background: rgba(224, 103, 157, 0.32);
+  border-color: #E0679D;
+  transform: scale(1.05);
+}
+
+/* Compact Back to Top Button in Bottom Bar */
+.backToTopBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #5A2D7E;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 0;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+.backToTopBtn:hover {
+  background: #6E3498;
+  border-color: #E0679D;
+  transform: scale(1.04);
+}
+
+.backToTopArrow {
+  font-size: 15px;
+  line-height: 1;
+  color: #FFFFFF;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS (Zero horizontal overflow)
+   ───────────────────────────────────────────────────────────── */
+
+/* Tablet (769px - 1024px) */
 @media (max-width: 1024px) {
-  .mainGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+  .contactStripGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  
+
+  .mainGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 30px;
+  }
+
   .brandColumn {
     grid-column: span 2;
-    max-width: 100%;
-  }
-
-  .missionText {
-    max-width: 540px;
+    max-width: 520px;
   }
 }
 
-@media (max-width: 640px) {
+/* Narrow Tablet & Mobile (< 768px) */
+@media (max-width: 768px) {
+  .contactStripGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .contactStripItem {
+    padding: 0;
+    margin-right: 0;
+    border-right: none !important;
+  }
+
+  .contactStripItem:not(:last-child) {
+    border-bottom: 1px solid rgba(224, 103, 157, 0.14);
+    padding-bottom: 14px;
+  }
+
   .mainGrid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    margin-bottom: 40px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
   }
 
   .brandColumn {
     grid-column: span 1;
+    max-width: 100%;
   }
 
-  .bottomBar {
-    text-align: center;
-    gap: 12px;
+  .bottomBarInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .socialFollowGroup {
+    width: 100%;
+    justify-content: space-between;
   }
 }
 
-/* Reduced Motion Override */
-@media (prefers-reduced-motion: reduce) {
-  .revealHidden {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
+/* Small Mobile (< 480px) */
+@media (max-width: 480px) {
+  .legalNavGroup {
+    flex-wrap: wrap;
+    gap: 8px 12px;
   }
-  .logoBadge, .navLink, .contactLink {
-    transition: none !important;
-    transform: none !important;
+
+  .stripInteractiveLink {
+    font-size: 13px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   ───────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .footer::before {
     animation: none !important;
   }
+
+  .logoLink,
+  .stripIconWrap,
+  .footerLink,
+  .chevron,
+  .socialBtn,
+  .backToTopBtn {
+    transition: none !important;
+    transform: none !important;
+  }
 }
-
-
-
-

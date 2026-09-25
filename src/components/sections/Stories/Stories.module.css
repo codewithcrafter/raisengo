@@ -1,8 +1,7 @@
 .stories {
   padding: clamp(65px, 6vw, 85px) 0;
-  background-color: #1a0f2e; /* Deep Plum */
-  background-image: linear-gradient(180deg, #1f113a 0%, #150a21 100%);
-  color: var(--surface);
+  background-color: #FAF7FB;
+  color: #1A0D28;
   position: relative;
   overflow: hidden;
 }
@@ -37,13 +36,13 @@
 }
 
 .heading h2 {
-  color: #ffffff !important;
+  color: #2D1145 !important;
   font-size: clamp(24px, 2.8vw, 34px) !important;
   line-height: 1.15;
 }
 
 .heading p {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: #5A5064 !important;
 }
 
 .grid {
@@ -60,19 +59,20 @@
 }
 
 .card {
-  background-color: #faf9f7; /* warm white */
+  background-color: #FFFFFF;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(142, 122, 157, 0.16);
+  box-shadow: 0 4px 18px rgba(45, 17, 69, 0.05);
   transition: transform 300ms ease, box-shadow 300ms ease;
   display: flex;
   flex-direction: column;
-  color: var(--foreground);
+  color: #1A0D28;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(45, 17, 69, 0.1);
 }
 
 .featured {
@@ -159,7 +159,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: #faf9f7;
+  background-color: #FFFFFF;
 }
 
 .categoryWrapper {
@@ -172,40 +172,40 @@
 .category {
   font-size: 11px;
   font-weight: 700;
-  color: #c91c7a; /* Brand magenta */
+  color: #E0679D; /* Brand magenta/pink */
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
 .storyNumber {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display, inherit);
   font-size: 12px;
   font-weight: 700;
-  color: rgba(74, 21, 75, 0.4);
+  color: rgba(45, 17, 69, 0.4);
 }
 
 .cardTitle {
-  font-family: var(--font-display);
+  font-family: var(--font-display, inherit);
   font-size: clamp(19px, 1.6vw, 23px);
-  color: #111;
+  color: #2D1145;
   margin-bottom: 12px;
-  line-height: 1.2;
+  line-height: 1.25;
   font-weight: 700;
 }
 
 .cardExcerpt {
-  color: #444;
-  font-size: 15px;
+  color: #564861;
+  font-size: 14.5px;
   margin-bottom: 20px;
   flex: 1;
   line-height: 1.6;
 }
 
 .readMore {
-  font-weight: 600;
-  color: #111;
+  font-weight: 700;
+  color: #2D1145;
   font-size: 13px;
-  transition: color 300ms ease;
+  transition: color 200ms ease, transform 200ms ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -213,6 +213,11 @@
   letter-spacing: 0.05em;
   position: relative;
   width: max-content;
+  text-decoration: none;
+}
+
+.readMore:hover {
+  color: #E0679D;
 }
 
 .readMore::after {
@@ -252,14 +257,15 @@
 }
 
 .smallCard {
-  background-color: #faf9f7;
+  background-color: #FFFFFF;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(142, 122, 157, 0.16);
+  box-shadow: 0 2px 10px rgba(45, 17, 69, 0.03);
   display: flex;
   flex-direction: column;
   transition: transform 300ms ease, box-shadow 300ms ease;
-  color: #111;
+  color: #1A0D28;
 }
 
 @media (min-width: 768px) {
@@ -272,7 +278,7 @@
 
 .smallCard:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 6px 18px rgba(45, 17, 69, 0.08);
 }
 
 .smallImageWrapper {
@@ -306,19 +312,19 @@
 }
 
 .smallCardTitle {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  color: #111;
-  margin-bottom: 10px;
-  line-height: 1.15;
+  font-family: var(--font-display, inherit);
+  font-size: clamp(17px, 1.3vw, 19px);
+  color: #2D1145;
+  margin-bottom: 8px;
+  line-height: 1.25;
   font-weight: 700;
 }
 
 .smallCardExcerpt {
-  color: #444;
-  font-size: var(--text-sm);
-  margin-bottom: 16px;
-  line-height: 1.6;
+  color: #564861;
+  font-size: 13.5px;
+  margin-bottom: 14px;
+  line-height: 1.55;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

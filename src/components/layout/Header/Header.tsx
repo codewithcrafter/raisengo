@@ -35,7 +35,7 @@ const rightNavLinks: NavItem[] = [
   { label: 'Media', href: '/media' },
   { label: 'Blog', href: '/blog' },
   { label: 'CSR', href: '/csr' },
-  { label: 'Context', href: '/context' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const mobileNavLinks: NavItem[] = [...leftNavLinks, ...rightNavLinks];
