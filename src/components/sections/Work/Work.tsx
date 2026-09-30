@@ -14,7 +14,7 @@ const initiatives = [
     category: 'FLAGSHIP EDUCATION',
     description: 'Operating free learning centers in Delhi and Agra educating 18,050+ children, and advancing digital literacy through Techshaala supported by Konverge Technologies.',
     image: '/images/migrated/events/agra-shikshalaya.webp',
-    link: '/our-work/education',
+    link: '/our-work/ongoing-projects/shikshalaya-free-learning-centers',
   },
   {
     id: '02',
@@ -22,7 +22,7 @@ const initiatives = [
     category: 'PEDIATRIC HEALTHCARE',
     description: 'Partnering with Fortis Hospital to fund life-saving open-heart surgeries for underprivileged children suffering from critical Congenital Heart Defects.',
     image: '/images/migrated/events/world-heart-day.webp',
-    link: '/our-work/healthcare',
+    link: '/our-work/ongoing-projects/mission-little-heartbeats',
   },
   {
     id: '03',
@@ -30,7 +30,7 @@ const initiatives = [
     category: 'WOMEN’S HEALTH',
     description: 'Ending menstrual stigma and distributing Dignity Kits to thousands of female construction laborers and marginalized women across Delhi-NCR.',
     image: '/images/migrated/partners/csr-partnership-1.webp',
-    link: '/our-work/menstrual-hygiene',
+    link: '/our-work/ongoing-projects/chuppi-todo-sharam-nahi-samman',
   },
   {
     id: '04',
@@ -38,7 +38,7 @@ const initiatives = [
     category: 'LIVELIHOOD & CRAFT',
     description: 'Vocational tailoring training and eco-friendly cloth/paper bag production, connecting women artisans directly to commercial retail markets.',
     image: '/images/migrated/events/womens-day.webp',
-    link: '/our-work/womens-empowerment',
+    link: '/our-work/past-events/international-womens-day-celebration-and-health-camp',
   },
   {
     id: '05',
@@ -46,7 +46,7 @@ const initiatives = [
     category: 'COMMUNITY RELIEF',
     description: 'Running annual nighttime winter blanket distribution on northern streets since 2014, and providing emergency nutritional food security.',
     image: '/images/migrated/events/kambal-udhao.webp',
-    link: '/our-work/livelihood',
+    link: '/our-work/seasonal-projects/kambal-udhao-zindagi-bachao',
   },
 ];
 

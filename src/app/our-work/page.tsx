@@ -83,9 +83,6 @@ export default function OurWorkPage() {
                   <Link href="/donate" className={styles.btnPrimary}>
                     Donate to Medical Fund →
                   </Link>
-                  <Link href={`/our-work/${featured.slug}`} className={styles.linkSecondary}>
-                    Explore Full Story →
-                  </Link>
                 </div>
               </div>
             </div>
@@ -125,9 +122,6 @@ export default function OurWorkPage() {
                     <strong>Impact:</strong> {program.impact}
                   </div>
 
-                  <Link href={`/our-work/${program.slug}`} className={styles.exploreLink}>
-                    View Program Details →
-                  </Link>
                 </div>
               </div>
             ))}
@@ -163,11 +157,6 @@ export default function OurWorkPage() {
                   <span>{item.impact}</span>
                 </div>
 
-                <div className={styles.rowAction}>
-                  <Link href={`/our-work/${item.slug}`} className={styles.rowLink}>
-                    Explore →
-                  </Link>
-                </div>
               </div>
             ))}
           </div>

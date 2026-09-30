@@ -205,37 +205,37 @@ export const Footer: React.FC = () => {
               <h3 className={styles.columnHeading}>WHAT WE DO</h3>
               <ul className={styles.linkList}>
                 <li>
-                  <Link href="/our-work/education" className={styles.footerLink}>
+                  <Link href="/our-work/ongoing-projects/shikshalaya-free-learning-centers" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>Education (Shikshalaya)</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/our-work/healthcare" className={styles.footerLink}>
+                  <Link href="/our-work/ongoing-projects/mission-little-heartbeats" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>Mission Little Heartbeats</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/our-work/womens-empowerment" className={styles.footerLink}>
+                  <Link href="/our-work/past-events/international-womens-day-celebration-and-health-camp" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
-                    <span>Women&apos;s Empowerment</span>
+                    <span>Women's Empowerment</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/our-work/menstrual-hygiene" className={styles.footerLink}>
+                  <Link href="/our-work/ongoing-projects/chuppi-todo-sharam-nahi-samman" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>Menstrual Hygiene (Chuppi Todo)</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/our-work/disaster-relief" className={styles.footerLink}>
+                  <Link href="/our-work/seasonal-projects/yamuna-monsoon-flood-relief" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>Disaster &amp; Flood Relief</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/our-work/seasonal-projects" className={styles.footerLink}>
+                  <Link href="/our-work/seasonal-projects/kambal-udhao-zindagi-bachao" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>Seasonal &amp; Blanket Drives</span>
                   </Link>
@@ -248,37 +248,37 @@ export const Footer: React.FC = () => {
               <h3 className={styles.columnHeading}>PAST EVENTS</h3>
               <ul className={styles.linkList}>
                 <li>
-                  <Link href="/our-work/past-events" className={styles.footerLink}>
+                  <Link href="/our-work/past-events/education-kit-distribution-drive" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>Education Kit Distribution</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/our-work/past-events" className={styles.footerLink}>
+                  <Link href="/our-work/past-events/agra-shikshalaya-learning-center-inauguration" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>Agra Shikshalaya Inaugural</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/our-work/past-events" className={styles.footerLink}>
+                  <Link href="/our-work/past-events/delhi-monsoon-flood-relief-operations" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>Delhi Flood Relief Operations</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/our-work/past-events" className={styles.footerLink}>
+                  <Link href="/our-work/past-events/sweet-home-orphanage-outreach" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>Sweet Home Orphanage Visit</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/our-work/past-events" className={styles.footerLink}>
+                  <Link href="/our-work/past-events/comprehensive-dental-and-eye-check-up-camp" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>Dental &amp; Eye Checkup Camp</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/our-work/past-events" className={styles.footerLink}>
+                  <Link href="/our-work/past-events/world-heart-day-awareness-pediatric-screening" className={styles.footerLink}>
                     <span className={styles.chevron} aria-hidden="true">»</span>
                     <span>World Heart Day Celebration</span>
                   </Link>

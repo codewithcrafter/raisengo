@@ -3,13 +3,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container/Container';
 import { FinalCTA } from '@/components/sections/FinalCTA/FinalCTA';
-import { seasonalProjects } from '@/lib/content-data';
+import { seasonalProjects } from '@/data/our-work-seasonal';
 import styles from './page.module.css';
 
-export const metadata = {
-  title: 'Seasonal Projects & Drives | Raise India Foundation',
-  description: 'Special seasonal relief campaigns: Project Tapan heat relief, Kambal Udhao winter relief, Khushiyon Ki Potli, and Yamuna flood relief.',
-};
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Seasonal Projects & Rapid Relief | Raise India Foundation',
+    description: 'Special seasonal relief campaigns: Project Tapan heat relief, Kambal Udhao winter relief, Khushiyon Ki Potli, and Yamuna flood relief.',
+    openGraph: {
+      title: 'Seasonal Projects & Rapid Relief | Raise India Foundation',
+      description: 'Special seasonal relief campaigns: Project Tapan heat relief, Kambal Udhao winter relief, Khushiyon Ki Potli, and Yamuna flood relief.',
+      images: ['/images/migrated/events/tapan.webp'],
+    },
+  };
+}
 
 export default function SeasonalProjectsPage() {
   return (
@@ -33,7 +42,7 @@ export default function SeasonalProjectsPage() {
           <div className={styles.grid}>
             {seasonalProjects.map((project) => (
               <article key={project.id} className={styles.card}>
-                <div className={styles.imageWrapper}>
+                <Link href={`/our-work/seasonal-projects/${project.slug}`} className={styles.imageWrapper}>
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -44,9 +53,11 @@ export default function SeasonalProjectsPage() {
                   {project.season && (
                     <span className={styles.seasonBadge}>{project.season}</span>
                   )}
-                </div>
+                </Link>
                 <div className={styles.cardBody}>
-                  <h2 className={styles.cardTitle}>{project.title}</h2>
+                  <Link href={`/our-work/seasonal-projects/${project.slug}`} style={{ textDecoration: 'none' }}>
+                    <h2 className={styles.cardTitle}>{project.title}</h2>
+                  </Link>
                   <p className={styles.cardDesc}>{project.fullDescription}</p>
                   <div className={styles.impactBadge}>
                     <span>Documented Outcome:</span> {project.impactMetric}
@@ -55,6 +66,11 @@ export default function SeasonalProjectsPage() {
                     <span>{project.ctaText || 'Support This Drive'}</span>
                     <span>→</span>
                   </Link>
+                  <div style={{ marginTop: '16px' }}>
+                    <Link href={`/our-work/seasonal-projects/${project.slug}`} style={{ fontSize: '14px', fontWeight: 600, color: '#814CBA', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                      View Details <span>→</span>
+                    </Link>
+                  </div>
                 </div>
               </article>
             ))}

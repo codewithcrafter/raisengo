@@ -3,13 +3,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container/Container';
 import { FinalCTA } from '@/components/sections/FinalCTA/FinalCTA';
-import { pastEvents } from '@/lib/content-data';
+import { pastEvents } from '@/data/our-work-past-events';
 import styles from './page.module.css';
 
-export const metadata = {
-  title: 'Past Events & Drives | Raise India Foundation',
-  description: 'Chronicle of community welfare drives, medical camps, educational distributions, and disaster relief events led by Raise India Foundation.',
-};
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Past Events & Community Drives | Raise India Foundation',
+    description: 'Chronicle of community welfare drives, medical camps, educational distributions, and disaster relief events led by Raise India Foundation.',
+    openGraph: {
+      title: 'Past Events & Community Drives | Raise India Foundation',
+      description: 'Chronicle of community welfare drives, medical camps, educational distributions, and disaster relief events led by Raise India Foundation.',
+      images: ['/images/migrated/events/education-kit.webp'],
+    },
+  };
+}
 
 export default function PastEventsPage() {
   return (
@@ -33,7 +42,7 @@ export default function PastEventsPage() {
           <div className={styles.eventsGrid}>
             {pastEvents.map((event) => (
               <article key={event.id} className={styles.eventCard}>
-                <div className={styles.imageWrapper}>
+                <Link href={`/our-work/past-events/${event.slug}`} className={styles.imageWrapper}>
                   <Image
                     src={event.image}
                     alt={event.title}
@@ -42,14 +51,16 @@ export default function PastEventsPage() {
                     className={styles.eventImage}
                   />
                   {event.date && <span className={styles.metaBadge}>{event.date}</span>}
-                </div>
+                </Link>
                 <div className={styles.cardBody}>
                   {event.location && (
                     <div className={styles.locationText}>
                       <span>📍</span> {event.location}
                     </div>
                   )}
-                  <h2 className={styles.eventTitle}>{event.title}</h2>
+                  <Link href={`/our-work/past-events/${event.slug}`} style={{ textDecoration: 'none' }}>
+                    <h2 className={styles.eventTitle}>{event.title}</h2>
+                  </Link>
                   <p className={styles.eventDesc}>{event.description}</p>
 
                   {event.highlights && event.highlights.length > 0 && (
@@ -62,6 +73,11 @@ export default function PastEventsPage() {
                       ))}
                     </ul>
                   )}
+                  <div style={{ marginTop: '20px' }}>
+                    <Link href={`/our-work/past-events/${event.slug}`} style={{ fontSize: '14px', fontWeight: 600, color: '#814CBA', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                      View Details <span>→</span>
+                    </Link>
+                  </div>
                 </div>
               </article>
             ))}
