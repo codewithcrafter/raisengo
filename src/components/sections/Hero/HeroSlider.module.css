@@ -7,8 +7,8 @@
 .hero {
   position: relative;
   width: 100%;
-  height: clamp(540px, 75vh, 680px);
-  min-height: 500px;
+  height: clamp(700px, calc(100vh - 80px), 760px);
+  min-height: 700px;
   background-color: #1C0A2E;
   overflow: hidden;
   touch-action: pan-y;
@@ -49,7 +49,7 @@
 .slideExit {
   z-index: 1;
   pointer-events: none;
-  animation: slideExitAnim 750ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: slideExitAnim 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes slideExitAnim {
@@ -66,7 +66,7 @@
 /* Slide 1: Cinematic Fade + Slow Zoom */
 .transitionCinematicZoom {
   opacity: 0;
-  animation: slideCinematicZoom 750ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: slideCinematicZoom 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes slideCinematicZoom {
@@ -77,7 +77,7 @@
 /* Slide 2: Horizontal Slide + Soft Zoom */
 .transitionHorizontalSlide {
   opacity: 0;
-  animation: slideHorizontalSlide 750ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: slideHorizontalSlide 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes slideHorizontalSlide {
@@ -88,7 +88,7 @@
 /* Slide 3: Soft Scale + Fade */
 .transitionSoftScale {
   opacity: 0;
-  animation: slideSoftScale 750ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: slideSoftScale 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes slideSoftScale {
@@ -99,7 +99,7 @@
 /* Slide 4: Diagonal Reveal */
 .transitionDiagonalReveal {
   opacity: 0;
-  animation: slideDiagonalReveal 750ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: slideDiagonalReveal 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes slideDiagonalReveal {
@@ -155,8 +155,7 @@
   position: absolute;
   inset: 0;
   background: 
-    linear-gradient(180deg, rgba(28, 10, 46, 0.45) 0%, rgba(36, 17, 58, 0.72) 55%, rgba(22, 6, 36, 0.95) 100%),
-    linear-gradient(90deg, rgba(28, 10, 46, 0.88) 0%, rgba(36, 17, 58, 0.55) 50%, transparent 100%);
+    linear-gradient(180deg, rgba(35, 8, 55, 0.25) 0%, rgba(35, 8, 55, 0.30) 50%, rgba(20, 5, 35, 0.42) 100%);
   z-index: 2;
 }
 
@@ -174,7 +173,7 @@
   align-items: flex-start;
   max-width: 1180px;
   margin: 0 auto;
-  padding: clamp(50px, 8vw, 80px) clamp(20px, 4vw, 36px) clamp(70px, 8vw, 80px);
+  padding: clamp(60px, 8vw, 80px) clamp(20px, 4vw, 36px) clamp(100px, 10vw, 120px);
 }
 
 .textContent {
@@ -238,6 +237,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #FFFFFF;
+  text-shadow: 0 1px 4px rgba(20, 5, 35, 0.6);
 }
 
 .eyebrowDot {
@@ -270,6 +270,7 @@
   color: #FFFFFF;
   margin: 0 0 16px 0;
   max-width: 620px;
+  text-shadow: 0 2px 12px rgba(20, 5, 35, 0.6);
 }
 
 .highlight {
@@ -299,6 +300,7 @@
   color: rgba(244, 238, 250, 0.9);
   max-width: 540px;
   margin: 0 0 24px 0;
+  text-shadow: 0 2px 8px rgba(20, 5, 35, 0.6);
 }
 
 /* ══════════════════════════════════════════════
@@ -406,9 +408,9 @@
    PROGRESS INDICATOR TRACKS & CIRCULAR CONTROLS
 ══════════════════════════════════════════════ */
 
-.controlsBar {
+.heroFooter {
   position: absolute;
-  bottom: clamp(16px, 3vw, 24px);
+  bottom: clamp(24px, 4vw, 45px);
   left: 0;
   right: 0;
   z-index: 10;
@@ -416,9 +418,91 @@
   margin: 0 auto;
   padding: 0 clamp(20px, 4vw, 36px);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.statsAndNavRow {
+  display: flex;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 20px;
+}
+
+/* Impact Statistics Strip */
+.impactStrip {
+  display: flex;
+  align-items: center;
+  background: rgba(30, 10, 50, 0.35);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 16px 24px;
+  flex: 1;
+  width: 100%;
+  opacity: 0;
+  animation: stripReveal 500ms ease-out forwards;
+}
+
+@keyframes stripReveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.metricBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  opacity: 0;
+  animation: stripReveal 400ms ease-out forwards;
+}
+.metricBlock:first-child { padding-left: 0; }
+.metricBlock:last-child { padding-right: 0; }
+
+.metricHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.metricDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E0679D;
+}
+
+.metricNumber {
+  font-size: clamp(28px, 2.5vw, 38px);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.metricText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metricLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.metricDetail {
+  font-size: 11px;
+  color: #E2D8F0;
+  opacity: 0.9;
+}
+
+.metricDivider {
+  width: 1px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .progressContainer {
@@ -585,30 +669,56 @@
 ══════════════════════════════════════════════ */
 
 @media (max-width: 960px) {
+  .hero {
+    height: clamp(680px, calc(100vh - 80px), 760px);
+    min-height: 680px;
+  }
+
   .headline {
     font-size: clamp(32px, 5.5vw, 48px);
   }
 
-  .controlsBar {
+  .heroFooter {
+    gap: 16px;
+    bottom: clamp(24px, 4vw, 35px);
+  }
+
+  .impactStrip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 16px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .metricBlock {
+    padding: 0;
+  }
+
+  .metricDivider {
+    display: none;
+  }
+
+  .statsAndNavRow {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
   }
 
   .navigationControls {
-    align-self: flex-end;
+    align-self: flex-start;
   }
 }
 
 @media (max-width: 640px) {
   .hero {
     height: auto;
-    min-height: 580px;
-    padding-bottom: 90px;
+    min-height: 760px;
+    padding-bottom: 260px;
   }
 
   .contentContainer {
-    padding: 90px 20px 100px;
+    padding: 80px 20px 120px;
   }
 
   .headline {

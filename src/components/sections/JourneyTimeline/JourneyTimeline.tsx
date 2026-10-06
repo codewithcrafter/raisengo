@@ -1,20 +1,13 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React from 'react';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container/Container';
 import { useScrollReveal } from '@/lib/useScrollReveal';
 import styles from './JourneyTimeline.module.css';
 
 export const JourneyTimeline: React.FC = () => {
-  const [sectionRef, isVisible] = useScrollReveal<HTMLElement>({ threshold: 0.15, triggerOnce: true });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
-    e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
-  };
+  const [sectionRef, isVisible] = useScrollReveal<HTMLElement>({ threshold: 0.1, triggerOnce: true });
 
   return (
     <section 
@@ -22,134 +15,124 @@ export const JourneyTimeline: React.FC = () => {
       ref={sectionRef} 
       className={`${styles.journeySection} ${isVisible ? styles.revealed : ''}`}
     >
-      {/* Background Depth Elements */}
-      <div className={styles.bgGlowCircle} aria-hidden="true" />
-      
-      {/* Floating Particles */}
-      <div className={styles.particlesContainer} aria-hidden="true">
-        <span className={`${styles.particle} ${styles.p1}`} />
-        <span className={`${styles.particle} ${styles.p2}`} />
-        <span className={`${styles.particle} ${styles.p3}`} />
-        <span className={`${styles.particle} ${styles.p4}`} />
-        <span className={`${styles.particle} ${styles.p5}`} />
-      </div>
-
       <Container className={styles.container}>
-        {/* Header Block */}
+        
+        {/* Editorial Header */}
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionLabel}>OUR JOURNEY</span>
+          <span className={styles.sectionEyebrow}>OUR JOURNEY</span>
           <h2 className={styles.journeyTitle}>
-            A Journey of Hope
-            <span className={styles.titleUnderline} aria-hidden="true" />
+            A JOURNEY OF HOPE
           </h2>
+          <p className={styles.journeySubtitle}>
+            A story of steady action, community partnership and measurable impact.
+          </p>
         </div>
 
-        {/* Timeline Grid Container */}
-        <div className={styles.timelineWrapper}>
-          {/* Connector Line running behind cards */}
-          <div className={styles.connectorTrack} aria-hidden="true">
-            <div className={styles.connectorProgress} />
-          </div>
+        {/* Story Rows Container */}
+        <div className={styles.journeyList}>
+          
+          {/* Subtle Vertical Connector Rule */}
+          <div className={styles.verticalRule} aria-hidden="true"></div>
 
-          <div className={styles.timelineGrid}>
-            {/* MILESTONE 1: 2014 */}
-            <div 
-              className={`${styles.timelineCard} ${styles.card2010}`}
-              onMouseMove={handleMouseMove}
-            >
-              {/* Radial Mouse Light Overlay */}
-              <div className={styles.mouseLight} aria-hidden="true" />
-              
-              {/* Background Watermark SVG Motif (Seed/Sprout) */}
-              <div className={styles.watermarkMotif} aria-hidden="true">
-                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-                  <path d="M12 22V12M12 12C12 7.5 8.5 4 4 4C4 8.5 7.5 12 12 12ZM12 12C12 7.5 15.5 4 20 4C20 8.5 16.5 12 12 12Z" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+          {/* ══════════════════════════════════════════════
+              ROW 01: 2014
+          ══════════════════════════════════════════════ */}
+          <div className={`${styles.journeyRow} ${styles.rowLeftText}`}>
+            
+            <div className={styles.rowTextContent}>
+              <div className={styles.rowMeta}>
+                <span className={styles.chapterNum}>01</span>
+                <span className={styles.chapterYear}>2014</span>
               </div>
-
-              <div className={styles.nodeHeader}>
-                <div className={styles.dotContainer}>
-                  <span className={styles.nodeDot} />
-                  <span className={styles.dotWaveRing} />
-                </div>
-                <span className={styles.nodeYear}>2014</span>
-              </div>
-
-              <h3 className={styles.cardTitle}>Foundation Established</h3>
-              <p className={styles.cardDesc}>
-                Established on 22nd December 2014 by Mr. Jai Pal Singh Malik and Ms. Shipra Chauhan. Began direct child education support through Shikshalaya and winter street relief through Kambal Udhao.
+              <h3 className={styles.rowTitle}>Foundation Established</h3>
+              <p className={styles.rowDesc}>
+                Established on 22nd December 2014 by Mr. Jai Pal Singh Malik and Ms. Shipra Chauhan. Began direct child education support through Shikshalaya and winter street relief through Kambal Uddhao.
               </p>
             </div>
-
-            {/* MILESTONE 2: 2021 */}
-            <div 
-              className={`${styles.timelineCard} ${styles.card2016}`}
-              onMouseMove={handleMouseMove}
-            >
-              {/* Radial Mouse Light Overlay */}
-              <div className={styles.mouseLight} aria-hidden="true" />
-
-              {/* Background Watermark SVG Motif (Growth Circles) */}
-              <div className={styles.watermarkMotif} aria-hidden="true">
-                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-                  <circle cx="12" cy="12" r="9" />
-                  <circle cx="12" cy="12" r="5" />
-                  <circle cx="12" cy="12" r="2" />
-                </svg>
+            
+            <div className={styles.rowImageContent}>
+              <div className={styles.imageBox}>
+                <Image 
+                  src="/images/programs/education.jpg" 
+                  alt="Foundation Established" 
+                  fill 
+                  className={styles.editorialImage} 
+                  sizes="(max-width: 768px) 100vw, 580px"
+                />
               </div>
+            </div>
+            
+          </div>
 
-              <div className={styles.nodeHeader}>
-                <div className={styles.dotContainer}>
-                  <span className={`${styles.nodeDot} ${styles.dot2016}`} />
-                  <span className={styles.dotWaveRing} />
-                </div>
-                <span className={styles.nodeYear}>2021</span>
+          <div className={styles.rowDivider} aria-hidden="true"></div>
+
+          {/* ══════════════════════════════════════════════
+              ROW 02: 2021
+          ══════════════════════════════════════════════ */}
+          <div className={`${styles.journeyRow} ${styles.rowRightText}`}>
+            
+            <div className={styles.rowImageContent}>
+              <div className={styles.imageBox}>
+                <Image 
+                  src="/images/migrated/events/flood-relief.jpg" 
+                  alt="Pandemic Relief" 
+                  fill 
+                  className={styles.editorialImage} 
+                  sizes="(max-width: 768px) 100vw, 580px"
+                />
               </div>
-
-              <h3 className={styles.cardTitle}>Pandemic Relief &amp; Honors</h3>
-              <p className={styles.cardDesc}>
+            </div>
+            
+            <div className={styles.rowTextContent}>
+              <div className={styles.rowMeta}>
+                <span className={styles.chapterNum}>02</span>
+                <span className={styles.chapterYear}>2021</span>
+              </div>
+              <h3 className={styles.rowTitle}>Pandemic Relief &amp; Honors</h3>
+              <p className={styles.rowDesc}>
                 Mounted extensive frontline relief: 25,000+ dry ration kits, cooked meals for daily wagers, and Chuppi Todo menstrual hygiene. Conferred with the Covid Warriors Award by the Delhi Government.
               </p>
             </div>
+            
+          </div>
 
-            {/* MILESTONE 3: TODAY (Hero Milestone) */}
-            <div 
-              className={`${styles.timelineCard} ${styles.cardToday}`}
-              onMouseMove={handleMouseMove}
-            >
-              {/* Radial Mouse Light Overlay */}
-              <div className={styles.mouseLight} aria-hidden="true" />
+          <div className={styles.rowDivider} aria-hidden="true"></div>
 
-              {/* Background Watermark SVG Motif (Community People) */}
-              <div className={styles.watermarkMotif} aria-hidden="true">
-                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
+          {/* ══════════════════════════════════════════════
+              ROW 03: TODAY
+          ══════════════════════════════════════════════ */}
+          <div className={`${styles.journeyRow} ${styles.rowLeftText} ${styles.rowToday}`}>
+            
+            <div className={styles.rowTextContent}>
+              <div className={styles.rowMeta}>
+                <span className={styles.chapterNum}>03</span>
+                <span className={styles.chapterYearToday}>TODAY</span>
               </div>
-
-              {/* Current Chapter Badge */}
-              <div className={styles.currentBadge}>
-                <span>11+ YEARS OF IMPACT</span>
-              </div>
-
-              <div className={styles.nodeHeader}>
-                <div className={styles.dotContainer}>
-                  <span className={`${styles.nodeDot} ${styles.dotToday}`} />
-                  <span className={`${styles.dotWaveRing} ${styles.ringToday}`} />
-                </div>
-                <span className={styles.nodeYearToday}>TODAY</span>
-              </div>
-
-              <h3 className={styles.cardTitleToday}>1.83M+ Lives Uplifted</h3>
-              <p className={styles.cardDescToday}>
+              <h3 className={styles.rowTitleToday}>
+                <span className={styles.todayHighlightNumber}>1.83M+</span><br />
+                Lives Uplifted
+              </h3>
+              <p className={styles.rowDesc}>
                 Over 1.83 million lives uplifted across Delhi, UP, MP, and Bihar. Expanding Techshaala digital labs with Konverge Technologies and life-saving pediatric surgeries with Fortis Hospital.
               </p>
             </div>
+            
+            <div className={styles.rowImageContent}>
+              <div className={styles.imageBox}>
+                <Image 
+                  src="/images/about-community.jpg" 
+                  alt="Current Impact" 
+                  fill 
+                  className={styles.editorialImage} 
+                  sizes="(max-width: 768px) 100vw, 580px"
+                />
+              </div>
+            </div>
+            
           </div>
+
         </div>
+
       </Container>
     </section>
   );

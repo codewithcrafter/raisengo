@@ -1,5 +1,4 @@
 import { HeroSlider } from '@/components/sections/Hero/HeroSlider';
-import { ImpactStrip } from '@/components/sections/ImpactStrip/ImpactStrip';
 import { WhoWeAre } from '@/components/sections/About/WhoWeAre';
 import { MissionVision } from '@/components/sections/MissionVision/MissionVision';
 import { Work } from '@/components/sections/Work/Work';
@@ -14,9 +13,6 @@ export default function Home() {
     <main id="main-content">
       {/* 1. HERO SLIDER */}
       <HeroSlider />
-
-      {/* 2. QUICK IMPACT STRIP */}
-      <ImpactStrip />
 
       {/* 3. WHO WE ARE STORY */}
       <WhoWeAre />

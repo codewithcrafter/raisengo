@@ -63,6 +63,13 @@ export const slides = [
   },
 ];
 
+const metrics = [
+  { id: 'years', number: '11+', label: 'Years of Service', detail: 'Grassroots impact since 2014' },
+  { id: 'lives', number: '1.83M+', label: 'Lives Uplifted', detail: 'Across 4 northern states' },
+  { id: 'education', number: '18,050+', label: 'Students Educated', detail: 'Shikshalaya & Techshaala' },
+  { id: 'surgeries', number: '14+', label: 'Heart Surgeries', detail: 'Pediatric cardiac procedures' },
+];
+
 function renderHeadline(parts: string[], highlightWord: string): React.ReactNode {
   return parts.map((part, i) => {
     if (part === highlightWord) {
@@ -84,7 +91,7 @@ function renderHeadline(parts: string[], highlightWord: string): React.ReactNode
   });
 }
 
-const SLIDE_DURATION = 3200; // 3.2 seconds display duration per slide
+const SLIDE_DURATION = 2500; // 2.5 seconds display duration per slide
 
 export const HeroSlider: React.FC = () => {
   const [current, setCurrent] = useState<number>(0);
@@ -161,7 +168,7 @@ export const HeroSlider: React.FC = () => {
       setTimeout(() => {
         setPrev(null);
         setAnimating(false);
-      }, 750); // 750ms smooth transition duration
+      }, 450); // 450ms smooth transition duration
     },
     [animating, current]
   );
@@ -282,46 +289,51 @@ export const HeroSlider: React.FC = () => {
       </div>
 
       <div className={styles.slidesWrapper} aria-live="polite">
-        {/* Exiting Slide */}
-        {prevSlide && (
-          <div
-            className={`${styles.slide} ${styles.slideExit} ${prefersReducedMotion ? styles.noAnim : ''}`}
-            aria-hidden="true"
-          >
-            <SlideContent slide={prevSlide} isActive={false} isFirstSlide={prevSlide.id === 1} />
-          </div>
-        )}
+        {slides.map((s, index) => {
+          const isCurrent = index === current;
+          const isPrev = index === prev;
+          const isNext = index === nextIndex;
+          const isPreloaded = preloadedIndices.includes(index);
 
-        {/* Active Slide */}
-        <div
-          key={current}
-          className={`${styles.slide} ${styles.slideEnter} ${
-            animating && !prefersReducedMotion ? getTransitionStyleClass(slide.transitionType) : styles.slideVisible
-          }`}
-          role="group"
-          aria-roledescription="slide"
-          aria-label={`Slide ${current + 1} of ${total}`}
-        >
-          <SlideContent slide={slide} isActive={true} isFirstSlide={slide.id === 1} />
-        </div>
+          if (!isCurrent && !isPrev && !isPreloaded) return null;
 
-        {/* Controlled Preloading of Next Slide Image */}
-        {preloadedIndices.includes(nextIndex) && nextIndex !== current && (
-          <div style={{ display: 'none' }} aria-hidden="true">
-            <Image 
-              src={slides[nextIndex].image} 
-              alt="Preload next slide" 
-              fill 
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
-              loading="lazy" 
-            />
-          </div>
-        )}
+          let slideClass = '';
+          if (isCurrent) {
+            slideClass = `${styles.slideEnter} ${animating && !prefersReducedMotion ? getTransitionStyleClass(s.transitionType) : styles.slideVisible}`;
+          } else if (isPrev) {
+            slideClass = `${styles.slideExit} ${prefersReducedMotion ? styles.noAnim : ''}`;
+          }
+
+          return (
+            <div
+              key={s.id}
+              className={`${styles.slide} ${slideClass}`}
+              aria-hidden={!isCurrent}
+              role={isCurrent ? "group" : undefined}
+              aria-roledescription={isCurrent ? "slide" : undefined}
+              aria-label={isCurrent ? `Slide ${index + 1} of ${total}` : undefined}
+              style={{
+                zIndex: isCurrent ? 2 : isPrev ? 1 : 0,
+                opacity: isCurrent || isPrev ? undefined : 0,
+                pointerEvents: isCurrent ? 'auto' : 'none',
+                visibility: isCurrent || isPrev || isNext ? 'visible' : 'hidden'
+              }}
+            >
+              <SlideContent 
+                slide={s} 
+                isActive={isCurrent} 
+                isFirstSlide={s.id === 1} 
+                isPriority={isCurrent || isNext} 
+              />
+            </div>
+          );
+        })}
       </div>
 
-      {/* Modern Multi-Track Progress Indicator & Circular Controls */}
-      <div className={styles.controlsBar}>
-        {/* Editorial Progress Indicator Tracks (01 ━━━━━  02 ━━━━━  03 ━━━━━  04 ━━━━━) */}
+      {/* Modern Multi-Track Progress Indicator, Stats & Controls */}
+      <div className={styles.heroFooter}>
+        
+        {/* Progress Indicator Tracks */}
         <div className={styles.progressContainer}>
           <div className={styles.slideCounterBadge} aria-label={`Current slide ${current + 1} of ${total}`}>
             <span className={styles.counterCurrent}>0{current + 1}</span>
@@ -363,45 +375,32 @@ export const HeroSlider: React.FC = () => {
           </div>
         </div>
 
-        {/* Circular Arrow Navigation Controls */}
-        <div className={styles.navigationControls}>
-          <button
-            className={styles.pauseToggleBtn}
-            onClick={() => setUserPaused((p) => !p)}
-            aria-label={userPaused ? 'Resume autoplay' : 'Pause autoplay'}
-          >
-            {userPaused ? (
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-                <path d="M6 3.5L12.5 8L6 12.5V3.5Z" />
-              </svg>
-            ) : (
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-                <rect x="4" y="3" width="3" height="10" rx="1" />
-                <rect x="9" y="3" width="3" height="10" rx="1" />
-              </svg>
-            )}
-          </button>
+        {/* Impact Statistics & Navigation Controls Row */}
+        <div className={styles.statsAndNavRow}>
+          
+          <div className={styles.impactStrip}>
+            {metrics.map((item, idx) => (
+              <React.Fragment key={item.id}>
+                <div 
+                  className={styles.metricBlock} 
+                  style={{ animationDelay: `${idx * 80}ms` }}
+                >
+                  <div className={styles.metricHeader}>
+                    <span className={styles.metricDot} aria-hidden="true" />
+                    <span className={styles.metricNumber}>{item.number}</span>
+                  </div>
+                  <div className={styles.metricText}>
+                    <span className={styles.metricLabel}>{item.label}</span>
+                    <span className={styles.metricDetail}>{item.detail}</span>
+                  </div>
+                </div>
+                {idx < metrics.length - 1 && <div className={styles.metricDivider} aria-hidden="true" />}
+              </React.Fragment>
+            ))}
+          </div>
 
-          <button
-            className={`${styles.circleNavBtn} ${styles.prevBtn}`}
-            onClick={goPrev}
-            aria-label="Previous slide"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-
-          <button
-            className={`${styles.circleNavBtn} ${styles.nextBtn}`}
-            onClick={goNext}
-            aria-label="Next slide"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
         </div>
+
       </div>
     </section>
   );
@@ -410,7 +409,7 @@ export const HeroSlider: React.FC = () => {
 // ─────────────────────────────────────────────
 // SLIDE CONTENT COMPONENT (Full Bleed Image + Staggered Text)
 // ─────────────────────────────────────────────
-function SlideContent({ slide, isActive, isFirstSlide }: { slide: typeof slides[0]; isActive: boolean; isFirstSlide: boolean }) {
+function SlideContent({ slide, isActive, isFirstSlide, isPriority }: { slide: typeof slides[0]; isActive: boolean; isFirstSlide: boolean; isPriority?: boolean }) {
   return (
     <div className={styles.slideInner}>
       {/* Background Image / Gradient Layer with Ken Burns Motion */}
@@ -422,8 +421,8 @@ function SlideContent({ slide, isActive, isFirstSlide }: { slide: typeof slides[
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
             style={{ objectFit: 'cover', objectPosition: slide.objectPosition }}
-            priority={isFirstSlide}
-            loading={isFirstSlide ? 'eager' : 'lazy'}
+            priority={isFirstSlide || isPriority}
+            loading={isFirstSlide || isPriority ? 'eager' : 'lazy'}
             className={styles.heroImage}
           />
         ) : (

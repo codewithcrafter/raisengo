@@ -1,533 +1,291 @@
 /* ══════════════════════════════════════════════
-   RAISE INDIA FOUNDATION — A JOURNEY OF HOPE TIMELINE
-   Editorial Storytelling & Premium Micro-Interactions
+   RAISE INDIA FOUNDATION — JOURNEY TIMELINE
+   Premium Editorial Rows Layout
 ══════════════════════════════════════════════ */
 
 .journeySection {
-  padding: clamp(60px, 5.5vw, 85px) 0;
-  background-color: #F8F4FC;
+  padding: clamp(100px, 8vw, 120px) 0;
+  background-color: #FFFCFF; /* Warm white */
   position: relative;
-  overflow: hidden;
   z-index: 1;
-  width: 100%;
 }
 
 .container {
-  max-width: 1180px !important;
+  max-width: 1240px !important;
   margin: 0 auto;
-  padding-left: clamp(20px, 4vw, 32px) !important;
-  padding-right: clamp(20px, 4vw, 32px) !important;
+  padding-left: clamp(24px, 4vw, 40px) !important;
+  padding-right: clamp(24px, 4vw, 40px) !important;
   box-sizing: border-box;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-}
-
-/* Background Depth Elements (Cleaned up for compact editorial look) */
-.bgGlowCircle,
-.particlesContainer {
-  display: none !important;
-}
-
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  will-change: transform;
-}
-
-.p1 {
-  top: 15%;
-  left: 8%;
-  width: 6px;
-  height: 6px;
-  background-color: rgba(224, 103, 157, 0.25);
-  animation: floatMotion 5s ease-in-out infinite;
-}
-
-.p2 {
-  top: 70%;
-  left: 5%;
-  width: 8px;
-  height: 8px;
-  background-color: rgba(129, 76, 186, 0.20);
-  animation: floatMotion 6.5s ease-in-out 1s infinite;
-}
-
-.p3 {
-  top: 25%;
-  right: 6%;
-  width: 7px;
-  height: 7px;
-  background-color: rgba(224, 103, 157, 0.22);
-  animation: floatMotion 5.8s ease-in-out 0.5s infinite;
-}
-
-.p4 {
-  bottom: 18%;
-  right: 10%;
-  width: 5px;
-  height: 5px;
-  background-color: rgba(129, 76, 186, 0.25);
-  animation: floatMotion 4.8s ease-in-out 1.2s infinite;
-}
-
-.p5 {
-  top: 50%;
-  right: 48%;
-  width: 6px;
-  height: 6px;
-  background-color: rgba(224, 103, 157, 0.18);
-  animation: floatMotion 6s ease-in-out 2s infinite;
-}
-
-@keyframes floatMotion {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
 }
 
 /* ══════════════════════════════════════════════
-   HEADER & TITLE REVEAL
+   SECTION HEADER
 ══════════════════════════════════════════════ */
-
 .sectionHeader {
-  text-align: center;
-  margin-bottom: clamp(48px, 6vw, 64px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: left;
+  margin-bottom: clamp(70px, 6vw, 90px);
+  max-width: 700px;
 }
 
-.sectionLabel {
+.sectionEyebrow {
   display: inline-block;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #E0679D; /* Brand Magenta */
-  margin-bottom: 10px;
+  color: #E0679D;
+  margin-bottom: 14px;
   opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1), transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(12px);
+  transition: opacity 600ms ease, transform 600ms ease;
 }
 
-.revealed .sectionLabel {
+.revealed .sectionEyebrow {
   opacity: 1;
   transform: translateY(0);
 }
 
 .journeyTitle {
   font-family: var(--font-display, inherit);
-  font-size: clamp(34px, 3.8vw, 50px);
-  font-weight: 700;
+  font-size: clamp(38px, 4.5vw, 54px);
+  font-weight: 600;
   color: #2D1145;
-  margin: 0;
-  letter-spacing: -0.025em;
-  position: relative;
-  display: inline-block;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1) 120ms, transform 650ms cubic-bezier(0.22, 1, 0.36, 1) 120ms;
+  transform: translateY(12px);
+  transition: opacity 600ms ease 100ms, transform 600ms ease 100ms;
 }
 
-.revealed .journeyTitle {
+.journeySubtitle {
+  font-size: clamp(17px, 2vw, 20px);
+  color: #665B70;
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 600ms ease 200ms, transform 600ms ease 200ms;
+}
+
+.revealed .journeyTitle,
+.revealed .journeySubtitle {
   opacity: 1;
   transform: translateY(0);
 }
 
-.titleUnderline {
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 3px;
-  width: 0%;
-  background: linear-gradient(90deg, #E0679D 0%, #814CBA 100%);
-  border-radius: 999px;
-  transition: width 800ms cubic-bezier(0.22, 1, 0.36, 1) 400ms;
-}
-
-.revealed .titleUnderline {
-  width: 60%;
-}
-
 /* ══════════════════════════════════════════════
-   TIMELINE CONNECTOR & GRID
+   JOURNEY LIST CONTAINER
 ══════════════════════════════════════════════ */
-
-.timelineWrapper {
+.journeyList {
   position: relative;
-  width: 100%;
-}
-
-/* Desktop Connector Line running behind nodes */
-.connectorTrack {
-  position: absolute;
-  top: 48px;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  background: rgba(45, 17, 69, 0.10);
-  z-index: 0;
-  overflow: hidden;
-}
-
-.connectorProgress {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #E0679D 0%, #814CBA 60%, #E0679D 100%);
-  transition: width 1100ms cubic-bezier(0.22, 1, 0.36, 1) 300ms;
-}
-
-.revealed .connectorProgress {
-  width: 100%;
-}
-
-.timelineGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-  position: relative;
-  z-index: 1;
-}
-
-@media (min-width: 900px) {
-  .timelineGrid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(24px, 3vw, 40px);
-    align-items: stretch;
-  }
-}
-
-/* ══════════════════════════════════════════════
-   TIMELINE CARDS
-══════════════════════════════════════════════ */
-
-.timelineCard {
-  background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFC 100%);
-  background-size: 200% 200%;
-  background-position: 0% 0%;
-  border: 1px solid rgba(45, 17, 69, 0.08);
-  border-radius: 28px;
-  padding: clamp(28px, 3vw, 36px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  opacity: 0;
-  transform: translateY(40px) scale(0.96);
-  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1), 
-              box-shadow 350ms ease, 
-              border-color 350ms ease,
-              background-position 500ms ease,
-              opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
   display: flex;
   flex-direction: column;
 }
 
-/* Sequential Staggered Reveals */
-.revealed .card2010 {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  transition-delay: 200ms;
-}
-
-.revealed .card2016 {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  transition-delay: 340ms;
-}
-
-.revealed .cardToday {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  transition-delay: 480ms;
-}
-
-/* Mouse Following Light Overlay */
-.mouseLight {
+/* Subtle Vertical Connecting Line */
+.verticalRule {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(224, 103, 157, 0.12),
-    transparent 45%
-  );
-  opacity: 0;
-  transition: opacity 300ms ease;
+  top: 0;
+  bottom: 0;
+  left: 5px; /* Aligned near the chapter numbers */
+  width: 1px;
+  background-color: rgba(70, 40, 100, 0.12); /* Soft lavender */
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1) 300ms;
   z-index: 1;
 }
 
-.timelineCard:hover .mouseLight {
-  opacity: 1;
-}
-
-/* Background Watermark SVG Motif */
-.watermarkMotif {
-  position: absolute;
-  bottom: -15px;
-  right: -15px;
-  color: #2D1145;
-  opacity: 0.06;
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 350ms ease, transform 350ms ease;
-}
-
-.timelineCard:hover .watermarkMotif {
-  opacity: 0.12;
-  transform: scale(1.06);
-}
-
-/* Card Hover Elevation */
-.timelineCard:hover {
-  transform: translateY(-8px) scale(1);
-  box-shadow: 0 20px 40px rgba(45, 17, 69, 0.14);
-  border-color: rgba(224, 103, 157, 0.45);
-  background-position: 100% 100%;
+.revealed .verticalRule {
+  transform: scaleY(1);
 }
 
 /* ══════════════════════════════════════════════
-   HERO MILESTONE: TODAY CARD
+   JOURNEY ROW STRUCTURE
 ══════════════════════════════════════════════ */
-
-.cardToday {
-  background: linear-gradient(135deg, #FFFFFF 0%, #FAF2FC 100%);
-  border: 1.5px solid rgba(224, 103, 157, 0.38);
-  box-shadow: 0 8px 28px rgba(224, 103, 157, 0.15);
-}
-
-.cardToday:hover {
-  transform: translateY(-8px) scale(1);
-  box-shadow: 0 22px 44px rgba(224, 103, 157, 0.25);
-  border-color: rgba(224, 103, 157, 0.65);
-}
-
-.currentBadge {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  background: rgba(224, 103, 157, 0.12);
-  border: 1px solid rgba(224, 103, 157, 0.3);
-  padding: 4px 10px;
-  border-radius: 999px;
-  z-index: 2;
-}
-
-.currentBadge span {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #E0679D;
-}
-
-/* ══════════════════════════════════════════════
-   NODE HEADER & YEAR DOTS
-══════════════════════════════════════════════ */
-
-.nodeHeader {
+.journeyRow {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  flex-direction: column;
+  gap: 40px;
+  padding: clamp(60px, 8vw, 100px) 0;
   position: relative;
   z-index: 2;
-}
-
-.dotContainer {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-}
-
-.nodeDot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #2D1145;
-  position: relative;
-  z-index: 2;
-  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.dot2016 {
-  background-color: #814CBA;
-}
-
-.dotToday {
-  background-color: #E0679D;
-  animation: todayDotPulse 2.8s ease-in-out infinite;
-}
-
-@keyframes todayDotPulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(224, 103, 157, 0.45);
-  }
-  50% {
-    transform: scale(1.15);
-    box-shadow: 0 0 0 8px rgba(224, 103, 157, 0);
-  }
-}
-
-.dotWaveRing {
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(224, 103, 157, 0.5);
   opacity: 0;
-  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity 700ms ease, transform 700ms ease;
 }
 
-.revealed .dotWaveRing {
-  animation: dotRingExpand 900ms ease-out 1 forwards;
-}
+.journeyRow:nth-child(1) { transition-delay: 200ms; }
+.journeyRow:nth-child(3) { transition-delay: 350ms; }
+.journeyRow:nth-child(5) { transition-delay: 500ms; }
 
-.revealed .card2010 .dotWaveRing { animation-delay: 300ms; }
-.revealed .card2016 .dotWaveRing { animation-delay: 440ms; }
-.revealed .cardToday .ringToday { animation-delay: 580ms; }
-
-@keyframes dotRingExpand {
-  0% { transform: scale(0.5); opacity: 0.8; }
-  100% { transform: scale(1.9); opacity: 0; }
-}
-
-.timelineCard:hover .nodeDot {
-  transform: scale(1.15);
-}
-
-.nodeYear {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #2D1145;
-  transition: color 200ms ease;
-}
-
-.nodeYearToday {
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  color: #E0679D;
-}
-
-.timelineCard:hover .nodeYear {
-  color: #E0679D;
-}
-
-/* ══════════════════════════════════════════════
-   CARD CONTENT TYPOGRAPHY
-══════════════════════════════════════════════ */
-
-.cardTitle {
-  font-family: var(--font-display, inherit);
-  font-size: clamp(20px, 2.2vw, 24px);
-  font-weight: 700;
-  color: #2D1145;
-  margin: 0 0 10px 0;
-  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
-  position: relative;
-  z-index: 2;
-}
-
-.cardTitleToday {
-  font-family: var(--font-display, inherit);
-  font-size: clamp(20px, 2.2vw, 24px);
-  font-weight: 700;
-  color: #2D1145;
-  margin: 0 0 10px 0;
-  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
-  position: relative;
-  z-index: 2;
-}
-
-.timelineCard:hover .cardTitle,
-.timelineCard:hover .cardTitleToday {
-  transform: translateX(4px);
-}
-
-.cardDesc {
-  font-size: clamp(15px, 1.05vw, 16px);
-  line-height: 1.65;
-  color: #4A3A5B;
-  margin: 0;
-  opacity: 0.9;
-  transition: opacity 200ms ease;
-  position: relative;
-  z-index: 2;
-}
-
-.cardDescToday {
-  font-size: clamp(15px, 1.05vw, 16px);
-  line-height: 1.65;
-  color: #3E2452;
-  margin: 0;
-  opacity: 0.95;
-  position: relative;
-  z-index: 2;
-}
-
-.timelineCard:hover .cardDesc {
+.revealed .journeyRow {
   opacity: 1;
+  transform: translateY(0);
+}
+
+/* Thin Editorial Divider */
+.rowDivider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(70, 40, 100, 0.08); /* Very soft lavender */
+  margin: 0;
 }
 
 /* ══════════════════════════════════════════════
-   MOBILE LAYOUT (VERTICAL JOURNEY)
+   ROW TEXT CONTENT
 ══════════════════════════════════════════════ */
+.rowTextContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px; /* Space for the vertical line */
+}
 
-@media (max-width: 899px) {
-  .connectorTrack {
-    top: 40px;
-    left: 44px;
-    bottom: 40px;
-    right: auto;
-    width: 2px;
-    height: auto;
+/* Meta Data (Chapter & Year) */
+.rowMeta {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.chapterNum {
+  font-family: var(--font-sans, inherit);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: #8C8296; /* muted lavender */
+  margin-bottom: 8px;
+  background: #FFFCFF; /* mask the vertical line behind it */
+  padding: 4px 0;
+}
+
+.chapterYear {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(48px, 6vw, 68px);
+  font-weight: 600;
+  color: #2D1145;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.chapterYearToday {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(48px, 6vw, 68px);
+  font-weight: 600;
+  color: #2D1145;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+/* Title & Description */
+.rowTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 600;
+  color: #2D1145;
+  margin: 0 0 20px 0;
+  line-height: 1.25;
+}
+
+.rowTitleToday {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(24px, 2.5vw, 28px);
+  font-weight: 600;
+  color: #2D1145;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.todayHighlightNumber {
+  font-size: clamp(44px, 5vw, 56px);
+  font-weight: 700;
+  color: #E0679D; /* Soft pink accent for impact */
+  display: block;
+  margin-bottom: 4px;
+}
+
+.rowDesc {
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.7;
+  color: #665B70;
+  margin: 0;
+  max-width: 440px;
+}
+
+/* ══════════════════════════════════════════════
+   ROW IMAGE CONTENT
+══════════════════════════════════════════════ */
+.rowImageContent {
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+}
+
+.imageBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #F8F6F9;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 800ms cubic-bezier(0.4, 0, 0.2, 1) 400ms;
+}
+
+.revealed .imageBox {
+  clip-path: inset(0 0 0 0);
+}
+
+.editorialImage {
+  object-fit: cover;
+  transition: transform 800ms ease;
+}
+
+@media (min-width: 900px) {
+  .journeyRow:hover .editorialImage {
+    transform: scale(1.015);
   }
+}
 
-  .connectorProgress {
-    width: 100%;
-    height: 0%;
-    transition: height 1100ms cubic-bezier(0.22, 1, 0.36, 1) 300ms;
+/* ══════════════════════════════════════════════
+   DESKTOP ALTERNATING LAYOUT
+══════════════════════════════════════════════ */
+@media (min-width: 900px) {
+  .journeyRow {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(55px, 6vw, 75px);
+    padding: clamp(90px, 8vw, 120px) 0;
   }
-
-  .revealed .connectorProgress {
-    height: 100%;
+  
+  /* Reverse the DOM order visually for alternating rows */
+  .rowRightText {
+    flex-direction: row; 
   }
-
-  .timelineCard {
-    padding-left: 24px;
+  
+  .verticalRule {
+    left: 20px; /* Adjust line placement */
   }
-
-  .mouseLight {
-    display: none;
+  
+  .rowTextContent {
+    padding-left: 50px; /* Ensure content clears the line */
   }
 }
 
 /* ══════════════════════════════════════════════
    REDUCED MOTION OVERRIDE
 ══════════════════════════════════════════════ */
-
 @media (prefers-reduced-motion: reduce) {
-  .sectionLabel,
-  .journeyTitle,
-  .timelineCard,
-  .titleUnderline,
-  .connectorProgress {
+  .sectionEyebrow, .journeyTitle, .journeySubtitle, 
+  .journeyRow, .imageBox, .verticalRule {
     opacity: 1 !important;
     transform: none !important;
+    clip-path: none !important;
     transition: none !important;
-    width: 100% !important;
-  }
-
-  .p1, .p2, .p3, .p4, .p5, .dotToday, .dotWaveRing {
     animation: none !important;
-  }
-
-  .timelineCard:hover {
-    transform: none !important;
   }
 }
