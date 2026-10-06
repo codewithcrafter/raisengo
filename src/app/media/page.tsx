@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/Container/Container';
 import { FinalCTA } from '@/components/sections/FinalCTA/FinalCTA';
 import styles from './page.module.css';
+import GalleryClient from './GalleryClient';
 
 export const metadata = {
   title: 'Media & Press Coverage | Raise India Foundation',
@@ -43,34 +44,9 @@ const digitalVideos = [
   },
 ];
 
-const printArticles = [
-  {
-    id: 'p1',
-    title: 'Dainik Jagran: Free Shikshalaya Learning Center Inaugurated in Balkeshwar, Agra',
-    date: 'July 2023',
-    image: '/images/migrated/media/news1.webp',
-  },
-  {
-    id: 'p2',
-    title: 'Amar Ujala: Raise India Foundation Organizes Free Vision & Health Check-up Camp',
-    date: 'September 2023',
-    image: '/images/migrated/media/news2.webp',
-  },
-  {
-    id: 'p3',
-    title: 'Navbharat Times: COVID Warriors Honored for Tireless Pandemic Ration Relief',
-    date: 'June 2021',
-    image: '/images/migrated/awards/covid-warriors-award.webp',
-  },
-  {
-    id: 'p4',
-    title: 'Punjab Kesari: Chuppi Todo Campaign Reaches Female Construction Workers Across NCR',
-    date: 'March 2024',
-    image: '/images/migrated/partners/csr-partnership-1.webp',
-  },
-];
-
 export default function MediaPage() {
+
+
   return (
     <main className={styles.main}>
       {/* Hero */}
@@ -115,40 +91,75 @@ export default function MediaPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </div>Fix the Print Media photo thumbnails.
+
+          IMPORTANT:
+
+          * Do NOT change the header.
+          * Do NOT change the video section.
+          * Do NOT change the Print Media layout, dimensions, borders, or modal behavior.
+          * Do NOT modify the original image files.
+
+          For the 11 Print Media photos:
+
+          1. Keep the thumbnail box exactly:
+
+          * Width: `305.63px`
+          * Height: `367px`
+          * `overflow-hidden`
+
+          2. Check EACH photo individually in the actual browser.
+
+          3. **If a photo already fills the entire 305.63px × 367px box with no visible white space, DO NOT zoom it. Keep it at its original/default scale.**
+
+          4. **Only photos that have visible white space or do not properly fill the box should be zoomed IN.**
+
+          * Increase the scale only for that specific photo.
+          * Use the minimum zoom necessary to completely remove the white space.
+          * Do NOT apply the same zoom to all 11 photos.
+          * Different photos can have different zoom levels.
+
+          5. Do NOT stretch or distort any photo.
+
+          * Maintain the original aspect ratio.
+          * Only use cropping/zooming to remove unwanted white space.
+
+          6. Keep the existing styling:
+          `w-[305.63px] h-[367px] object-cover border-4 border-purple-700 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer`
+
+          7. The hover effect must remain separate from the individual photo's base zoom.
+
+          8. The full-screen modal must remain unchanged:
+
+          * When clicked, show the **complete original photo**.
+          * Do NOT use the thumbnail zoom level inside the modal.
+          * Use `object-contain`.
+          * Do not crop the original photo in the modal.
+
+          The key rule is:
+
+          **Already fills box → NO zoom.**
+          **Does not fill box / has white space → zoom IN only that photo until the white space is gone.**
+
+          After implementing, visually inspect all 11 photos in the browser and correct the individual zoom values where necessary.
+
         </Container>
       </section>
 
-      {/* Print Media Clippings */}
+      {/* Event Photos & Press Clippings Gallery */}
       <section className={styles.section} style={{ backgroundColor: '#FAF6FB' }}>
         <Container>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionEyebrow}>PRESS CLIPPINGS</span>
-            <h2 className={styles.sectionTitle}>Print Media Coverage</h2>
+            <span className={styles.sectionEyebrow}>Print Media</span>
+            <h2 className={styles.sectionTitle}>Event Photos &amp; Press Clippings</h2>
             <p className={styles.sectionSubtitle}>
-              Articles, event features, and editorial coverage in leading national and regional daily newspapers.
+              A visual journey of our grassroots impact, community events, and coverage in leading newspapers.
             </p>
           </div>
 
-          <div className={styles.printGrid}>
-            {printArticles.map((article) => (
-              <div key={article.id} className={styles.printCard}>
-                <div className={styles.printImageWrapper}>
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className={styles.printImage}
-                  />
-                </div>
-                <div className={styles.printBody}>
-                  <span className={styles.printDate}>{article.date}</span>
-                  <h3 className={styles.printTitle}>{article.title}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
+          <GalleryClient />
+
+
 
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
             <p style={{ fontSize: '15px', color: '#564861' }}>
