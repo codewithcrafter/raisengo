@@ -33,6 +33,7 @@ export const AwardsRecognition: React.FC = () => {
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw"
                   className={styles.awardImage}
+                  style={award.objectFit ? { objectFit: award.objectFit } : undefined}
                 />
                 {award.year && <span className={styles.badgeYear}>{award.year}</span>}
               </div>

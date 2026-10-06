@@ -45,6 +45,7 @@ export interface Award {
   year?: string;
   description: string;
   image: string;
+  objectFit?: 'cover' | 'contain';
 }
 
 export interface Testimonial {
@@ -551,18 +552,18 @@ export const pastEvents: PastEvent[] = [
 export const awards: Award[] = [
   {
     id: 'aw-1',
-    title: 'Covid Warriors Award',
-    awardedBy: 'Government of Delhi (Presented by MLA Raghav Chadha)',
-    year: '2021',
-    description: 'Awarded by the Delhi Government for outstanding humanitarian relief work, dry ration distribution, and emergency assistance provided during the COVID-19 pandemic across the Rajendra Nagar Assembly Constituency and Delhi.',
-    image: '/images/migrated/awards/covid-warriors-award.webp',
+    title: 'National Safety Day Award 2024',
+    awardedBy: 'Ahluwalia Contracts (India) Ltd.',
+    year: '2024',
+    description: 'Alluwahlia Contracts India Ltd. Presented an award to Raise India Foundation for their outstanding service and dedication towards the weaker section of society on the occasion of National Safety Day.',
+    image: '/images/migrated/awards/award-banner-1.jpg',
   },
   {
     id: 'aw-2',
     title: 'World NGO Day Certificate of Appreciation',
     awardedBy: 'Centre for Sight with NDCFS Foundation',
     year: '2021',
-    description: 'Presented on World NGO Day (27th February 2021) in recognition of outstanding service, selfless dedication, and frontline community support during the pandemic.',
+    description: 'On the occasion of World NGO Day, 27th February 2021, Centre for Sight and with NDCFS Foundation presented Certificate of Appreciation for the outstanding Service and Dedication during COVID-19',
     image: '/images/migrated/awards/world-ngo-day.webp',
   },
   {
@@ -570,7 +571,7 @@ export const awards: Award[] = [
     title: 'Best Volunteer Organization Award',
     awardedBy: 'Health Care & Medical Welfare Consortium',
     year: '2022',
-    description: 'Received multiple accolades for exceptional volunteer mobilization and flawless organization of free rural health and eye check-up camps across underserved communities.',
+    description: 'Raise India Foundation got BEST VOLUNTEER AWARD several times on organizing health checkup camps.',
     image: '/images/migrated/awards/best-volunteer-award.webp',
   },
   {
@@ -578,7 +579,7 @@ export const awards: Award[] = [
     title: 'Women Marathon Run for Health Award',
     awardedBy: 'Delhi University College Network',
     year: '2022',
-    description: 'Awarded for conceptualizing and organizing the "Run for Health, Run for Life" Women Marathon across Delhi University, championing fitness, preventive health, and girl empowerment.',
+    description: 'Raise India Foundation is awarded with a award for Run for Health, Run for Life for organizing Women Marathon in Delhi University College.',
     image: '/images/migrated/awards/women-marathon.webp',
   },
   {
@@ -586,23 +587,24 @@ export const awards: Award[] = [
     title: 'Global NGO Expo Work of Excellence Award',
     awardedBy: 'Global NGO Expo Committee',
     year: '2021',
-    description: 'Honored with the prestigious Work of Excellence Award at the Global NGO Expo 2021 for demonstrating impactful, verifiable community interventions in child education and women’s welfare.',
-    image: '/images/migrated/awards/award-banner-1.jpg',
+    description: 'Raise India Foundation is awarded with the Work of Excellence Award in GLOBAL NGO EXPO AWARD 2021',
+    image: '/images/migrated/awards/exact-uploaded-certificate.jpg',
+    objectFit: 'contain',
   },
   {
     id: 'aw-6',
     title: 'Best Emerging NGO Award',
     awardedBy: 'Chairperson, Grameen Vikas Samiti & SDM',
     year: '2022',
-    description: 'Conferred upon Raise India Foundation for outstanding growth and measurable grassroot impact in primary education and child health across northern states.',
+    description: 'Raise India Foundation is awarded with the Best Emerging NGO by Chairperson Grameen Vikas Samiti SDMC. This award is presented by Smt. Antim Gahlot, Chairperson Grameen Vikas Samiti SDMC for the work done in rural outer Delhi',
     image: '/images/migrated/awards/award-banner-2.webp',
   },
   {
     id: 'aw-7',
-    title: 'National Safety Day Award 2024',
-    awardedBy: 'Ahluwalia Contracts (India) Ltd.',
-    year: '2024',
-    description: 'Presented by infrastructure major Ahluwalia Contracts (India) Ltd. on National Safety Day 2024 in recognition of outstanding social welfare initiatives and hygiene drives conducted for construction workers.',
+    title: 'Covid Warriors Award',
+    awardedBy: 'Government of Delhi (Presented by MLA Raghav Chadha)',
+    year: '2021',
+    description: 'Raise India Foundation is awarded with the COVID WARRIORS AWARD by Delhi Government for the outstanding work done during pandemic. This award is presented by Awarded by Mr. Raghav Chadha, Member of Legislative Assembly, Rajendra Nagar Assembly Constituency, New Delhi.',
     image: '/images/migrated/awards/covid-warriors-award.webp',
   },
   {
@@ -610,7 +612,7 @@ export const awards: Award[] = [
     title: 'Unsung Heroes Covid Warrior Award',
     awardedBy: 'Hon. Sh. Parvesh Sahib Singh Verma, Member of Parliament, West Delhi',
     year: '2021',
-    description: 'Honored by Lok Sabha MP Parvesh Sahib Singh Verma for tireless, brave frontline community relief and ration support during peak pandemic lockdowns.',
+    description: 'Honourable Sh. Parvesh Sahib Singh Verma, Member of Parliament, West Delhi, Lok Sabha Constituency, presented the Unsung Heroes Covid Warrior Award to Raise India Foundation for outstanding contribution in the fight against the COVID-19 pandemic.',
     image: '/images/migrated/awards/world-ngo-day.webp',
   },
   {
@@ -618,8 +620,9 @@ export const awards: Award[] = [
     title: 'Dil Se Salaam – Heart of Humanity Award',
     awardedBy: 'Fortis Hospital & Medical Partners',
     year: '2023',
-    description: 'Received the esteemed "Dil Se Salaam – Heart of Humanity Award" for saving young lives through Mission Little Heartbeats by financing pediatric open-heart surgeries for underprivileged children.',
-    image: '/images/migrated/awards/salam-heart-humanities.webp',
+    description: 'Raise India Foundation received the "Dil Se Salaam – Heart of Humanity Award" from Fortis Hospital, Manesar for launching Project Little Heartbeats, which funds surgeries for children with congenital heart diseases. The day was marked by the successful surgery of Mitanshu, the project\'s first beneficiary.',
+    image: '/images/migrated/awards/dil-se-salaam-awards.jpg',
+    objectFit: 'cover',
   },
 ];
 
