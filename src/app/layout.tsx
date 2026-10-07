@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header/Header";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { BackToTop } from "@/components/ui/BackToTop/BackToTop";
 import { ScrollProgress } from "@/components/ui/ScrollProgress/ScrollProgress";
+import { FloatingTechshala } from "@/components/ui/FloatingTechshala/FloatingTechshala";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -31,6 +32,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <BackToTop />
+        <FloatingTechshala />
       </body>
     </html>
   );

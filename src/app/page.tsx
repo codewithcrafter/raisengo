@@ -6,6 +6,7 @@ import { JourneyTimeline } from '@/components/sections/JourneyTimeline/JourneyTi
 import { FeaturedCampaign } from '@/components/sections/FeaturedCampaign/FeaturedCampaign';
 import { Stories } from '@/components/sections/Stories/Stories';
 import { BlogPreview } from '@/components/sections/BlogPreview/BlogPreview';
+import { Testimonials } from '@/components/sections/Testimonials/Testimonials';
 import { FinalCTA } from '@/components/sections/FinalCTA/FinalCTA';
 
 export default function Home() {
@@ -35,7 +36,10 @@ export default function Home() {
       {/* 9. MEDIA & FIELD DISPATCHES PREVIEW */}
       <BlogPreview />
 
-      {/* 10. FINAL COMPACT CTA */}
+      {/* 10. TESTIMONIALS */}
+      <Testimonials />
+
+      {/* 11. FINAL COMPACT CTA */}
       <FinalCTA />
     </main>
   );

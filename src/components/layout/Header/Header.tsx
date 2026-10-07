@@ -34,7 +34,15 @@ const leftNavLinks: NavItem[] = [
 const rightNavLinks: NavItem[] = [
   { label: 'Media', href: '/media' },
   { label: 'Blog', href: '/blog' },
-  { label: 'CSR', href: '/csr' },
+  { 
+    label: 'Make a Difference', 
+    href: '#',
+    children: [
+      { label: 'CSR', href: '/csr' },
+      { label: 'Internship', href: '/internship' },
+      { label: 'Volunteer', href: '/volunteer' },
+    ],
+  },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -43,8 +51,8 @@ const mobileNavLinks: NavItem[] = [...leftNavLinks, ...rightNavLinks];
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
-  const [isMobileSubmenuOpen, setIsMobileSubmenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
 
   const pathname = usePathname();
   const navContainerRef = useRef<HTMLDivElement>(null);
@@ -69,7 +77,7 @@ export const Header: React.FC = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        if (isDesktopDropdownOpen) setIsDesktopDropdownOpen(false);
+        if (openDropdown) setOpenDropdown(null);
         if (isMobileMenuOpen) setIsMobileMenuOpen(false);
       }
     };
@@ -86,7 +94,7 @@ export const Header: React.FC = () => {
       document.body.style.overflow = '';
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isMobileMenuOpen, isDesktopDropdownOpen]);
+  }, [isMobileMenuOpen, openDropdown]);
 
   // Click outside to close mobile drawer & desktop dropdown
   useEffect(() => {
@@ -95,7 +103,7 @@ export const Header: React.FC = () => {
         setIsMobileMenuOpen(false);
       }
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsDesktopDropdownOpen(false);
+        setOpenDropdown(null);
       }
     };
 
@@ -105,23 +113,23 @@ export const Header: React.FC = () => {
     };
   }, []);
 
-  // Desktop Hover Handlers for Our Work dropdown
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (label: string) => {
     if (leaveTimerRef.current) {
       clearTimeout(leaveTimerRef.current);
       leaveTimerRef.current = null;
     }
-    setIsDesktopDropdownOpen(true);
+    setOpenDropdown(label);
   };
 
   const handleMouseLeave = () => {
     leaveTimerRef.current = setTimeout(() => {
-      setIsDesktopDropdownOpen(false);
+      setOpenDropdown(null);
     }, 180);
   };
 
-  const handleParentClick = (e: React.MouseEvent) => {
-    setIsDesktopDropdownOpen((prev) => !prev);
+  const handleParentClick = (e: React.MouseEvent, label: string) => {
+    e.preventDefault();
+    setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
   const renderNavLink = (link: NavItem) => {
@@ -138,7 +146,7 @@ export const Header: React.FC = () => {
           key={link.label}
           className={`${styles.navItem} ${styles.dropdownItemWrapper}`}
           ref={dropdownRef}
-          onMouseEnter={handleMouseEnter}
+          onMouseEnter={() => handleMouseEnter(link.label)}
           onMouseLeave={handleMouseLeave}
         >
           <div className={styles.dropdownTriggerGroup}>
@@ -148,13 +156,13 @@ export const Header: React.FC = () => {
                 isParentActive ? styles.active : ''
               }`}
               aria-haspopup="true"
-              aria-expanded={isDesktopDropdownOpen}
-              onClick={handleParentClick}
+              aria-expanded={openDropdown === link.label}
+              onClick={(e) => handleParentClick(e, link.label)}
             >
               <span className={styles.linkLabel}>{link.label}</span>
               <span
                 className={`${styles.chevron} ${
-                  isDesktopDropdownOpen ? styles.chevronRotated : ''
+                  openDropdown === link.label ? styles.chevronRotated : ''
                 }`}
                 aria-hidden="true"
               >
@@ -172,7 +180,7 @@ export const Header: React.FC = () => {
           {/* Dropdown Menu Panel */}
           <div
             className={`${styles.dropdownMenu} ${
-              isDesktopDropdownOpen ? styles.dropdownMenuOpen : ''
+              openDropdown === link.label ? styles.dropdownMenuOpen : ''
             }`}
             role="menu"
             aria-label={`${link.label} Submenu`}
@@ -188,7 +196,7 @@ export const Header: React.FC = () => {
                         isChildActive ? styles.dropdownActive : ''
                       }`}
                       role="menuitem"
-                      onClick={() => setIsDesktopDropdownOpen(false)}
+                      onClick={() => setOpenDropdown(null)}
                     >
                       <span>{child.label}</span>
                       {isChildActive && (
@@ -309,13 +317,13 @@ export const Header: React.FC = () => {
                           className={`${styles.mobileNavLink} ${styles.mobileSubmenuToggle} ${
                             isParentActive ? styles.mobileActive : ''
                           }`}
-                          onClick={() => setIsMobileSubmenuOpen(!isMobileSubmenuOpen)}
-                          aria-expanded={isMobileSubmenuOpen}
+                          onClick={() => setOpenMobileSubmenu(openMobileSubmenu === link.label ? null : link.label)}
+                          aria-expanded={openMobileSubmenu === link.label}
                         >
                           <span>{link.label}</span>
                           <span
                             className={`${styles.mobileChevron} ${
-                              isMobileSubmenuOpen ? styles.mobileChevronRotated : ''
+                              openMobileSubmenu === link.label ? styles.mobileChevronRotated : ''
                             }`}
                           >
                             ▾
@@ -323,7 +331,7 @@ export const Header: React.FC = () => {
                         </button>
 
                         {/* Mobile Expandable Submenu */}
-                        {isMobileSubmenuOpen && (
+                        {openMobileSubmenu === link.label && (
                           <ul className={styles.mobileSubmenuList}>
                             {link.children?.map((child) => {
                               const isChildActive = pathname === child.href;
