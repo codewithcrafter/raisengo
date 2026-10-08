@@ -165,10 +165,7 @@ export const FeaturedCampaign: React.FC = () => {
 
               {/* Actions */}
               <div className={styles.actions}>
-                <Link href="/donate" className={styles.primaryBtn}>
-                  <span>DONATE FOR SURGERY</span>
-                  <span className={styles.arrow} aria-hidden="true">→</span>
-                </Link>
+
                 <Link href="/our-work/healthcare" className={styles.secondaryLink}>
                   <span className={styles.secTextWrapper}>
                     <span>MISSION DETAILS</span>

@@ -62,10 +62,7 @@ export default function SeasonalProjectsPage() {
                   <div className={styles.impactBadge}>
                     <span>Documented Outcome:</span> {project.impactMetric}
                   </div>
-                  <Link href={project.ctaLink || '/donate'} className={styles.ctaBtn}>
-                    <span>{project.ctaText || 'Support This Drive'}</span>
-                    <span>→</span>
-                  </Link>
+
                   <div style={{ marginTop: '16px' }}>
                     <Link href={`/our-work/seasonal-projects/${project.slug}`} style={{ fontSize: '14px', fontWeight: 600, color: '#814CBA', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                       View Details <span>→</span>

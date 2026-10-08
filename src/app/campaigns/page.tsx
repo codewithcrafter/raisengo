@@ -54,9 +54,7 @@ export default function CampaignsPage() {
                 <Link href={`/campaigns/${featuredCampaign.slug}`} className={styles.readMoreBtn}>
                   Campaign Details
                 </Link>
-                <Link href="/donate" className={styles.donateBtn}>
-                  Donate Now
-                </Link>
+
               </div>
             </div>
           </div>

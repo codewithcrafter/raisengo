@@ -15,7 +15,7 @@ export const slides = [
     headline: ['A New Way of', 'Giving ', 'Life', '.'],
     highlightWord: 'Life',
     description: 'Dedicated to the holistic development of underprivileged communities across India through education, healthcare, and empowerment since 2014.',
-    primaryCta: { label: 'Donate Now', href: '/donate' },
+
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-1.jpg',
     placeholderBg: 'linear-gradient(135deg, #2D1145 0%, #5A2D7E 50%, #E0679D 100%)',
@@ -28,7 +28,7 @@ export const slides = [
     headline: ['Healing Children Born with', 'Congenital ', 'Heart Defects', '.'],
     highlightWord: 'Heart Defects',
     description: 'In partnership with Fortis Escorts Heart Institute, sponsoring critical open-heart surgeries for children from impoverished families.',
-    primaryCta: { label: 'Donate Now', href: '/donate' },
+
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-2.jpg',
     placeholderBg: 'linear-gradient(135deg, #1C0A2E 0%, #2D1145 50%, #814CBA 100%)',
@@ -41,7 +41,7 @@ export const slides = [
     headline: ['Empowering 18,050+ Children with', 'Quality ', 'Education', '.'],
     highlightWord: 'Education',
     description: 'Free learning centers and modern digital labs supported by Konverge Technologies, equipping marginalized youth for the digital era.',
-    primaryCta: { label: 'Donate Now', href: '/donate' },
+
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-3.jpg',
     placeholderBg: 'linear-gradient(135deg, #3E1D5B 0%, #814CBA 70%, #E0679D 100%)',
@@ -54,7 +54,7 @@ export const slides = [
     headline: ['Dignity and Hygiene for', 'Every ', 'Woman', '.'],
     highlightWord: 'Woman',
     description: 'Breaking taboos with menstrual awareness camps and distributing 12,000+ hygiene dignity kits to female construction workers across NCR.',
-    primaryCta: { label: 'Donate Now', href: '/donate' },
+
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-4.png',
     placeholderBg: 'linear-gradient(160deg, #E0679D 0%, #814CBA 60%, #2D1145 100%)',
@@ -448,10 +448,7 @@ function SlideContent({ slide, isActive, isFirstSlide, isPriority }: { slide: ty
           <p className={styles.description}>{slide.description}</p>
 
           <div className={styles.actions}>
-            <Link href={slide.primaryCta.href} className={styles.primaryBtn}>
-              <span className={styles.primaryBtnText}>{slide.primaryCta.label}</span>
-              <span className={styles.btnShimmer} aria-hidden="true" />
-            </Link>
+
 
             <Link href={slide.secondaryCta.href} className={styles.secondaryBtn}>
               <span>{slide.secondaryCta.label}</span>

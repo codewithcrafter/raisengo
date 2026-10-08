@@ -142,13 +142,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, categoryN
 
             {/* SIDEBAR CTA */}
             <aside className={styles.sidebar}>
-              <div className={styles.ctaBox}>
-                <h3 className={styles.ctaTitle}>Make an Impact Today</h3>
-                <p className={styles.ctaText}>Your contribution helps us sustain and expand this vital initiative.</p>
-                <Link href={project.ctaLink || '/donate'} className={styles.ctaPrimaryBtn}>
-                  {project.ctaText || 'Donate Now'}
-                </Link>
-              </div>
+
               <div className={styles.backLinkBox}>
                 <Link href={categoryLink} className={styles.backLink}>
                   ← Back to {categoryName}

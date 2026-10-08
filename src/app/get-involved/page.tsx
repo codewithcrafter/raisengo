@@ -28,26 +28,6 @@ export default function GetInvolvedPage() {
         <Container>
           <div className={styles.grid}>
             <div className={styles.pathwayCard}>
-              <div className={`${styles.imageWrapper} ${styles.imgDonate}`}></div>
-              <div className={styles.content}>
-                <span className={styles.cardLabel}>Donate</span>
-                <h2>Give Financially</h2>
-                <p>Your financial support directly funds our programs in education, healthcare, and livelihood, reaching those who need it most.</p>
-                <Link href="/donate" className={styles.actionBtn}>Make a Contribution</Link>
-              </div>
-            </div>
-
-            <div className={styles.pathwayCard}>
-              <div className={`${styles.imageWrapper} ${styles.imgVolunteer}`}></div>
-              <div className={styles.content}>
-                <span className={styles.cardLabel}>Volunteer</span>
-                <h2>Give Your Time</h2>
-                <p>Give your time and skills. Join our community of dedicated volunteers and experience the profound joy of giving back on the ground.</p>
-                <Link href="/volunteer" className={styles.actionBtn}>Join Our Team</Link>
-              </div>
-            </div>
-
-            <div className={styles.pathwayCard}>
               <div className={`${styles.imageWrapper} ${styles.imgPartner}`}></div>
               <div className={styles.content}>
                 <span className={styles.cardLabel}>Partner</span>

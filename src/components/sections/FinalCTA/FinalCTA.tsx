@@ -27,10 +27,7 @@ export const FinalCTA: React.FC = () => {
           {/* Right Column: Actions */}
           <div className={styles.rightColumn}>
             <div className={styles.actionCard}>
-              <Link href="/donate" className={styles.primaryBtn}>
-                <span>Donate Now</span>
-                <span className={styles.arrow} aria-hidden="true">→</span>
-              </Link>
+
               <Link href="/our-work" className={styles.secondaryBtn}>
                 <span>Explore Our Work</span>
                 <span className={styles.arrow} aria-hidden="true">→</span>

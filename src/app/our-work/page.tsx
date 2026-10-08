@@ -80,9 +80,7 @@ export default function OurWorkPage() {
                 </div>
 
                 <div className={styles.featuredActions}>
-                  <Link href="/donate" className={styles.btnPrimary}>
-                    Donate to Medical Fund →
-                  </Link>
+
                 </div>
               </div>
             </div>

@@ -47,64 +47,6 @@ export const GetInvolved: React.FC = () => {
         </div>
 
         <div className={styles.grid}>
-          {/* Donate Card (Featured/Large) */}
-          <article className={`${styles.donateCard} interaction-card ${styles.revealHidden}`}>
-            <Link href="#donate" className={styles.cardLink}>
-              <div className={`${styles.imageBackgroundWrapper} interaction-image-wrapper`}>
-                <Image 
-                  src="/images/get-involved/donate.jpg" 
-                  alt="Children smiling in a community program" 
-                  fill 
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  className={`${styles.image} interaction-image`} 
-                />
-                <div className={styles.gradientOverlay}></div>
-              </div>
-              <div className={styles.cardContent}>
-                <div className={styles.cardHeader}>
-                  <span className={styles.cardNumber}>01</span>
-                  <span className={styles.cardTitle}>DONATE</span>
-                </div>
-                <h3 className={styles.cardHighlight}>Give resources.</h3>
-                <p className={styles.cardDescription}>
-                  Your financial support allows us to fund education, healthcare, and livelihood programs.
-                </p>
-                <div className={styles.primaryCta}>
-                  MAKE A DONATION <span className={`${styles.arrow} interaction-arrow`}>→</span>
-                </div>
-              </div>
-              <div className={styles.decorativeArc}></div>
-            </Link>
-          </article>
-
-          {/* Volunteer Card */}
-          <article className={`${styles.standardCard} ${styles.volunteerCard} interaction-card ${styles.revealHidden}`}>
-            <Link href="#volunteer" className={styles.cardLink}>
-              <div className={`${styles.imageWrapper} interaction-image-wrapper`}>
-                <Image 
-                  src="/images/get-involved/volunteer.jpg" 
-                  alt="Volunteers interacting with community members" 
-                  fill 
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className={`${styles.image} interaction-image`} 
-                />
-              </div>
-              <div className={styles.cardContent}>
-                <div className={styles.cardHeader}>
-                  <span className={styles.cardNumber}>02</span>
-                  <span className={styles.cardTitle}>VOLUNTEER</span>
-                </div>
-                <h3 className={styles.cardHighlight}>Give your time.</h3>
-                <p className={styles.cardDescription}>
-                  Give your time and skills to help us on the ground. Join our community of dedicated volunteers.
-                </p>
-                <div className={styles.editorialCta}>
-                  JOIN OUR TEAM <span className={`${styles.arrow} interaction-arrow`}>→</span>
-                </div>
-              </div>
-            </Link>
-          </article>
-
           {/* Partner Card */}
           <article className={`${styles.standardCard} ${styles.partnerCard} interaction-card ${styles.revealHidden}`}>
             <Link href="#partner" className={styles.cardLink}>

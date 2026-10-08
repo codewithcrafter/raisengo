@@ -113,17 +113,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               </div>
             </div>
 
-            <aside>
-              <div className={styles.sidebarCard}>
-                <h3 className={styles.sidebarTitle}>Support Our Work</h3>
-                <p className={styles.sidebarText}>
-                  Your tax-deductible contribution under Section 80G powers life-saving child surgeries, free education, and emergency disaster relief across India.
-                </p>
-                <Link href="/donate" className={styles.donateBtn}>
-                  Contribute Today →
-                </Link>
-              </div>
-            </aside>
+
           </div>
         </Container>
       </section>

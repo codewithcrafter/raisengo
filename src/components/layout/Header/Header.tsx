@@ -39,8 +39,6 @@ const rightNavLinks: NavItem[] = [
     href: '#',
     children: [
       { label: 'CSR', href: '/csr' },
-      { label: 'Internship', href: '/internship' },
-      { label: 'Volunteer', href: '/volunteer' },
     ],
   },
   { label: 'Contact', href: '/contact' },
@@ -56,7 +54,6 @@ export const Header: React.FC = () => {
 
   const pathname = usePathname();
   const navContainerRef = useRef<HTMLDivElement>(null);
-  const dropdownRef = useRef<HTMLLIElement>(null);
   const leaveTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Scroll compaction listener
@@ -99,10 +96,14 @@ export const Header: React.FC = () => {
   // Click outside to close mobile drawer & desktop dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (navContainerRef.current && !navContainerRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (navContainerRef.current && !navContainerRef.current.contains(target)) {
         setIsMobileMenuOpen(false);
       }
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      
+      // Close dropdown if clicking outside of any dropdown wrapper
+      const isDropdownClick = (target as HTMLElement).closest && (target as HTMLElement).closest('[data-dropdown-wrapper="true"]');
+      if (!isDropdownClick) {
         setOpenDropdown(null);
       }
     };
@@ -145,7 +146,7 @@ export const Header: React.FC = () => {
         <li
           key={link.label}
           className={`${styles.navItem} ${styles.dropdownItemWrapper}`}
-          ref={dropdownRef}
+          data-dropdown-wrapper="true"
           onMouseEnter={() => handleMouseEnter(link.label)}
           onMouseLeave={handleMouseLeave}
         >
@@ -179,7 +180,7 @@ export const Header: React.FC = () => {
 
           {/* Dropdown Menu Panel */}
           <div
-            className={`${styles.dropdownMenu} ${
+            className={`absolute z-50 bg-white shadow-lg ${styles.dropdownMenu} ${
               openDropdown === link.label ? styles.dropdownMenuOpen : ''
             }`}
             role="menu"
@@ -264,12 +265,11 @@ export const Header: React.FC = () => {
               <ul className={styles.navList}>{rightNavLinks.map(renderNavLink)}</ul>
             </nav>
 
-            <Link href="/donate" className={styles.donateBtn}>
-              <span>DONATE NOW</span>
-              <span className={styles.btnHeart} aria-hidden="true">
-                ♥
-              </span>
-              <span className={styles.btnShimmer} aria-hidden="true" />
+            <Link 
+              href="/donate" 
+              className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-[#E83E8C] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:shadow-[#E83E8C]/30 hover:-translate-y-1 transition-all duration-500 ease-out tracking-wide ml-6"
+            >
+              DONATE
             </Link>
 
             {/* Mobile Hamburger Toggle Button */}
@@ -386,13 +386,12 @@ export const Header: React.FC = () => {
             </nav>
 
             <div className={styles.mobileDrawerFooter}>
-              <Link
-                href="/donate"
-                className={styles.mobileDonateBtn}
+              <Link 
+                href="/donate" 
+                className="w-full flex items-center justify-center px-8 py-4 bg-[#E83E8C] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:shadow-[#E83E8C]/30 hover:-translate-y-1 transition-all duration-500 ease-out tracking-wide"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span>DONATE NOW</span>
-                <span className={styles.arrowIcon}>→</span>
+                DONATE NOW
               </Link>
             </div>
           </div>
