@@ -12,7 +12,7 @@ export const ongoingProjects = [
     impactMetric: '18,050+ Students Benefited',
     image: '/images/migrated/events/agra-shikshalaya.webp',
     ctaText: 'Support Shikshalaya',
-    ctaLink: '/donate?cause=shikshalaya',
+    ctaLink: '/get-involved',
     seo: {
       metaTitle: 'Shikshalaya Free Learning Centers | Raise India Foundation',
       metaDescription: 'Providing quality elementary education and literacy to children in urban slums and rural settlements across Delhi and Agra.',
@@ -46,7 +46,7 @@ export const ongoingProjects = [
     impactMetric: 'Daily Computer Literacy Batches',
     image: '/images/migrated/partners/csr-partnership-2.webp',
     ctaText: 'Learn About Techshaala',
-    ctaLink: '/donate?cause=techshaala',
+    ctaLink: '/get-involved',
     seo: {
       metaTitle: 'Techshaala Digital Learning Lab | Raise India Foundation',
       metaDescription: 'Bridging the digital divide by providing computer literacy, office tools, and coding education to underprivileged youth.',
@@ -80,7 +80,7 @@ export const ongoingProjects = [
     impactMetric: '14+ Surgeries Successfully Completed',
     image: '/images/migrated/events/world-heart-day.webp',
     ctaText: 'Heal a Little Heart',
-    ctaLink: '/donate?cause=little-heartbeats',
+    ctaLink: '/get-involved',
     seo: {
       metaTitle: 'Mission Little Heartbeats | Raise India Foundation',
       metaDescription: 'Funding life-saving pediatric cardiac surgeries for underprivileged children in partnership with Fortis Hospital.',
@@ -114,7 +114,7 @@ export const ongoingProjects = [
     impactMetric: 'Thousands of Women Supported Monthly',
     image: '/images/migrated/partners/csr-partnership-1.webp',
     ctaText: 'Sponsor a Dignity Kit',
-    ctaLink: '/donate?cause=chuppi-todo',
+    ctaLink: '/get-involved',
     seo: {
       metaTitle: 'Chuppi Todo (Menstrual Hygiene) | Raise India Foundation',
       metaDescription: 'Breaking the silence on menstrual health by distributing Dignity Kits and educating women in marginalized communities.',

@@ -313,7 +313,7 @@ export const ongoingProjects: Project[] = [
     impactMetric: '18,050+ Students Benefited',
     image: '/images/migrated/events/agra-shikshalaya.webp',
     ctaText: 'Support Shikshalaya',
-    ctaLink: '/donate',
+    ctaLink: '/get-involved',
   },
   {
     id: 'on-2',
@@ -339,7 +339,7 @@ export const ongoingProjects: Project[] = [
     impactMetric: '14+ Surgeries Successfully Completed',
     image: '/images/migrated/events/world-heart-day.webp',
     ctaText: 'Heal a Little Heart',
-    ctaLink: '/donate',
+    ctaLink: '/get-involved',
   },
   {
     id: 'on-4',
@@ -351,7 +351,7 @@ export const ongoingProjects: Project[] = [
     impactMetric: 'Thousands of Women Supported Monthly',
     image: '/images/migrated/partners/csr-partnership-1.webp',
     ctaText: 'Sponsor a Dignity Kit',
-    ctaLink: '/donate',
+    ctaLink: '/get-involved',
   },
 ];
 
@@ -367,7 +367,7 @@ export const seasonalProjects: Project[] = [
     impactMetric: 'Thousands Protected Every Heatwave',
     image: '/images/migrated/events/tapan.webp',
     ctaText: 'Support Summer Relief',
-    ctaLink: '/donate',
+    ctaLink: '/get-involved',
   },
   {
     id: 'seas-2',
@@ -380,7 +380,7 @@ export const seasonalProjects: Project[] = [
     impactMetric: '10+ Consecutive Winter Drives Since 2014',
     image: '/images/migrated/events/kambal-udhao.webp',
     ctaText: 'Donate a Blanket',
-    ctaLink: '/donate',
+    ctaLink: '/get-involved',
   },
   {
     id: 'seas-3',
@@ -393,7 +393,7 @@ export const seasonalProjects: Project[] = [
     impactMetric: 'Hundreds of Festive Hampers Distributed Annually',
     image: '/images/migrated/events/khushiyon-ki-potli.webp',
     ctaText: 'Share Festive Joy',
-    ctaLink: '/donate',
+    ctaLink: '/get-involved',
   },
   {
     id: 'seas-4',
@@ -406,7 +406,7 @@ export const seasonalProjects: Project[] = [
     impactMetric: 'Immediate Aid for Flood Evacuees',
     image: '/images/migrated/events/flood-relief.jpg',
     ctaText: 'Support Disaster Fund',
-    ctaLink: '/donate',
+    ctaLink: '/get-involved',
   },
 ];
 

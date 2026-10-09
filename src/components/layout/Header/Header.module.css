@@ -46,38 +46,34 @@
 
 .navContainer,
 .navGridContainer {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  width: 100%;
-  gap: 16px;
-}
-
-.leftNavZone {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding-right: 12px;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
 }
 
 .logoZone {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.centerNavZone {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 0 8px;
+  flex: 1;
 }
 
 .rightNavZone {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: clamp(14px, 1.8vw, 24px);
-  padding-left: 12px;
-}
-
-.rightNavLinks {
-  display: flex;
-  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  gap: clamp(12px, 1.5vw, 20px);
 }
 
 /* ══════════════════════════════════════════════
@@ -361,17 +357,17 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 8px 16px;
+  padding: 8px 18px;
   min-height: 38px;
-  background: linear-gradient(135deg, #E0679D 0%, #814CBA 100%);
+  background: #E53E3E;
   color: #FFFFFF;
   font-size: 13.5px;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   text-transform: none;
-  border-radius: 8px;
+  border-radius: 9999px;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(224, 103, 157, 0.25);
+  box-shadow: 0 2px 10px rgba(229, 62, 62, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
   position: relative;
@@ -380,8 +376,9 @@
 }
 
 .donateBtn:hover {
+  background: #C53030;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(224, 103, 157, 0.35);
+  box-shadow: 0 4px 16px rgba(229, 62, 62, 0.45);
 }
 
 .donateBtn:active {
@@ -390,7 +387,13 @@
 
 .donateBtn:focus-visible {
   outline: 2px solid #E0679D;
-  outline-offset: 2px;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.35);
+}
+
+.donateBtnActive {
+  background: #C53030;
+  box-shadow: 0 3px 14px rgba(197, 48, 48, 0.5), inset 0 0 0 1.5px rgba(255, 255, 255, 0.4);
 }
 
 .btnHeart {
@@ -591,17 +594,35 @@
   justify-content: center;
   gap: 10px;
   width: 100%;
-  padding: 11px 16px;
-  min-height: 42px;
-  background: linear-gradient(135deg, #E0679D 0%, #814CBA 100%);
+  padding: 12px 18px;
+  min-height: 44px;
+  background: #E53E3E;
   color: #FFFFFF;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   text-transform: none;
-  border-radius: 8px;
+  border-radius: 9999px;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(224, 103, 157, 0.25);
+  box-shadow: 0 2px 10px rgba(229, 62, 62, 0.35);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  outline: none;
+}
+
+.mobileDonateBtn:hover {
+  background: #C53030;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(229, 62, 62, 0.45);
+}
+
+.mobileDonateBtn:active {
+  transform: scale(0.98);
+}
+
+.mobileDonateBtn:focus-visible {
+  outline: 2px solid #E0679D;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.35);
 }
 
 .arrowIcon {
@@ -633,7 +654,9 @@
   }
 
   .leftNavZone,
-  .rightNavLinks {
+  .rightNavLinks,
+  .centerNavZone,
+  .donateBtn {
     display: none;
   }
 
@@ -665,6 +688,7 @@
   .navLink,
   .activeLine,
   .donateBtn,
+  .mobileDonateBtn,
   .mobileDrawer,
   .mobileNavItem,
   .bar {

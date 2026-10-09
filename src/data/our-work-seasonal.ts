@@ -12,7 +12,7 @@ export const seasonalProjects = [
     impactMetric: 'Thousands Protected Every Heatwave',
     image: '/images/migrated/events/tapan.webp',
     ctaText: 'Support Summer Relief',
-    ctaLink: '/donate?cause=project-tapan',
+    ctaLink: '/get-involved',
     seo: {
       metaTitle: 'Project Tapan (Summer Heat Relief) | Raise India Foundation',
       metaDescription: 'Project Tapan delivers life-saving heat protection directly to street vendors, traffic workers, and daily wage earners during extreme summer heatwaves.',
@@ -46,7 +46,7 @@ export const seasonalProjects = [
     impactMetric: '10+ Consecutive Winter Drives Since 2014',
     image: '/images/migrated/events/kambal-udhao.webp',
     ctaText: 'Donate a Blanket',
-    ctaLink: '/donate?cause=kambal-udhao',
+    ctaLink: '/get-involved',
     seo: {
       metaTitle: 'Kambal Udhao Zindagi Bachao | Raise India Foundation',
       metaDescription: 'Our flagship winter initiative distributing warm blankets to pavement dwellers and outdoor laborers during bitter winter nights.',
@@ -80,7 +80,7 @@ export const seasonalProjects = [
     impactMetric: 'Hundreds of Festive Hampers Distributed Annually',
     image: '/images/migrated/events/khushiyon-ki-potli.webp',
     ctaText: 'Share Festive Joy',
-    ctaLink: '/donate?cause=khushiyon-ki-potli',
+    ctaLink: '/get-involved',
     seo: {
       metaTitle: 'Khushiyon Ki Potli (Diwali Festive Drive) | Raise India Foundation',
       metaDescription: 'Spreading joy during Deepawali through curated gift hampers and essentials for vulnerable families and orphans.',
@@ -114,7 +114,7 @@ export const seasonalProjects = [
     impactMetric: 'Immediate Aid for Flood Evacuees',
     image: '/images/migrated/events/flood-relief.jpg',
     ctaText: 'Support Disaster Fund',
-    ctaLink: '/donate?cause=flood-relief',
+    ctaLink: '/get-involved',
     seo: {
       metaTitle: 'Yamuna Monsoon Flood Relief | Raise India Foundation',
       metaDescription: 'Emergency relief efforts during Yamuna river flooding, providing shelter, rations, and medical aid to displaced families.',

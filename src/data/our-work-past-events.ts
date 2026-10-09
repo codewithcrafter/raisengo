@@ -14,7 +14,7 @@ export const pastEvents = [
     highlights: ['Distributed school bags and complete stationery kits', 'Motivational interactions with volunteer mentors', 'Parent-teacher orientation on regular attendance'],
     image: '/images/migrated/events/education-kit.webp',
     ctaLabel: 'Support Education',
-    ctaLink: '/donate?cause=education-kit',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Education Kit Distribution Drive | Raise India', metaDescription: 'Distribution of educational kits at Shikshalaya centers.' },
     details: {
       about: 'The Education Kit Distribution Drive was organized across our Shikshalaya centers in Delhi and Agra to equip our first-generation learners with all necessary academic tools for the new school term.',
@@ -43,7 +43,7 @@ export const pastEvents = [
     highlights: ['Permanent learning space equipped with study materials', 'Inaugural ceremony attended by community leaders', 'Enrollment of over 100 first-generation learners'],
     image: '/images/migrated/events/agra-shikshalaya.webp',
     ctaLabel: 'Support Agra Center',
-    ctaLink: '/donate?cause=agra-shikshalaya',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Agra Shikshalaya Inauguration | Raise India', metaDescription: 'Inauguration of our dedicated learning center in Agra.' },
     details: {
       about: 'The inauguration of the Agra Shikshalaya center marked a significant milestone in our mission to expand educational access. Located in a densely populated area, the center was set up to serve children from nearby informal settlements who previously had no access to schooling.',
@@ -72,7 +72,7 @@ export const pastEvents = [
     highlights: ['Direct aid distribution in evacuated flood camps', 'Provision of clean drinking water and dry rations', 'First-aid and sanitation supplies delivered'],
     image: '/images/migrated/events/flood-relief.jpg',
     ctaLabel: 'Donate to Relief Fund',
-    ctaLink: '/donate?cause=flood-relief',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Delhi Flood Relief Operations | Raise India', metaDescription: 'Emergency flood relief operations in Delhi during the 2023 monsoon.' },
     details: {
       about: 'During the severe monsoon flooding of the Yamuna river in 2023, our emergency response teams were deployed to the worst-hit areas along the floodplains. We set up relief distribution points in evacuation camps to assist displaced families.',
@@ -101,7 +101,7 @@ export const pastEvents = [
     highlights: ['Distribution of educational supplies and books', 'Creative arts and storytelling workshops', 'Celebration of youth and companionship'],
     image: '/images/migrated/events/sweet-home-orphanage.webp',
     ctaLabel: 'Support Orphanages',
-    ctaLink: '/donate?cause=orphanage-outreach',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Sweet Home Orphanage Outreach | Raise India', metaDescription: 'A day of joy, learning, and support at the Sweet Home Orphanage for Girls.' },
     details: {
       about: 'Our volunteer network organized a full-day outreach program at the Sweet Home Orphanage for Girls. The event was focused on bringing joy, emotional support, and essential supplies to the residents, creating a memorable experience for everyone involved.',
@@ -130,7 +130,7 @@ export const pastEvents = [
     highlights: ['Free vision testing and prescription eyeglasses distribution', 'Dental check-ups, cleanings, and oral hygiene kits', 'Doctor counseling on preventive healthcare'],
     image: '/images/migrated/events/dental-eye-checkup.webp',
     ctaLabel: 'Support Health Camps',
-    ctaLink: '/donate?cause=health-camps',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Dental and Eye Check-Up Camp | Raise India', metaDescription: 'Free dental and vision screening camp for underprivileged communities in New Delhi.' },
     details: {
       about: 'We hosted a large-scale, comprehensive dental and eye check-up camp in New Delhi, mobilizing specialized doctors to provide free screenings to residents of nearby low-income neighborhoods who otherwise lack access to basic healthcare.',
@@ -159,7 +159,7 @@ export const pastEvents = [
     highlights: ['Specialist pediatric cardiologist consultations', 'Screening sessions identifying children with heart murmurs', 'Awareness lectures for parents on CHD symptoms'],
     image: '/images/migrated/events/world-heart-day.webp',
     ctaLabel: 'Fund Heart Surgeries',
-    ctaLink: '/donate?cause=little-heartbeats',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'World Heart Day Awareness | Raise India', metaDescription: 'Pediatric heart screening and awareness camps conducted on World Heart Day.' },
     details: {
       about: 'To mark World Heart Day, we expanded our Mission Little Heartbeats initiative by hosting widespread awareness campaigns and specialized pediatric cardiac screening camps across multiple locations in NCR, aimed at early detection of Congenital Heart Disease (CHD).',
@@ -188,7 +188,7 @@ export const pastEvents = [
     highlights: ['Plantation of native shade and air-purifying trees', 'Pledge campaign against single-use plastics', 'Youth volunteer participation across Delhi'],
     image: '/images/migrated/events/environmental-threat.webp',
     ctaLabel: 'Support Green Drives',
-    ctaLink: '/donate?cause=environment',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Environmental Threat Day Green Drive | Raise India', metaDescription: 'Tree plantation and environmental awareness campaign across Delhi NCR.' },
     details: {
       about: 'On Environmental Threat Day, Raise India Foundation mobilized hundreds of youth volunteers for a massive urban greening and awareness campaign. The event focused on combating Delhi\'s severe air pollution and degrading urban ecosystem.',
@@ -217,7 +217,7 @@ export const pastEvents = [
     highlights: ['Festive hampers distributed to over 500 households', 'Celebration with children at Shikshalaya learning centers', 'Creating inclusive festive cheer for all'],
     image: '/images/migrated/events/khushiyon-ki-potli.webp',
     ctaLabel: 'Share Festive Joy',
-    ctaLink: '/donate?cause=khushiyon-ki-potli',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Deepawali Celebration Drive | Raise India', metaDescription: 'Distributing festive hampers and spreading joy in underserved communities during Deepawali.' },
     details: {
       about: 'Our 2023 Khushiyon Ki Potli drive was our largest Deepawali celebration to date. Volunteer teams fanned out across several informal settlements in Delhi and UP, delivering beautifully packed hampers to ensure that economic hardship did not dim the festival of lights for these families.',
@@ -246,7 +246,7 @@ export const pastEvents = [
     highlights: ['Nutritious cooked meals and fresh fruit distribution', 'Supporting attendants of critically ill patients', 'Fostering dignity and empathy in hospital waiting areas'],
     image: '/images/migrated/events/pitru-paksha.webp',
     ctaLabel: 'Support Food Drives',
-    ctaLink: '/donate?cause=food-outreach',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Pitru Paksha Food Outreach | Raise India', metaDescription: 'Distribution of meals and nutrition to hospital attendants during Pitru Paksha.' },
     details: {
       about: 'Honoring the tradition of giving during the Pitru Paksha period, we organized a massive food outreach program targeting the often-overlooked attendants of patients at large government hospitals in Delhi, who frequently camp on pavements for weeks.',
@@ -275,7 +275,7 @@ export const pastEvents = [
     highlights: ['Late-night on-street direct blanket distribution', 'Over 2,000+ heavy woolen blankets provided', 'Thermal jackets and caps distributed to street children'],
     image: '/images/migrated/events/kambal-udhao.webp',
     ctaLabel: 'Donate Blankets',
-    ctaLink: '/donate?cause=kambal-udhao',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Winter Blanket Relief Drive | Raise India', metaDescription: 'Distributing heavy woolen blankets to the homeless during freezing Delhi winters.' },
     details: {
       about: 'The 2023-2024 iteration of our Kambal Udhao campaign was executed during one of the coldest winters recorded in recent years. Our volunteer convoys navigated the city between midnight and 3 AM to ensure blankets reached the genuinely destitute sleeping on pavements.',
@@ -304,7 +304,7 @@ export const pastEvents = [
     highlights: ['Community feast feeding hundreds of attendees', 'Distribution of seasonal clothing and sweets', 'Fostering brotherhood and community harmony'],
     image: '/images/migrated/events/ram-mahotsav.webp',
     ctaLabel: 'Support Community Feasts',
-    ctaLink: '/donate?cause=community-feasts',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Ram Mahotsav Community Feast | Raise India', metaDescription: 'A massive community bhandara and feast organized in Delhi.' },
     details: {
       about: 'To mark a day of national and cultural significance, we organized the Ram Mahotsav community feast. The event brought together people from various walks of life, focusing on feeding the underprivileged and celebrating unity, peace, and shared joy.',
@@ -333,7 +333,7 @@ export const pastEvents = [
     highlights: ['Distribution of sanitary hygiene dignity kits', 'Interactive session on women’s health and rights', 'Showcasing products crafted by our vocational women trainees'],
     image: '/images/migrated/events/womens-day.webp',
     ctaLabel: 'Empower Women',
-    ctaLink: '/donate?cause=womens-empowerment',
+    ctaLink: '/get-involved',
     seo: { metaTitle: 'Women\'s Day Health Camp | Raise India', metaDescription: 'Celebrating International Women\'s Day with health camps and empowerment workshops.' },
     details: {
       about: 'We celebrated International Women\'s Day by organizing a mega health and empowerment camp at our centers. The event was a culmination of our year-round efforts to uplift marginalized women, featuring health check-ups, awareness talks, and an exhibition of products made by our vocational trainees.',
@@ -362,7 +362,7 @@ export const pastEvents = [
     highlights: ['Over 10,000 liters of potable chilled water distributed', 'Hundreds of ORS electrolyte sachets handed out', 'Sturdy footwear provided to barefoot street workers'],
     image: '/images/migrated/events/tapan.webp',
     ctaLabel: 'Support Summer Relief',
-    ctaLink: '/donate?cause=project-tapan',
+    ctaLink: '/get-involved',
     seo: { metaTitle: '2024 Summer Heat Relief Drive | Raise India', metaDescription: 'Emergency hydration and heat protection drive during the 49°C heatwave in Delhi.' },
     details: {
       about: 'During the unprecedented heatwave of summer 2024, where temperatures touched 49°C, we rapidly scaled up Project Tapan. Our volunteers and mobile water tankers hit the streets daily, targeting the most exposed workers at traffic signals, construction sites, and markets.',

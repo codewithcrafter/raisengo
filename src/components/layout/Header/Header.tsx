@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { Heart } from 'lucide-react';
 import styles from './Header.module.css';
 
 interface NavSubItem {
@@ -237,15 +238,10 @@ export const Header: React.FC = () => {
       <div className={styles.navGlow} aria-hidden="true" />
 
       <div className={styles.container} ref={navContainerRef}>
-        {/* DESKTOP CENTERED LOGO GRID CONTAINER */}
+        {/* DESKTOP HEADER CONTAINER: LOGO LEFT, LINKS CENTER, DONATE RIGHT */}
         <div className={styles.navGridContainer}>
           
-          {/* 1. LEFT NAVIGATION ZONE */}
-          <nav className={styles.leftNavZone} aria-label="Main Navigation Left">
-            <ul className={styles.navList}>{leftNavLinks.map(renderNavLink)}</ul>
-          </nav>
-
-          {/* 2. CENTERED LOGO ZONE */}
+          {/* 1. LOGO ON LEFT */}
           <div className={styles.logoZone}>
             <Link href="/" className={styles.logoLink} aria-label="Raise India Foundation Home">
               <Image
@@ -259,19 +255,22 @@ export const Header: React.FC = () => {
             </Link>
           </div>
 
-          {/* 3. RIGHT NAVIGATION & ACTION ZONE */}
+          {/* 2. NAVIGATION LINKS CENTERED */}
+          <nav className={styles.centerNavZone} aria-label="Main Navigation">
+            <ul className={styles.navList}>{mobileNavLinks.map(renderNavLink)}</ul>
+          </nav>
+
+          {/* 3. RED DONATE BUTTON ON RIGHT */}
           <div className={styles.rightNavZone}>
-            <nav className={styles.rightNavLinks} aria-label="Main Navigation Right">
-              <ul className={styles.navList}>{rightNavLinks.map(renderNavLink)}</ul>
-            </nav>
-
-            <Link 
-              href="/donate" 
-              className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-[#E83E8C] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:shadow-[#E83E8C]/30 hover:-translate-y-1 transition-all duration-500 ease-out tracking-wide ml-6"
+            <Link
+              href="/donate"
+              className={`${styles.donateBtn} ${pathname === '/donate' ? styles.donateBtnActive : ''}`}
+              aria-label="Donate to Raise India Foundation"
+              aria-current={pathname === '/donate' ? 'page' : undefined}
             >
-              DONATE
+              <Heart className={`${styles.btnHeart} w-3.5 h-3.5 fill-current`} aria-hidden="true" />
+              <span>Donate</span>
             </Link>
-
             {/* Mobile Hamburger Toggle Button */}
             <button
               className={styles.mobileToggle}
@@ -386,14 +385,18 @@ export const Header: React.FC = () => {
             </nav>
 
             <div className={styles.mobileDrawerFooter}>
-              <Link 
-                href="/donate" 
-                className="w-full flex items-center justify-center px-8 py-4 bg-[#E83E8C] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:shadow-[#E83E8C]/30 hover:-translate-y-1 transition-all duration-500 ease-out tracking-wide"
+              <Link
+                href="/donate"
+                className={`${styles.mobileDonateBtn} ${pathname === '/donate' ? styles.donateBtnActive : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Donate to Raise India Foundation"
+                aria-current={pathname === '/donate' ? 'page' : undefined}
               >
-                DONATE NOW
+                <Heart className={`${styles.btnHeart} w-4 h-4 fill-current`} aria-hidden="true" />
+                <span>Donate</span>
               </Link>
             </div>
+
           </div>
         </div>
       </div>
