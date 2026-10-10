@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { Header } from "@/components/layout/Header/Header";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { BackToTop } from "@/components/ui/BackToTop/BackToTop";
+import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp/FloatingWhatsApp";
 import { ScrollProgress } from "@/components/ui/ScrollProgress/ScrollProgress";
 
 import "./globals.css";
@@ -32,7 +33,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <BackToTop />
-
+        <FloatingWhatsApp />
       </body>
     </html>
   );

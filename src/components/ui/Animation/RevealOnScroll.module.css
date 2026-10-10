@@ -1,0 +1,52 @@
+.revealBase {
+  opacity: 0;
+  transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.revealUp {
+  transform: translateY(22px);
+}
+
+.revealBase.isRevealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.staggerContainer {
+  width: 100%;
+}
+
+.staggerItem {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 520ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.staggerItem.isRevealed,
+.staggerContainer.isRevealed .staggerItem {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fallback automatic child staggering for containers */
+.staggerContainer.isRevealed > *:nth-child(1) { transition-delay: 0ms; }
+.staggerContainer.isRevealed > *:nth-child(2) { transition-delay: 80ms; }
+.staggerContainer.isRevealed > *:nth-child(3) { transition-delay: 160ms; }
+.staggerContainer.isRevealed > *:nth-child(4) { transition-delay: 240ms; }
+.staggerContainer.isRevealed > *:nth-child(5) { transition-delay: 320ms; }
+.staggerContainer.isRevealed > *:nth-child(6) { transition-delay: 400ms; }
+.staggerContainer.isRevealed > *:nth-child(7) { transition-delay: 480ms; }
+.staggerContainer.isRevealed > *:nth-child(8) { transition-delay: 560ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .revealBase,
+  .staggerItem {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

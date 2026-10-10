@@ -35,8 +35,8 @@ const leftNavLinks: NavItem[] = [
 const rightNavLinks: NavItem[] = [
   { label: 'Media', href: '/media' },
   { label: 'Blog', href: '/blog' },
-  { 
-    label: 'Make a Difference', 
+  {
+    label: 'Make a Difference',
     href: '#',
     children: [
       { label: 'CSR', href: '/csr' },
@@ -101,7 +101,7 @@ export const Header: React.FC = () => {
       if (navContainerRef.current && !navContainerRef.current.contains(target)) {
         setIsMobileMenuOpen(false);
       }
-      
+
       // Close dropdown if clicking outside of any dropdown wrapper
       const isDropdownClick = (target as HTMLElement).closest && (target as HTMLElement).closest('[data-dropdown-wrapper="true"]');
       if (!isDropdownClick) {
@@ -154,26 +154,23 @@ export const Header: React.FC = () => {
           <div className={styles.dropdownTriggerGroup}>
             <Link
               href={link.href}
-              className={`${styles.navLink} ${styles.dropdownNavLink} ${
-                isParentActive ? styles.active : ''
-              }`}
+              className={`${styles.navLink} ${styles.dropdownNavLink} ${isParentActive ? styles.active : ''
+                }`}
               aria-haspopup="true"
               aria-expanded={openDropdown === link.label}
               onClick={(e) => handleParentClick(e, link.label)}
             >
               <span className={styles.linkLabel}>{link.label}</span>
               <span
-                className={`${styles.chevron} ${
-                  openDropdown === link.label ? styles.chevronRotated : ''
-                }`}
+                className={`${styles.chevron} ${openDropdown === link.label ? styles.chevronRotated : ''
+                  }`}
                 aria-hidden="true"
               >
                 ▾
               </span>
               <span
-                className={`${styles.activeLine} ${
-                  isParentActive ? styles.activeLineVisible : ''
-                }`}
+                className={`${styles.activeLine} ${isParentActive ? styles.activeLineVisible : ''
+                  }`}
                 aria-hidden="true"
               />
             </Link>
@@ -181,9 +178,8 @@ export const Header: React.FC = () => {
 
           {/* Dropdown Menu Panel */}
           <div
-            className={`absolute z-50 bg-white shadow-lg ${styles.dropdownMenu} ${
-              openDropdown === link.label ? styles.dropdownMenuOpen : ''
-            }`}
+            className={`absolute z-50 bg-white shadow-lg ${styles.dropdownMenu} ${openDropdown === link.label ? styles.dropdownMenuOpen : ''
+              }`}
             role="menu"
             aria-label={`${link.label} Submenu`}
           >
@@ -194,9 +190,8 @@ export const Header: React.FC = () => {
                   <li key={child.label} className={styles.dropdownListItem} role="none">
                     <Link
                       href={child.href}
-                      className={`${styles.dropdownLink} ${
-                        isChildActive ? styles.dropdownActive : ''
-                      }`}
+                      className={`${styles.dropdownLink} ${isChildActive ? styles.dropdownActive : ''
+                        }`}
                       role="menuitem"
                       onClick={() => setOpenDropdown(null)}
                     >
@@ -222,9 +217,8 @@ export const Header: React.FC = () => {
         >
           <span className={styles.linkLabel}>{link.label}</span>
           <span
-            className={`${styles.activeLine} ${
-              isParentActive ? styles.activeLineVisible : ''
-            }`}
+            className={`${styles.activeLine} ${isParentActive ? styles.activeLineVisible : ''
+              }`}
             aria-hidden="true"
           />
         </Link>
@@ -240,7 +234,7 @@ export const Header: React.FC = () => {
       <div className={styles.container} ref={navContainerRef}>
         {/* DESKTOP HEADER CONTAINER: LOGO LEFT, LINKS CENTER, DONATE RIGHT */}
         <div className={styles.navGridContainer}>
-          
+
           {/* 1. LOGO ON LEFT */}
           <div className={styles.logoZone}>
             <Link href="/" className={styles.logoLink} aria-label="Raise India Foundation Home">
@@ -268,7 +262,10 @@ export const Header: React.FC = () => {
               aria-label="Donate to Raise India Foundation"
               aria-current={pathname === '/donate' ? 'page' : undefined}
             >
-              <Heart className={`${styles.btnHeart} w-3.5 h-3.5 fill-current`} aria-hidden="true" />
+              <Heart
+                className={`${styles.btnHeart} w-3.5 h-3.5 fill-current`}
+                aria-hidden="true"
+              />
               <span>Donate</span>
             </Link>
             {/* Mobile Hamburger Toggle Button */}
@@ -313,17 +310,15 @@ export const Header: React.FC = () => {
                       >
                         <button
                           type="button"
-                          className={`${styles.mobileNavLink} ${styles.mobileSubmenuToggle} ${
-                            isParentActive ? styles.mobileActive : ''
-                          }`}
+                          className={`${styles.mobileNavLink} ${styles.mobileSubmenuToggle} ${isParentActive ? styles.mobileActive : ''
+                            }`}
                           onClick={() => setOpenMobileSubmenu(openMobileSubmenu === link.label ? null : link.label)}
                           aria-expanded={openMobileSubmenu === link.label}
                         >
                           <span>{link.label}</span>
                           <span
-                            className={`${styles.mobileChevron} ${
-                              openMobileSubmenu === link.label ? styles.mobileChevronRotated : ''
-                            }`}
+                            className={`${styles.mobileChevron} ${openMobileSubmenu === link.label ? styles.mobileChevronRotated : ''
+                              }`}
                           >
                             ▾
                           </span>
@@ -338,9 +333,8 @@ export const Header: React.FC = () => {
                                 <li key={child.label} className={styles.mobileSubmenuItem}>
                                   <Link
                                     href={child.href}
-                                    className={`${styles.mobileSubmenuLink} ${
-                                      isChildActive ? styles.mobileSubActive : ''
-                                    }`}
+                                    className={`${styles.mobileSubmenuLink} ${isChildActive ? styles.mobileSubActive : ''
+                                      }`}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                   >
                                     <span>{child.label}</span>
@@ -368,9 +362,8 @@ export const Header: React.FC = () => {
                     >
                       <Link
                         href={link.href}
-                        className={`${styles.mobileNavLink} ${
-                          isParentActive ? styles.mobileActive : ''
-                        }`}
+                        className={`${styles.mobileNavLink} ${isParentActive ? styles.mobileActive : ''
+                          }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <span>{link.label}</span>
@@ -396,7 +389,6 @@ export const Header: React.FC = () => {
                 <span>Donate</span>
               </Link>
             </div>
-
           </div>
         </div>
       </div>
