@@ -267,9 +267,11 @@ export const Header: React.FC = () => {
 
             <Link 
               href="/donate" 
-              className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-[#E83E8C] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:shadow-[#E83E8C]/30 hover:-translate-y-1 transition-all duration-500 ease-out tracking-wide ml-6"
+              className={styles.donateNavBtn}
+              aria-label="Donate Now to Raise India Foundation"
             >
-              DONATE
+              <span>DONATE NOW</span>
+              <span className={styles.donateHeart} aria-hidden="true">❤️</span>
             </Link>
 
             {/* Mobile Hamburger Toggle Button */}
@@ -388,10 +390,12 @@ export const Header: React.FC = () => {
             <div className={styles.mobileDrawerFooter}>
               <Link 
                 href="/donate" 
-                className="w-full flex items-center justify-center px-8 py-4 bg-[#E83E8C] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:shadow-[#E83E8C]/30 hover:-translate-y-1 transition-all duration-500 ease-out tracking-wide"
+                className={styles.mobileDonateBtn}
                 onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Donate Now to Raise India Foundation"
               >
-                DONATE NOW
+                <span>DONATE NOW</span>
+                <span className={styles.donateHeart} aria-hidden="true">❤️</span>
               </Link>
             </div>
           </div>

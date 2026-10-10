@@ -655,6 +655,93 @@
 }
 
 /* ══════════════════════════════════════════════
+   VIBRANT DONATE NOW BUTTON (#E83E8C to #D91F5D)
+   ══════════════════════════════════════════════ */
+
+.donateNavBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #E83E8C 0%, #D91F5D 100%);
+  color: #FFFFFF !important;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 14px rgba(217, 31, 93, 0.28);
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), 
+              box-shadow 300ms ease, 
+              filter 300ms ease;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 20px;
+  white-space: nowrap;
+}
+
+.donateNavBtn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 8px 24px rgba(232, 62, 140, 0.45);
+}
+
+.donateNavBtn:hover .donateHeart {
+  transform: scale(1.18);
+}
+
+.donateNavBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(217, 31, 93, 0.3);
+}
+
+.donateNavBtn:focus-visible {
+  outline: 2px solid #D91F5D;
+  outline-offset: 3px;
+}
+
+.donateHeart {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobileDonateBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 28px;
+  background: linear-gradient(135deg, #E83E8C 0%, #D91F5D 100%);
+  color: #FFFFFF !important;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(217, 31, 93, 0.3);
+  transition: transform 280ms ease, box-shadow 280ms ease, filter 280ms ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mobileDonateBtn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 8px 24px rgba(232, 62, 140, 0.45);
+}
+
+.mobileDonateBtn:focus-visible {
+  outline: 2px solid #D91F5D;
+  outline-offset: 3px;
+}
+
+/* ══════════════════════════════════════════════
    REDUCED MOTION OVERRIDE
 ══════════════════════════════════════════════ */
 

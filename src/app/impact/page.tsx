@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/Container/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading';
 import { Stats } from '@/components/sections/Stats/Stats';
 import { FinalCTA } from '@/components/sections/FinalCTA/FinalCTA';
+import { RevealOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/Animation/RevealOnScroll';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -18,7 +19,7 @@ export default function ImpactPage() {
         <div className={styles.blobDecorBg}></div>
         <Container>
           <div className="grid-asymmetrical">
-            <div className={styles.heroContent}>
+            <RevealOnScroll className={styles.heroContent}>
               <span className={styles.eyebrow}>MAKING A DIFFERENCE</span>
               <h1 className="statement-text">
                 Every action<br />
@@ -28,11 +29,11 @@ export default function ImpactPage() {
               <p className={styles.heroDescription}>
                 We believe in measurable, sustainable change. Here is a look at the lives we've touched and the communities we've strengthened over the years.
               </p>
-            </div>
-            <div className={styles.heroImageWrapper}>
+            </RevealOnScroll>
+            <RevealOnScroll delay={120} className={styles.heroImageWrapper}>
               <div className={styles.blobDecor}></div>
               <div className={styles.imagePlaceholder}></div>
-            </div>
+            </RevealOnScroll>
           </div>
         </Container>
       </section>
@@ -43,38 +44,40 @@ export default function ImpactPage() {
       {/* Detailed Impact Breakdown */}
       <section className={styles.breakdown}>
         <Container>
-          <SectionHeading
-            eyebrow="By The Numbers"
-            title="Impact Across Programs"
-            description="Our initiatives span multiple sectors, each designed to address specific community needs."
-            align="center"
-          />
+          <RevealOnScroll>
+            <SectionHeading
+              eyebrow="By The Numbers"
+              title="Impact Across Programs"
+              description="Our initiatives span multiple sectors, each designed to address specific community needs."
+              align="center"
+            />
+          </RevealOnScroll>
 
-          <div className={styles.grid}>
-            <div className={`${styles.impactCard} ${styles.cardPurple}`}>
+          <StaggerContainer className={styles.grid}>
+            <StaggerItem index={0} className={`${styles.impactCard} ${styles.cardPurple}`}>
               <div className={styles.largeNumber}>12,000+</div>
               <h3 className={styles.cardTitle}>Children Educated</h3>
               <p className={styles.cardDesc}>Through our after-school programs and scholarship funds across 5 states.</p>
-            </div>
+            </StaggerItem>
 
-            <div className={`${styles.impactCard} ${styles.cardMagenta}`}>
+            <StaggerItem index={1} className={`${styles.impactCard} ${styles.cardMagenta}`}>
               <div className={styles.largeNumber}>50+</div>
               <h3 className={styles.cardTitle}>Medical Camps</h3>
               <p className={styles.cardDesc}>Conducted annually, providing free checkups and medicines to rural areas.</p>
-            </div>
+            </StaggerItem>
 
-            <div className={`${styles.impactCard} ${styles.cardLavender}`}>
+            <StaggerItem index={2} className={`${styles.impactCard} ${styles.cardLavender}`}>
               <div className={styles.largeNumber}>5,000+</div>
               <h3 className={styles.cardTitle}>Women Empowered</h3>
               <p className={styles.cardDesc}>Through vocational training, micro-finance support, and entrepreneurship programs.</p>
-            </div>
+            </StaggerItem>
 
-            <div className={`${styles.impactCard} ${styles.cardPink}`}>
+            <StaggerItem index={3} className={`${styles.impactCard} ${styles.cardPink}`}>
               <div className={styles.largeNumber}>25+</div>
               <h3 className={styles.cardTitle}>Villages Adopted</h3>
               <p className={styles.cardDesc}>Comprehensive rural development focusing on sanitation, water, and infrastructure.</p>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </Container>
       </section>
 
