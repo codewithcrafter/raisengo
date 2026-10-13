@@ -33,9 +33,9 @@ export const slides: SlideItem[] = [
     highlightWord: 'Life',
     description: 'Dedicated to the holistic development of underprivileged communities across India through education, healthcare, and empowerment since 2014.',
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
-    image: '/images/hero/slide-1.jpg',
+    image: '/SHIKSHALYA/WhatsApp Image 2024-10-14 at 3.29.22 PM (1).jpeg',
     placeholderBg: 'linear-gradient(135deg, #2D1145 0%, #5A2D7E 50%, #E0679D 100%)',
-    objectPosition: 'center 30%',
+    objectPosition: 'center 35%',
     transitionType: 'cinematicZoom',
   },
   {
@@ -45,9 +45,9 @@ export const slides: SlideItem[] = [
     highlightWord: 'Heart Defects',
     description: 'In partnership with Fortis Escorts Heart Institute, sponsoring critical open-heart surgeries for children from impoverished families.',
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
-    image: '/images/hero/slide-2.jpg',
+    image: '/little heart beats/MITANSHU.JPG',
     placeholderBg: 'linear-gradient(135deg, #1C0A2E 0%, #2D1145 50%, #814CBA 100%)',
-    objectPosition: 'center center',
+    objectPosition: 'center 35%',
     transitionType: 'horizontalSlide',
   },
   {
@@ -57,7 +57,7 @@ export const slides: SlideItem[] = [
     highlightWord: 'Education',
     description: 'Free learning centers and modern digital labs supported by Konverge Technologies, equipping marginalized youth for the digital era.',
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
-    image: '/images/hero/slide-3.jpg',
+    image: '/TECHSHAALA/IMG20251218120209.jpg',
     placeholderBg: 'linear-gradient(135deg, #3E1D5B 0%, #814CBA 70%, #E0679D 100%)',
     objectPosition: 'center 40%',
     transitionType: 'softScale',
@@ -69,9 +69,9 @@ export const slides: SlideItem[] = [
     highlightWord: 'Woman',
     description: 'Breaking taboos with menstrual awareness camps and distributing 12,000+ hygiene dignity kits to female construction workers across NCR.',
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
-    image: '/images/hero/slide-4.png',
+    image: '/CHUPPI%20TODDO/IMG_8679.JPG',
     placeholderBg: 'linear-gradient(160deg, #E0679D 0%, #814CBA 60%, #2D1145 100%)',
-    objectPosition: 'center 20%',
+    objectPosition: 'center 55%',
     transitionType: 'diagonalReveal',
   },
   {
@@ -85,9 +85,9 @@ export const slides: SlideItem[] = [
     description: 'Help save little hearts born with critical congenital conditions. Your timely contribution supports emergency cardiac surgery for Shivansh Kumar.',
     primaryCta: { label: 'Donate Now', href: '/donate' },
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
-    image: '/images/little-heartbeats.jpg',
+    image: '/little heart beats/TANUSHREE.JPG',
     placeholderBg: 'linear-gradient(135deg, #1C0A2E 0%, #2D1145 50%, #814CBA 100%)',
-    objectPosition: 'right 30%',
+    objectPosition: 'center 40%',
     transitionType: 'cinematicZoom',
   },
 ];
@@ -120,7 +120,7 @@ function renderHeadline(parts: string[], highlightWord: string): React.ReactNode
   });
 }
 
-const SLIDE_DURATION = 2500; // 2.5 seconds display duration per slide
+const SLIDE_DURATION = 4000; // 4 seconds display duration per slide
 
 export const HeroSlider: React.FC = () => {
   const [current, setCurrent] = useState<number>(0);
@@ -136,6 +136,7 @@ export const HeroSlider: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const previousTimeRef = useRef<number | undefined>(undefined);
   const accumulatedTimeRef = useRef<number>(0);
+  const transitionTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Touch gesture state
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -144,6 +145,15 @@ export const HeroSlider: React.FC = () => {
   const total = slides.length;
   const isPaused = userPaused || isHovered || isFocused || !isIntersecting || !isTabVisible;
   const nextIndex = (current + 1) % total;
+
+  // Cleanup transition timers on unmount
+  useEffect(() => {
+    return () => {
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
+    };
+  }, []);
 
   // Viewport Visibility Tracking via IntersectionObserver
   useEffect(() => {
@@ -173,7 +183,11 @@ export const HeroSlider: React.FC = () => {
 
   const goTo = useCallback(
     (index: number) => {
-      if (animating || index === current) return;
+      if (index === current) return;
+
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
 
       previousTimeRef.current = undefined;
       accumulatedTimeRef.current = 0;
@@ -183,20 +197,20 @@ export const HeroSlider: React.FC = () => {
       setAnimating(true);
       setCurrent(index);
 
-      setTimeout(() => {
+      transitionTimerRef.current = setTimeout(() => {
         setPrev(null);
         setAnimating(false);
-      }, 450); // 450ms smooth transition duration
+      }, 350); // 350ms smooth transition duration
     },
-    [animating, current]
+    [current]
   );
 
   const goNext = useCallback(() => goTo((current + 1) % total), [current, goTo, total]);
   const goPrev = useCallback(() => goTo((current - 1 + total) % total), [current, goTo, total]);
 
-  // RequestAnimationFrame Autoplay Timer Loop
+  // RequestAnimationFrame Autoplay Timer Loop (4s synchronized interval)
   useEffect(() => {
-    if (isPaused || animating) {
+    if (isPaused) {
       previousTimeRef.current = undefined;
       return;
     }
@@ -225,7 +239,7 @@ export const HeroSlider: React.FC = () => {
     return () => {
       cancelAnimationFrame(localReqId);
     };
-  }, [isPaused, animating, goNext]);
+  }, [isPaused, goNext]);
 
   // Keyboard Navigation
   useEffect(() => {
@@ -284,6 +298,8 @@ export const HeroSlider: React.FC = () => {
       aria-label="Homepage Hero Slider"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onPointerEnter={() => setIsHovered(true)}
+      onPointerLeave={() => setIsHovered(false)}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
       onTouchStart={onTouchStart}
@@ -305,10 +321,6 @@ export const HeroSlider: React.FC = () => {
         {slides.map((s, index) => {
           const isCurrent = index === current;
           const isPrev = index === prev;
-          const isNext = index === nextIndex;
-          const isPreloaded = index === nextIndex || index === 0;
-
-          if (!isCurrent && !isPrev && !isPreloaded) return null;
 
           let slideClass = '';
           if (isCurrent) {
@@ -327,16 +339,17 @@ export const HeroSlider: React.FC = () => {
               aria-label={isCurrent ? `Slide ${index + 1} of ${total}` : undefined}
               style={{
                 zIndex: isCurrent ? 2 : isPrev ? 1 : 0,
-                opacity: isCurrent || isPrev ? undefined : 0,
+                opacity: isCurrent ? 1 : isPrev ? undefined : 0,
                 pointerEvents: isCurrent ? 'auto' : 'none',
-                visibility: isCurrent || isPrev || isNext ? 'visible' : 'hidden'
+                visibility: isCurrent || isPrev ? 'visible' : 'hidden'
               }}
             >
-              <SlideContent 
-                slide={s} 
-                isActive={isCurrent} 
-                isFirstSlide={s.id === 1} 
-                isPriority={isCurrent || isNext} 
+              <SlideContent
+                slide={s}
+                isActive={isCurrent}
+                isFirstSlide={s.id === 1}
+                isPriority={index < 2}
+                currentIndex={current}
               />
             </div>
           );
@@ -345,7 +358,7 @@ export const HeroSlider: React.FC = () => {
 
       {/* Modern Multi-Track Progress Indicator, Stats & Controls */}
       <div className={styles.heroFooter}>
-        
+
         {/* Progress Indicator Tracks */}
         <div className={styles.progressContainer}>
           <div className={styles.slideCounterBadge} aria-label={`Current slide ${current + 1} of ${total}`}>
@@ -377,8 +390,8 @@ export const HeroSlider: React.FC = () => {
                             ? '100%'
                             : `${progress}%`
                           : isCompleted
-                          ? '100%'
-                          : '0%',
+                            ? '100%'
+                            : '0%',
                       }}
                     />
                   </div>
@@ -390,12 +403,12 @@ export const HeroSlider: React.FC = () => {
 
         {/* Impact Statistics & Navigation Controls Row */}
         <div className={styles.statsAndNavRow}>
-          
+
           <div className={styles.impactStrip}>
             {metrics.map((item, idx) => (
               <React.Fragment key={item.id}>
-                <div 
-                  className={styles.metricBlock} 
+                <div
+                  className={styles.metricBlock}
                   style={{ animationDelay: `${idx * 80}ms` }}
                 >
                   <div className={styles.metricHeader}>
@@ -422,32 +435,51 @@ export const HeroSlider: React.FC = () => {
 // ─────────────────────────────────────────────
 // SLIDE CONTENT COMPONENT (Full Bleed Image + Staggered Text OR Donation Appeal Banner)
 // ─────────────────────────────────────────────
-function SlideContent({ slide, isActive, isFirstSlide, isPriority }: { slide: SlideItem; isActive: boolean; isFirstSlide: boolean; isPriority?: boolean }) {
+function SlideContent({
+  slide,
+  isActive,
+  isFirstSlide,
+  isPriority,
+  currentIndex
+}: {
+  slide: SlideItem;
+  isActive: boolean;
+  isFirstSlide: boolean;
+  isPriority?: boolean;
+  currentIndex?: number;
+}) {
   return (
     <div className={styles.slideInner}>
-      {/* Background Image / Gradient Layer with Ken Burns Motion */}
+      {/* Background Image Layer with 4s Cinematic Ken Burns Zoom */}
       <div className={styles.imageLayer}>
-        {slide.image ? (
-          <Image
-            src={slide.image}
-            alt={slide.headline.join('')}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
-            style={{ objectFit: 'cover', objectPosition: slide.objectPosition }}
-            priority={isFirstSlide || isPriority}
-            loading={isFirstSlide || isPriority ? 'eager' : 'lazy'}
-            className={styles.heroImage}
-          />
-        ) : (
-          <div className={styles.heroImagePlaceholder} style={{ background: slide.placeholderBg }} />
-        )}
+        <div
+          key={`slide-zoom-${slide.id}`}
+          className={`${styles.imageZoomWrapper} ${isActive ? styles.zoomActive : ''}`}
+          data-effect={slide.transitionType}
+        >
+          {slide.image ? (
+            <Image
+              src={slide.image}
+              alt={slide.headline.join('')}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+              style={{ objectFit: 'cover', objectPosition: slide.objectPosition }}
+              priority={isFirstSlide || isPriority}
+              loading={isFirstSlide || isPriority ? 'eager' : 'lazy'}
+              unoptimized={slide.id === 2}
+              className={styles.heroImage}
+            />
+          ) : (
+            <div className={styles.heroImagePlaceholder} style={{ background: slide.placeholderBg }} />
+          )}
+        </div>
         <div className={styles.gradientOverlay} />
       </div>
 
       {/* Staggered Text Content Container */}
       <div className={styles.contentContainer}>
         <div className={`${styles.textContent} ${isActive ? styles.contentActive : ''}`}>
-          
+
           <div className={styles.eyebrowWrapper}>
             <span className={styles.eyebrowBrand}>RAISE INDIA FOUNDATION</span>
             <span className={styles.eyebrowDot} aria-hidden="true" />
@@ -469,9 +501,9 @@ function SlideContent({ slide, isActive, isFirstSlide, isPriority }: { slide: Sl
 
           <div className={styles.actions}>
             {slide.primaryCta && (
-              <Link 
-                href={slide.primaryCta.href} 
-                className={styles.primaryBtn} 
+              <Link
+                href={slide.primaryCta.href}
+                className={styles.primaryBtn}
                 aria-label={`${slide.primaryCta.label} for ${slide.beneficiaryName || 'Raise India Foundation'}`}
               >
                 <span className={styles.primaryBtnText}>{slide.primaryCta.label}</span>

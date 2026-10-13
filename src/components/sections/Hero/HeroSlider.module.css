@@ -49,7 +49,7 @@
 .slideExit {
   z-index: 1;
   pointer-events: none;
-  animation: slideExitAnim 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideExitAnim 350ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes slideExitAnim {
@@ -61,50 +61,50 @@
   opacity: 1;
 }
 
-/* ── Distinct Entrance Animations Per Slide ── */
+/* ── Distinct Entrance Animations Per Slide (Smooth Crossfade without text shifting) ── */
 
-/* Slide 1: Cinematic Fade + Slow Zoom */
+/* Slide 1: Cinematic Fade */
 .transitionCinematicZoom {
   opacity: 0;
-  animation: slideCinematicZoom 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideCinematicFade 350ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes slideCinematicZoom {
-  0% { opacity: 0; transform: scale(1.03); }
-  100% { opacity: 1; transform: scale(1); }
+@keyframes slideCinematicFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-/* Slide 2: Horizontal Slide + Soft Zoom */
+/* Slide 2: Horizontal Fade */
 .transitionHorizontalSlide {
   opacity: 0;
-  animation: slideHorizontalSlide 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideHorizontalFade 350ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes slideHorizontalSlide {
-  0% { opacity: 0; transform: translateX(16px) scale(1.02); }
-  100% { opacity: 1; transform: translateX(0) scale(1); }
+@keyframes slideHorizontalFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-/* Slide 3: Soft Scale + Fade */
+/* Slide 3: Soft Fade */
 .transitionSoftScale {
   opacity: 0;
-  animation: slideSoftScale 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideSoftFade 350ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes slideSoftScale {
-  0% { opacity: 0; transform: scale(0.97); }
-  100% { opacity: 1; transform: scale(1); }
+@keyframes slideSoftFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-/* Slide 4: Diagonal Reveal */
+/* Slide 4: Diagonal Fade */
 .transitionDiagonalReveal {
   opacity: 0;
-  animation: slideDiagonalReveal 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideDiagonalFade 350ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes slideDiagonalReveal {
-  0% { opacity: 0; transform: translate(10px, 10px) scale(1.02); }
-  100% { opacity: 1; transform: translate(0, 0) scale(1); }
+@keyframes slideDiagonalFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .noAnim,
@@ -132,23 +132,115 @@
   overflow: hidden;
 }
 
+/* Isolated Image Zoom Wrapper (Prevents any text/layout movement) */
+.imageZoomWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: scale(1) translate3d(0, 0, 0);
+  transform-origin: center center;
+  will-change: transform;
+}
+
 .heroImage,
 .heroImagePlaceholder {
   width: 100%;
   height: 100%;
-  transform: scale(1);
   will-change: transform;
 }
 
-/* Ken Burns Subtle Scale Animation over 3s */
-.slideEnter .heroImage,
-.slideEnter .heroImagePlaceholder {
-  animation: kenBurns 3000ms linear forwards;
+/* ── 4s Smooth Cinematic Ken Burns Zoom (1.00 -> 1.12) ── */
+.zoomActive {
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation-fill-mode: forwards;
+  animation-name: kenBurnsZoomCenter;
 }
 
-@keyframes kenBurns {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.03); }
+/* Pause zoom on slider hover */
+.hero:hover .zoomActive {
+  animation-play-state: paused;
+}
+
+/* Directional subtle Ken Burns variants synchronized with 4s slide interval */
+.zoomActive[data-effect="cinematicZoom"] {
+  animation-name: kenBurnsZoomCenter;
+}
+
+.zoomActive[data-effect="horizontalSlide"] {
+  animation-name: kenBurnsZoomPanRight;
+}
+
+.zoomActive[data-effect="softScale"] {
+  animation-name: kenBurnsZoomPanLeft;
+}
+
+.zoomActive[data-effect="diagonalReveal"] {
+  animation-name: kenBurnsZoomPanUp;
+}
+
+@keyframes kenBurnsZoomCenter {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes kenBurnsZoomPanRight {
+  0% {
+    transform: scale(1) translate3d(-0.6%, 0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(0.7%, 0, 0);
+  }
+}
+
+@keyframes kenBurnsZoomPanLeft {
+  0% {
+    transform: scale(1) translate3d(0.6%, 0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(-0.7%, 0, 0);
+  }
+}
+
+@keyframes kenBurnsZoomPanUp {
+  0% {
+    transform: scale(1) translate3d(0, 0.3%, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(-0.4%, -0.3%, 0);
+  }
+}
+
+@keyframes kenBurnsZoom {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(0, 0, 0);
+  }
+}
+
+/* Accessibility: Disable all zoom and entrance motion when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .zoomActive,
+  .imageZoomWrapper,
+  .heroImage,
+  .heroImagePlaceholder,
+  .slideExit,
+  .transitionCinematicZoom,
+  .transitionHorizontalSlide,
+  .transitionSoftScale,
+  .transitionDiagonalReveal {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 .gradientOverlay {

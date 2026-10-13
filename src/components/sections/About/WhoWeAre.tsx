@@ -11,8 +11,8 @@ export const WhoWeAre: React.FC = () => {
   const [sectionRef, isVisible] = useScrollReveal<HTMLElement>({ threshold: 0.15, triggerOnce: true });
 
   return (
-    <section 
-      id="who-we-are" 
+    <section
+      id="who-we-are"
       ref={sectionRef}
       className={`${styles.section} ${isVisible ? styles.revealed : ''}`}
     >
@@ -21,7 +21,7 @@ export const WhoWeAre: React.FC = () => {
 
       <Container className={styles.container}>
         <div className={styles.grid}>
-          
+
           {/* LEFT: EDITORIAL COMMUNITY IMAGE COLUMN (~52%) */}
           <div className={styles.imageColumn}>
             <div className={styles.imageFrame}>
@@ -31,7 +31,7 @@ export const WhoWeAre: React.FC = () => {
               {/* Main Image Container */}
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/images/about-community.jpg"
+                  src="/whatsapp-image-2024-06-24-at-00-35-19-8962026a-1.webp"
                   alt="Volunteers and children learning together in a community center"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 52vw, 620px"
@@ -54,7 +54,7 @@ export const WhoWeAre: React.FC = () => {
 
           {/* RIGHT: EDITORIAL CONTENT COLUMN (~48%) */}
           <div className={styles.contentColumn}>
-            
+
             {/* Editorial Eyebrow with Index Detail */}
             <div className={styles.eyebrowWrapper}>
               <span className={styles.eyebrowIndex}>01</span>
