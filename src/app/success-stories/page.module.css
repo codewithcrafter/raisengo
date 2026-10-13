@@ -1,0 +1,448 @@
+/* ─────────────────────────────────────────────────────────────
+   Success Stories Listing Stylesheet
+   Raise India Foundation Design System
+   ───────────────────────────────────────────────────────────── */
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background, #FFFDFC);
+  color: var(--foreground, #241B2B);
+  overflow-x: hidden;
+  padding-bottom: 4rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   HERO SECTION
+   ───────────────────────────────────────────────────────────── */
+.heroSection {
+  position: relative;
+  padding: clamp(6.5rem, 8vw, 8.5rem) 0 3.5rem;
+  background: linear-gradient(180deg, #F9F4FC 0%, #FFFDFC 100%);
+  overflow: hidden;
+}
+
+.heroGlow {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 103, 157, 0.12) 0%, rgba(90, 45, 126, 0.04) 70%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.95rem;
+  background-color: #F4EEFA;
+  border: 1px solid #E2D3EE;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  color: #5A2D7E;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+.heroHeading {
+  font-family: var(--font-display, var(--font-sans, system-ui));
+  font-size: clamp(2.35rem, 4.2vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #1E1229;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.highlightGradient {
+  background: linear-gradient(135deg, #5A2D7E 0%, #E0679D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroIntro {
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  line-height: 1.7;
+  color: #4A3A57;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  font-weight: 500;
+}
+
+.heroStatsStrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding-top: 1.5rem;
+  border-top: 1px dashed #E5D5E7;
+  flex-wrap: wrap;
+}
+
+.heroStatItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroStatValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #5A2D7E;
+  line-height: 1.2;
+}
+
+.heroStatLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #7958C8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   STORIES GRID SECTION
+   ───────────────────────────────────────────────────────────── */
+.storiesSection {
+  padding: 3.5rem 0 4rem;
+  position: relative;
+}
+
+.gridHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gridTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #241B2B;
+}
+
+.gridCountBadge {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #5A2D7E;
+  background-color: #F4EEFA;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid #E2D3EE;
+}
+
+.storiesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Story Card */
+.storyCard {
+  background-color: #FFFFFF;
+  border: 1px solid #EAE0EE;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(36, 27, 43, 0.04);
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1), border-color 260ms ease;
+  position: relative;
+}
+
+.storyCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(90, 45, 126, 0.12);
+  border-color: #D3BFDF;
+}
+
+.cardImageLink {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  background-color: #F4EEFA;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+}
+
+.storyCard:hover .cardImage {
+  transform: scale(1.04);
+}
+
+.cardBadge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  background: rgba(30, 18, 41, 0.85);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cardStatusPill {
+  position: absolute;
+  bottom: 0.85rem;
+  right: 0.85rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  color: #065F46;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10B981;
+}
+
+.cardBody {
+  padding: 1.5rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.8125rem;
+  color: #7958C8;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.cardHospital {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #241B2B;
+  margin-bottom: 0.75rem;
+}
+
+.cardTitleLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.cardTitleLink:hover {
+  color: #5A2D7E;
+}
+
+.cardExcerpt {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #564861;
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.cardFooter {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #F1E5F3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cardConditionTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #7958C8;
+  background: #F4EEFA;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid #EADBEE;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.readStoryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #E0679D 0%, #814CBA 100%);
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(224, 103, 157, 0.25);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.readStoryBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(224, 103, 157, 0.4);
+  filter: brightness(1.06);
+  color: #FFFFFF;
+}
+
+.readStoryBtn:active {
+  transform: translateY(0);
+}
+
+.readStoryBtn:focus-visible {
+  outline: 2px solid #814CBA;
+  outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   DONATION CTA SECTION
+   ───────────────────────────────────────────────────────────── */
+.ctaSection {
+  padding: 3rem 0;
+}
+
+.ctaCard {
+  background: linear-gradient(135deg, #5A2D7E 0%, #3B1C56 100%);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+  color: #FFFFFF;
+  text-align: center;
+  box-shadow: 0 16px 36px rgba(90, 45, 126, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.ctaHeading {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+  color: #FFFFFF;
+}
+
+.ctaParagraph {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 620px;
+  margin: 0 auto 1.75rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 2.25rem;
+  background: linear-gradient(135deg, #E53E3E 0%, #DC2626 100%);
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(229, 62, 62, 0.4);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 62, 62, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE LAYOUTS
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .storiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroSection {
+    padding: 5.75rem 0 2.5rem;
+  }
+
+  .storiesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .ctaCard {
+    padding: 2.25rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storyCard,
+  .cardImage,
+  .ctaButton,
+  .readStoryBtn {
+    transition: none !important;
+    transform: none !important;
+  }
+}

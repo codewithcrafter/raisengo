@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header/Header";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { BackToTop } from "@/components/ui/BackToTop/BackToTop";
 import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp/FloatingWhatsApp";
+import { TechshaalaFloatingTab } from "@/components/ui/TechshaalaFloatingTab/TechshaalaFloatingTab";
 import { ScrollProgress } from "@/components/ui/ScrollProgress/ScrollProgress";
 
 import "./globals.css";
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body>
         <ScrollProgress />
         <Header />
+        <TechshaalaFloatingTab />
         <main>{children}</main>
         <Footer />
         <BackToTop />

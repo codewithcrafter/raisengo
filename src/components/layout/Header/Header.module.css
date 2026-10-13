@@ -9,7 +9,7 @@
   top: clamp(12px, 1.8vw, 18px);
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(88%, calc(100% - 6vw), 1180px);
+  width: clamp(90%, calc(100% - 3vw), 1340px);
   z-index: 100;
   background-color: rgba(255, 253, 252, 0.96);
   backdrop-filter: blur(14px);
@@ -46,34 +46,68 @@
 
 .navContainer,
 .navGridContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  gap: 16px;
+  position: relative;
 }
 
-.logoZone {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  padding: 0;
-}
-
-.centerNavZone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-
-.rightNavZone {
+.leftNavZone {
+  grid-column: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  min-width: 0;
+}
+
+.leftNavZone .navList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(12px, 1.35vw, 24px);
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.logoZone {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  gap: clamp(12px, 1.5vw, 20px);
+  padding: 0 clamp(12px, 1.4vw, 24px);
+  position: relative;
+  z-index: 2;
+}
+
+.centerNavZone {
+  display: none;
+}
+
+.rightNavZone {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  gap: clamp(12px, 1.25vw, 22px);
+}
+
+.rightNavLinks {
+  display: flex;
+  align-items: center;
+}
+
+.rightNavLinks .navList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(12px, 1.35vw, 24px);
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
 }
 
 /* ══════════════════════════════════════════════
@@ -160,10 +194,11 @@
 .navList {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 1.8vw, 24px);
+  gap: clamp(10px, 1.25vw, 20px);
   list-style: none;
   margin: 0;
   padding: 0;
+  white-space: nowrap;
 }
 
 .navItem {
@@ -173,7 +208,7 @@
 
 .navLink {
   font-family: var(--font-body, 'Manrope', sans-serif);
-  font-size: clamp(15px, 1.15vw, 17px);
+  font-size: clamp(13.5px, 0.98vw, 15px);
   font-weight: 600;
   line-height: 1.4;
   color: #564861;
@@ -187,6 +222,7 @@
   letter-spacing: -0.01em;
   transition: color 220ms ease, transform 220ms ease;
   outline: none;
+  white-space: nowrap;
 }
 
 .navLink:hover {
@@ -367,6 +403,8 @@
   text-transform: none;
   border-radius: 9999px;
   text-decoration: none;
+  flex-shrink: 0;
+  margin-left: 0;
   box-shadow: 0 2px 10px rgba(229, 62, 62, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
@@ -648,9 +686,10 @@
 
 @media (max-width: 1080px) {
   .navGridContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
+    width: 100%;
   }
 
   .leftNavZone,
@@ -658,6 +697,19 @@
   .centerNavZone,
   .donateBtn {
     display: none;
+  }
+
+  .logoZone {
+    grid-column: 2;
+    justify-self: center;
+    padding: 0;
+  }
+
+  .rightNavZone {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
   }
 
   .mobileToggle {
@@ -668,7 +720,11 @@
 @media (max-width: 640px) {
   .header {
     width: 92%;
-    padding: 8px 16px;
+    padding: 6px 14px;
+  }
+
+  .logoImage {
+    max-height: 48px;
   }
 
   .donateBtn {

@@ -1,0 +1,695 @@
+/* ─────────────────────────────────────────────────────────────
+   Techshaala Information Page Stylesheet
+   Raise India Foundation Design System
+   ───────────────────────────────────────────────────────────── */
+
+.pageWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background, #FFFDFC);
+  color: var(--foreground, #241B2B);
+  overflow-x: hidden;
+  padding-bottom: 4rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 1: HERO
+   ───────────────────────────────────────────────────────────── */
+.heroSection {
+  position: relative;
+  padding: clamp(6.5rem, 8vw, 8.5rem) 0 4rem;
+  background: linear-gradient(180deg, #F9F4FC 0%, #FFFDFC 100%);
+  overflow: hidden;
+}
+
+.heroGlow {
+  position: absolute;
+  top: -120px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 103, 157, 0.14) 0%, rgba(90, 45, 126, 0.05) 70%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroContentWrapper {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.heroTextCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.95rem;
+  background-color: #F4EEFA;
+  border: 1px solid #E2D3EE;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #5A2D7E;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+.heroHeading {
+  font-family: var(--font-display, var(--font-sans, system-ui));
+  font-size: clamp(2.25rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.18;
+  color: #1E1229;
+  margin-bottom: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.highlightGradient {
+  background: linear-gradient(135deg, #5A2D7E 0%, #E0679D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroParagraph {
+  font-size: clamp(1.05rem, 1.2vw, 1.18rem);
+  line-height: 1.75;
+  color: #4A3A57;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.supportedByBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1.2rem;
+  background-color: #FFFFFF;
+  border: 1.5px solid #ECD9EE;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(90, 45, 126, 0.06);
+  margin-bottom: 2rem;
+}
+
+.supportedByLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8E7A9D;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.supportedByName {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #5A2D7E;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primaryCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 2rem;
+  background: linear-gradient(135deg, #5A2D7E 0%, #3E1D5B 100%);
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(90, 45, 126, 0.35);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.primaryCtaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(90, 45, 126, 0.45);
+}
+
+.secondaryCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.85rem;
+  background-color: #FFFFFF;
+  color: #5A2D7E;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: 1px solid #DED0E3;
+  transition: all 180ms ease;
+}
+
+.secondaryCtaBtn:hover {
+  background-color: #F4EEFA;
+  border-color: #5A2D7E;
+}
+
+.heroMediaCol {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.heroMediaCard {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(45, 17, 69, 0.12);
+  border: 1px solid #EAD8EC;
+  background: linear-gradient(135deg, #FAF4FB 0%, #FFFFFF 100%);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.heroPartnerLogoWrap {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  border: 1px solid #ECD9EE;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.partnerLogoImg {
+  max-height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.heroLabMetrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.labMetricBox {
+  background-color: #F4EEFA;
+  border-radius: 0.85rem;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.labMetricValue {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #5A2D7E;
+  line-height: 1.2;
+}
+
+.labMetricLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #7958C8;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 2: ABOUT TECHSHAALA (2-COL EDITORIAL)
+   ───────────────────────────────────────────────────────────── */
+.aboutSection {
+  padding: 4rem 0 3.5rem;
+  position: relative;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.sectionEyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #814CBA;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.sectionHeading {
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  color: #241B2B;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.aboutParagraph {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #4A3A57;
+  margin-bottom: 1.25rem;
+}
+
+.featureHighlightList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #382B42;
+}
+
+.checkIcon {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: #10B981;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.aboutVisualCard {
+  background: linear-gradient(135deg, #5A2D7E 0%, #3B1C56 100%);
+  border-radius: 1.5rem;
+  padding: 2.75rem 2.25rem;
+  color: #FFFFFF;
+  box-shadow: 0 16px 36px rgba(90, 45, 126, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutCardQuote {
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.5rem;
+}
+
+.aboutCardAuthor {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #E0679D;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 3: THE VISION BEHIND TECHSHAALA
+   ───────────────────────────────────────────────────────────── */
+.visionSection {
+  padding: 3.5rem 0;
+  background-color: #FAF6FC;
+}
+
+.visionCard {
+  background-color: #FFFFFF;
+  border: 1px solid #ECD9EE;
+  border-radius: 1.5rem;
+  padding: 3rem 3.5rem;
+  box-shadow: 0 8px 28px rgba(90, 45, 126, 0.06);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.visionHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.visionBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.visionParagraph {
+  font-size: 1.075rem;
+  line-height: 1.8;
+  color: #3E3048;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 4: KEY OBJECTIVES
+   ───────────────────────────────────────────────────────────── */
+.objectivesSection {
+  padding: 4rem 0;
+}
+
+.sectionHeadingBlock {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.objectivesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+}
+
+.objectiveCard {
+  background-color: #FFFFFF;
+  border: 1px solid #E8DDEB;
+  border-radius: 1.25rem;
+  padding: 2.25rem 1.85rem;
+  box-shadow: 0 4px 16px rgba(36, 27, 43, 0.04);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.objectiveCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(90, 45, 126, 0.1);
+  border-color: #D6BDDF;
+}
+
+.objectiveIconWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 1rem;
+  background-color: #F4EEFA;
+  color: #5A2D7E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.35rem;
+}
+
+.objectiveTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #241B2B;
+  margin-bottom: 0.75rem;
+}
+
+.objectiveDescription {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #564861;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 5: COURSES OFFERED (6 CARDS)
+   ───────────────────────────────────────────────────────────── */
+.coursesSection {
+  padding: 4rem 0 4.5rem;
+  background: linear-gradient(180deg, #FAF4FB 0%, #FFFFFF 100%);
+}
+
+.coursesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.courseCard {
+  background-color: #FFFFFF;
+  border: 1px solid #EAD8EC;
+  border-radius: 1.25rem;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 4px 18px rgba(36, 27, 43, 0.04);
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1), border-color 240ms ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.courseCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(90, 45, 126, 0.12);
+  border-color: #D3BFDF;
+}
+
+.courseImageContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FAF6FC;
+  border-radius: 1.25rem;
+  padding: 1rem;
+  border: 1px solid #EFE4F3;
+  transition: transform 240ms ease;
+}
+
+.courseCard:hover .courseImageContainer {
+  transform: scale(1.08);
+}
+
+.courseImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.courseTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #241B2B;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.courseDescription {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: #564861;
+  margin: 0;
+  flex: 1;
+}
+
+.freeCourseBadge {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #065F46;
+  background-color: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 6 & 7: BRANDING & COLLABORATION WITH KONVERGE
+   ───────────────────────────────────────────────────────────── */
+.collabSection {
+  padding: 4rem 0;
+}
+
+.collabCard {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF4FC 100%);
+  border: 1.5px solid #ECD9EE;
+  border-radius: 1.5rem;
+  padding: 3.5rem 3rem;
+  box-shadow: 0 12px 32px rgba(90, 45, 126, 0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.collabTextCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.collabBrandGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #FFFFFF;
+  padding: 2.5rem 2rem;
+  border-radius: 1.25rem;
+  border: 1px solid #EFE4F3;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.brandLogoItem {
+  max-width: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+.brandDividerText {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #7958C8;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 8: CONCLUSION
+   ───────────────────────────────────────────────────────────── */
+.conclusionSection {
+  padding: 3.5rem 0;
+  background-color: #FCFBFD;
+}
+
+.conclusionCard {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.conclusionHeading {
+  font-size: clamp(1.8rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  color: #241B2B;
+  margin-bottom: 1.25rem;
+}
+
+.conclusionParagraph {
+  font-size: 1.075rem;
+  line-height: 1.8;
+  color: #4A3A57;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 9: EXPLORE PREMIUM COURSES & CTA
+   ───────────────────────────────────────────────────────────── */
+.exploreCtaSection {
+  padding: 3.5rem 0 2rem;
+}
+
+.exploreCtaCard {
+  background: linear-gradient(135deg, #5A2D7E 0%, #3B1C56 100%);
+  border-radius: 1.5rem;
+  padding: 3.5rem 2.5rem;
+  color: #FFFFFF;
+  text-align: center;
+  box-shadow: 0 16px 36px rgba(90, 45, 126, 0.2);
+}
+
+.exploreCtaTitle {
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+}
+
+.exploreCtaText {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 620px;
+  margin: 0 auto 2rem;
+}
+
+.exploreCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #E53E3E 0%, #DC2626 100%);
+  color: #FFFFFF;
+  font-size: 1.05rem;
+  font-weight: 800;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(229, 62, 62, 0.4);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.exploreCtaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 62, 62, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE DESIGN
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .heroContentWrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .coursesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collabCard {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 5.75rem 0 2.5rem;
+  }
+
+  .visionCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .coursesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .collabCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .exploreCtaCard {
+    padding: 2.25rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .objectiveCard,
+  .courseCard,
+  .primaryCtaBtn,
+  .exploreCtaBtn {
+    transition: none !important;
+    transform: none !important;
+  }
+}

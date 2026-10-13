@@ -5,17 +5,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './HeroSlider.module.css';
 
+export interface SlideItem {
+  id: number;
+  category: string;
+  headline: string[];
+  highlightWord: string;
+  description: string;
+  secondaryCta: { label: string; href: string };
+  image: string;
+  placeholderBg: string;
+  objectPosition: string;
+  transitionType: string;
+  isDonationSlide?: boolean;
+  campaignName?: string;
+  beneficiaryName?: string;
+  primaryCta?: { label: string; href: string };
+}
+
 // ─────────────────────────────────────────────
-// SLIDE DATA (Preserving exact content & images)
+// SLIDE DATA (Preserving all 4 existing slides + New Donation Campaign Slide)
 // ─────────────────────────────────────────────
-export const slides = [
+export const slides: SlideItem[] = [
   {
     id: 1,
     category: 'CHILDREN & EMPOWERMENT',
     headline: ['A New Way of', 'Giving ', 'Life', '.'],
     highlightWord: 'Life',
     description: 'Dedicated to the holistic development of underprivileged communities across India through education, healthcare, and empowerment since 2014.',
-
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-1.jpg',
     placeholderBg: 'linear-gradient(135deg, #2D1145 0%, #5A2D7E 50%, #E0679D 100%)',
@@ -28,7 +44,6 @@ export const slides = [
     headline: ['Healing Children Born with', 'Congenital ', 'Heart Defects', '.'],
     highlightWord: 'Heart Defects',
     description: 'In partnership with Fortis Escorts Heart Institute, sponsoring critical open-heart surgeries for children from impoverished families.',
-
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-2.jpg',
     placeholderBg: 'linear-gradient(135deg, #1C0A2E 0%, #2D1145 50%, #814CBA 100%)',
@@ -41,7 +56,6 @@ export const slides = [
     headline: ['Empowering 18,050+ Children with', 'Quality ', 'Education', '.'],
     highlightWord: 'Education',
     description: 'Free learning centers and modern digital labs supported by Konverge Technologies, equipping marginalized youth for the digital era.',
-
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-3.jpg',
     placeholderBg: 'linear-gradient(135deg, #3E1D5B 0%, #814CBA 70%, #E0679D 100%)',
@@ -54,12 +68,27 @@ export const slides = [
     headline: ['Dignity and Hygiene for', 'Every ', 'Woman', '.'],
     highlightWord: 'Woman',
     description: 'Breaking taboos with menstrual awareness camps and distributing 12,000+ hygiene dignity kits to female construction workers across NCR.',
-
     secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
     image: '/images/hero/slide-4.png',
     placeholderBg: 'linear-gradient(160deg, #E0679D 0%, #814CBA 60%, #2D1145 100%)',
     objectPosition: 'center 20%',
     transitionType: 'diagonalReveal',
+  },
+  {
+    id: 5,
+    category: 'PROJECT LITTLE HEARTBEATS',
+    isDonationSlide: true,
+    campaignName: 'Project Little Heartbeats',
+    beneficiaryName: 'Shivansh Kumar',
+    headline: ['DONATE NOW'],
+    highlightWord: 'DONATE NOW',
+    description: 'Help save little hearts born with critical congenital conditions. Your timely contribution supports emergency cardiac surgery for Shivansh Kumar.',
+    primaryCta: { label: 'Donate Now', href: '/donate' },
+    secondaryCta: { label: 'Explore Our Work', href: '/our-work' },
+    image: '/images/little-heartbeats.jpg',
+    placeholderBg: 'linear-gradient(135deg, #1C0A2E 0%, #2D1145 50%, #814CBA 100%)',
+    objectPosition: 'right 30%',
+    transitionType: 'cinematicZoom',
   },
 ];
 
@@ -103,10 +132,8 @@ export const HeroSlider: React.FC = () => {
   const [isIntersecting, setIsIntersecting] = useState<boolean>(true);
   const [isTabVisible, setIsTabVisible] = useState<boolean>(true);
   const [progress, setProgress] = useState<number>(0);
-  const [preloadedIndices, setPreloadedIndices] = useState<number[]>([0]);
 
   const sectionRef = useRef<HTMLElement>(null);
-  const requestRef = useRef<number | undefined>(undefined);
   const previousTimeRef = useRef<number | undefined>(undefined);
   const accumulatedTimeRef = useRef<number>(0);
 
@@ -116,6 +143,7 @@ export const HeroSlider: React.FC = () => {
 
   const total = slides.length;
   const isPaused = userPaused || isHovered || isFocused || !isIntersecting || !isTabVisible;
+  const nextIndex = (current + 1) % total;
 
   // Viewport Visibility Tracking via IntersectionObserver
   useEffect(() => {
@@ -143,20 +171,10 @@ export const HeroSlider: React.FC = () => {
     return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, []);
 
-  // Preload NEXT slide image when current slide progress > 50% or slide changes
-  const nextIndex = (current + 1) % total;
-  useEffect(() => {
-    if (!preloadedIndices.includes(nextIndex)) {
-      setPreloadedIndices((prevList) => [...prevList, nextIndex]);
-    }
-  }, [current, nextIndex, preloadedIndices]);
-
   const goTo = useCallback(
     (index: number) => {
       if (animating || index === current) return;
 
-      // Cleanly reset animation frame progress & accumulated time
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
       previousTimeRef.current = undefined;
       accumulatedTimeRef.current = 0;
       setProgress(0);
@@ -177,9 +195,15 @@ export const HeroSlider: React.FC = () => {
   const goPrev = useCallback(() => goTo((current - 1 + total) % total), [current, goTo, total]);
 
   // RequestAnimationFrame Autoplay Timer Loop
-  const animate = useCallback(
-    (time: number) => {
-      if (previousTimeRef.current !== undefined && !isPaused && !animating) {
+  useEffect(() => {
+    if (isPaused || animating) {
+      previousTimeRef.current = undefined;
+      return;
+    }
+
+    let localReqId: number;
+    const loop = (time: number) => {
+      if (previousTimeRef.current !== undefined) {
         const deltaTime = time - previousTimeRef.current;
         accumulatedTimeRef.current += deltaTime;
 
@@ -192,24 +216,16 @@ export const HeroSlider: React.FC = () => {
         }
       }
       previousTimeRef.current = time;
-      if (!isPaused && !animating) {
-        requestRef.current = requestAnimationFrame(animate);
-      }
-    },
-    [isPaused, animating, goNext]
-  );
-
-  useEffect(() => {
-    if (!isPaused && !animating) {
-      previousTimeRef.current = performance.now();
-      requestRef.current = requestAnimationFrame(animate);
-    } else {
-      previousTimeRef.current = undefined;
-    }
-    return () => {
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
+      localReqId = requestAnimationFrame(loop);
     };
-  }, [animate, isPaused, animating]);
+
+    previousTimeRef.current = performance.now();
+    localReqId = requestAnimationFrame(loop);
+
+    return () => {
+      cancelAnimationFrame(localReqId);
+    };
+  }, [isPaused, animating, goNext]);
 
   // Keyboard Navigation
   useEffect(() => {
@@ -245,9 +261,6 @@ export const HeroSlider: React.FC = () => {
     typeof window !== 'undefined'
       ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
       : false;
-
-  const slide = slides[current];
-  const prevSlide = prev !== null ? slides[prev] : null;
 
   const getTransitionStyleClass = (type: string) => {
     switch (type) {
@@ -293,7 +306,7 @@ export const HeroSlider: React.FC = () => {
           const isCurrent = index === current;
           const isPrev = index === prev;
           const isNext = index === nextIndex;
-          const isPreloaded = preloadedIndices.includes(index);
+          const isPreloaded = index === nextIndex || index === 0;
 
           if (!isCurrent && !isPrev && !isPreloaded) return null;
 
@@ -407,9 +420,9 @@ export const HeroSlider: React.FC = () => {
 };
 
 // ─────────────────────────────────────────────
-// SLIDE CONTENT COMPONENT (Full Bleed Image + Staggered Text)
+// SLIDE CONTENT COMPONENT (Full Bleed Image + Staggered Text OR Donation Appeal Banner)
 // ─────────────────────────────────────────────
-function SlideContent({ slide, isActive, isFirstSlide, isPriority }: { slide: typeof slides[0]; isActive: boolean; isFirstSlide: boolean; isPriority?: boolean }) {
+function SlideContent({ slide, isActive, isFirstSlide, isPriority }: { slide: SlideItem; isActive: boolean; isFirstSlide: boolean; isPriority?: boolean }) {
   return (
     <div className={styles.slideInner}>
       {/* Background Image / Gradient Layer with Ken Burns Motion */}
@@ -445,11 +458,25 @@ function SlideContent({ slide, isActive, isFirstSlide, isPriority }: { slide: ty
             {renderHeadline(slide.headline, slide.highlightWord)}
           </h1>
 
+          {slide.isDonationSlide && slide.beneficiaryName && (
+            <div className={styles.beneficiaryBadgeRow}>
+              <span className={styles.beneficiaryTagLabel}>Beneficiary:</span>
+              <span className={styles.beneficiaryTagName}>{slide.beneficiaryName}</span>
+            </div>
+          )}
+
           <p className={styles.description}>{slide.description}</p>
 
           <div className={styles.actions}>
-
-
+            {slide.primaryCta && (
+              <Link 
+                href={slide.primaryCta.href} 
+                className={styles.primaryBtn} 
+                aria-label={`${slide.primaryCta.label} for ${slide.beneficiaryName || 'Raise India Foundation'}`}
+              >
+                <span className={styles.primaryBtnText}>{slide.primaryCta.label}</span>
+              </Link>
+            )}
             <Link href={slide.secondaryCta.href} className={styles.secondaryBtn}>
               <span>{slide.secondaryCta.label}</span>
               <span className={styles.arrowIcon} aria-hidden="true">→</span>

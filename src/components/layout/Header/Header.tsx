@@ -30,6 +30,7 @@ const leftNavLinks: NavItem[] = [
       { label: 'Seasonal Projects', href: '/our-work/seasonal-projects' },
     ],
   },
+  { label: 'Success Story', href: '/success-stories' },
 ];
 
 const rightNavLinks: NavItem[] = [
@@ -40,6 +41,8 @@ const rightNavLinks: NavItem[] = [
     href: '#',
     children: [
       { label: 'CSR', href: '/csr' },
+      { label: 'Internship', href: '/internship' },
+      { label: 'Volunteering', href: '/volunteering' },
     ],
   },
   { label: 'Contact', href: '/contact' },
@@ -232,10 +235,15 @@ export const Header: React.FC = () => {
       <div className={styles.navGlow} aria-hidden="true" />
 
       <div className={styles.container} ref={navContainerRef}>
-        {/* DESKTOP HEADER CONTAINER: LOGO LEFT, LINKS CENTER, DONATE RIGHT */}
+        {/* DESKTOP CENTERED LOGO GRID CONTAINER */}
         <div className={styles.navGridContainer}>
 
-          {/* 1. LOGO ON LEFT */}
+          {/* 1. LEFT NAVIGATION ZONE */}
+          <nav className={styles.leftNavZone} aria-label="Main Navigation Left">
+            <ul className={styles.navList}>{leftNavLinks.map(renderNavLink)}</ul>
+          </nav>
+
+          {/* 2. CENTERED LOGO ZONE */}
           <div className={styles.logoZone}>
             <Link href="/" className={styles.logoLink} aria-label="Raise India Foundation Home">
               <Image
@@ -249,13 +257,12 @@ export const Header: React.FC = () => {
             </Link>
           </div>
 
-          {/* 2. NAVIGATION LINKS CENTERED */}
-          <nav className={styles.centerNavZone} aria-label="Main Navigation">
-            <ul className={styles.navList}>{mobileNavLinks.map(renderNavLink)}</ul>
-          </nav>
-
-          {/* 3. RED DONATE BUTTON ON RIGHT */}
+          {/* 3. RIGHT NAVIGATION & ACTION ZONE */}
           <div className={styles.rightNavZone}>
+            <nav className={styles.rightNavLinks} aria-label="Main Navigation Right">
+              <ul className={styles.navList}>{rightNavLinks.map(renderNavLink)}</ul>
+            </nav>
+
             <Link
               href="/donate"
               className={`${styles.donateBtn} ${pathname === '/donate' ? styles.donateBtnActive : ''}`}
@@ -268,6 +275,7 @@ export const Header: React.FC = () => {
               />
               <span>Donate</span>
             </Link>
+
             {/* Mobile Hamburger Toggle Button */}
             <button
               className={styles.mobileToggle}
