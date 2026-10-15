@@ -8,7 +8,19 @@ export const ongoingProjects = [
     slug: 'shikshalaya-free-learning-centers',
     title: 'Shikshalaya Free Learning Centers',
     partner: 'Delhi & Agra Centers',
-    fullDescription: 'Operating since 2014, Shikshalaya provides quality elementary education, basic numeracy, language literacy, and character development to children residing in urban slums and rural settlements. We maintain active centers in Delhi and Agra (Radha Nagar, Balkeshwar), having prepared over 750 children for formal school enrollment.',
+
+    fullDescription: `Shikshalaya, Raise India Foundation's free education programme, began in 2014 through informal classes conducted in underserved communities. Between 2014 and 2019, more than 5,000 students were reached through this informal model.
+
+In 2019, the Foundation opened its first formal Shikshalaya learning centre in Najafgarh, New Delhi. The centre introduced a structured learning environment with regular classes, dedicated infrastructure, computer education, personality development, physical education, and other activities.
+
+Since the formal centre was established, approximately 150 students have graduated from the Delhi Shikshalaya each year. In 2023, the programme expanded to Agra, Uttar Pradesh, where the centre supports approximately 100 to 120 students each year.
+
+The programme also includes cultural activities throughout the year and distributes stationery and learning materials twice annually. During COVID-19, E-Shikshalaya extended learning into the digital space by providing tablets to students who lacked access to suitable devices.
+
+The earlier informal model enabled the Foundation to reach a large number of children, while the formal Shikshalaya model provides more consistent support and allows participation, completion, and skill development to be tracked more systematically.
+
+One former student went on to establish his own cyber centre, demonstrating how computer skills developed through Shikshalaya can translate into opportunities beyond the classroom.`,
+
     impactMetric: '18,050+ Students Benefited',
     image: '/images/migrated/events/agra-shikshalaya.webp',
     ctaText: 'Support Shikshalaya',
@@ -76,7 +88,7 @@ export const ongoingProjects = [
     slug: 'mission-little-heartbeats',
     title: 'Mission Little Heartbeats',
     partner: 'Partnered with Fortis Hospital',
-    fullDescription: 'Through our partnership with Fortis Hospital (Manesar & Gurugram), Mission Little Heartbeats identifies children from low-income households with life-threatening heart defects (such as VSD, ASD, and TOF) and covers the entire cost of cardiac surgery, pre-op diagnostics, and intensive post-operative recovery.',
+    fullDescription: 'Through our partnershipwith Fortis Hospital (Manesar & Gurugram), Mission Little Heartbeats identifies children from low-income households with life-threatening heart defects (such as VSD, ASD, and TOF) and covers the entire cost of cardiac surgery, pre-op diagnostics, and intensive post-operative recovery.',
     impactMetric: '14+ Surgeries Successfully Completed',
     image: '/images/migrated/events/world-heart-day.webp',
     ctaText: 'Heal a Little Heart',

@@ -28,12 +28,25 @@ export default function AboutPage() {
             <div className={styles.heroLeft}>
               <span className={styles.eyebrow}>OUR STORY</span>
               <h1 className={styles.heroTitle}>
-                Change begins<br />
-                when people<br />
+                Raise India Foundation: NGO for Heart Surgery,<br />
+                Education & Women's Empowerment in India <br />
                 <span className={styles.highlightText}>choose to act.</span>
               </h1>
               <p className={styles.heroDescription}>
-                We are a collective of dreamers and doers, committed to transforming the landscape of education, healthcare, and livelihood across India's most vulnerable communities.
+                Since 2014, Raise India Foundation has worked across Delhi, Uttar Pradesh, Bihar, and Madhya Pradesh,
+                supporting children, women, and underserved communities through education, healthcare, livelihood support,
+                relief initiatives, and community development programmes.
+
+                What began with volunteers providing informal educational support to children in underserved communities has
+                grown into an organisation working across multiple areas of community development. Today, the Foundation's
+                work includes free education, menstrual hygiene, women's empowerment, healthcare, disaster relief, winter and
+                summer relief, food security, and other community-based initiatives.
+
+                One of its current priorities is Mission Little Heartbeats, through which Raise India Foundation supports corrective
+                cardiac surgery for children whose families cannot afford treatment, in partnership with Fortis Hospital, Manesar.
+                Fourteen children have already received cardiac surgeries through the initiative.
+                Raise India Foundation is registered under 80G and 12A, with its registration and financial details available for
+                donors and partners seeking greater transparency about the organisation and its work
               </p>
               <div className={styles.heroActions}>
                 <Link href="#who-we-are" className={styles.btnPrimary}>
@@ -57,13 +70,13 @@ export default function AboutPage() {
             {/* Right Image */}
             <div className={styles.heroRight}>
               <div className={styles.heroImageWrapper}>
-                <Image 
-                  src="/images/about-community.jpg" 
-                  alt="Volunteers and children learning together in a community center" 
-                  width={640} 
-                  height={520} 
-                  className={styles.heroImage} 
-                  priority 
+                <Image
+                  src="/images/about-community.jpg"
+                  alt="Volunteers and children learning together in a community center"
+                  width={640}
+                  height={520}
+                  className={styles.heroImage}
+                  priority
                 />
               </div>
             </div>
